@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "title": "Rafael Peretz — Freelance DevOps & Cloud Engineer",
+    "description": "DevOps, cloud and CI/CD for startups that need to ship fast and stay secure. Tel Aviv, remote worldwide."
+  },
+  "common": {
+    "skipToContent": "Skip to content",
+    "homeLabel": "Rafael Peretz — home"
+  },
+  "nav": {
+    "label": "Main",
+    "services": "Services",
+    "work": "Work",
+    "about": "About",
+    "stack": "Stack",
+    "contact": "Contact",
+    "book": "Book a call",
+    "menu": "Menu",
+    "closeMenu": "Close menu",
+    "language": "Language"
+  },
+  "theme": {
+    "toLight": "Switch to light mode",
+    "toDark": "Switch to dark mode"
+  },
+  "availability": {
+    "available": "Available for new projects",
+    "limited": "Limited availability — Q4",
+    "booked": "Booked — next opening Jan 2027"
+  },
+  "footer": {
+    "elsewhere": "Elsewhere",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "upwork": "Upwork",
+    "malt": "Malt",
+    "email": "Email",
+    "copyright": "© {year} Rafael Peretz",
+    "deployed": "deployed {sha} · {date}",
+    "local": "local build · {date}"
+  },
+  "notFound": {
+    "path": "this-page",
+    "status": "route not found · 0 pods ready",
+    "title": "This page never made it to production.",
+    "body": "The link may be broken, or the page was moved. Everything else is running fine.",
+    "home": "Back to the homepage"
+  }
+}

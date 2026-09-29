@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Rafael Peretz — Freelance DevOps &amp; Cloud Engineer</title>
+<meta name="description" content="DevOps, cloud and CI/CD for startups that need to ship fast and stay secure. Tel Aviv, remote worldwide.">
+<link rel="stylesheet" href="_ds/nocturne-a6688372-1a03-4b95-8567-6835969ac38c/styles.css">
+<script src="_ds/nocturne-a6688372-1a03-4b95-8567-6835969ac38c/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<script src="./image-slot.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.05;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+a{color:var(--color-accent)}
+a:hover{color:var(--color-accent-400)}
+summary::-webkit-details-marker{display:none}
+@keyframes rpPulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--color-accent) 60%,transparent)}100%{box-shadow:0 0 0 9px transparent}}
+@keyframes rpBlink{50%{opacity:0}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" dir="{{ dir }}" lang="{{ lang }}" style="position:relative;min-height:100vh;background:radial-gradient(1200px 720px at 82% -160px,color-mix(in srgb,var(--color-accent-900) 75%,transparent),transparent 60%),var(--color-bg);color:var(--color-text);font-family:var(--font-body);text-wrap:pretty">
+
+<header style="position:sticky;top:0;z-index:50;backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px);background:color-mix(in srgb,var(--color-bg) 74%,transparent);border-bottom:1px solid color-mix(in srgb,var(--color-text) 8%,transparent)">
+  <nav aria-label="Main" style="max-width:1200px;margin:0 auto;padding:12px clamp(20px,5vw,72px);display:flex;align-items:center;gap:18px">
+    <a href="#top" aria-label="Rafael Peretz — home" style="display:flex;align-items:center;gap:10px;color:var(--color-text);text-decoration:none;margin-inline-end:auto">
+      <span style="display:grid;place-items:center;width:30px;height:30px;border-radius:var(--radius-md);border:1px solid var(--color-accent);color:var(--color-accent);font:500 12px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:-.02em">RP</span>
+      <span style="font-size:14px;font-weight:500;white-space:nowrap">Rafael Peretz</span>
+    </a>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;align-items:center;gap:20px">
+        <sc-for list="{{ navLinks }}" as="l" hint-placeholder-count="5">
+          <a href="{{ l.href }}" style="color:color-mix(in srgb,var(--color-text) 72%,transparent);text-decoration:none;font-size:14px" style-hover="color:var(--color-text)">{{ l.label }}</a>
+        </sc-for>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;padding:5px 10px;border-radius:999px;border:1px solid var(--color-divider);font:400 11.5px/1 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 78%,transparent);white-space:nowrap">{{ pulseDot }}<span>{{ statusText }}</span></div>
+    </sc-if>
+    <div role="group" aria-label="Language" style="display:flex;border:1px solid var(--color-divider);border-radius:var(--radius-md);overflow:hidden">
+      <sc-for list="{{ langs }}" as="g" hint-placeholder-count="3">
+        <button type="button" data-lang="{{ g.code }}" onClick="{{ setLang }}" aria-pressed="{{ g.active }}" style="background:{{ g.bg }};color:{{ g.color }};border:0;padding:6px 8px;font:500 11px/1 'JetBrains Mono',ui-monospace,monospace;cursor:pointer" style-hover="color:var(--color-text)">{{ g.label }}</button>
+      </sc-for>
+    </div>
+    <button type="button" class="btn btn-secondary btn-icon" onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" style="width:32px;height:32px"><i class="ph {{ themeIcon }}" style="font-size:16px"></i></button>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <a href="#contact" class="btn btn-primary" onMouseMove="{{ magnet }}" onMouseLeave="{{ unmagnet }}" style="transition:transform .2s ease,background .2s;white-space:nowrap">{{ t.book }}</a>
+    </sc-if>
+    <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+      <button type="button" class="btn btn-secondary btn-icon" onClick="{{ toggleMenu }}" aria-label="Menu" aria-expanded="{{ menu }}" style="width:32px;height:32px"><i class="ph {{ menuIcon }}" style="font-size:16px"></i></button>
+    </sc-if>
+  </nav>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;gap:4px;padding:8px clamp(20px,5vw,72px) 20px">
+      <sc-for list="{{ navLinks }}" as="l" hint-placeholder-count="5">
+        <a href="{{ l.href }}" onClick="{{ closeMenu }}" style="color:var(--color-text);text-decoration:none;font-size:20px;padding:10px 0;border-bottom:1px solid color-mix(in srgb,var(--color-text) 8%,transparent)">{{ l.label }}</a>
+      </sc-for>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:14px;font:400 12px/1 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 78%,transparent)">{{ pulseDot }}<span>{{ statusText }}</span></div>
+      <a href="#contact" onClick="{{ closeMenu }}" class="btn btn-primary" style="margin-top:14px;min-height:44px">{{ t.book }}</a>
+    </div>
+  </sc-if>
+</header>
+
+<main id="top">
+<section aria-labelledby="hero-h" style="position:relative;overflow:hidden">
+  <sc-if value="{{ showGrid }}" hint-placeholder-val="{{ true }}">
+    <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(color-mix(in srgb,var(--color-text) 5%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--color-text) 5%,transparent) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 80% 70% at 70% 30%,black,transparent 75%);mask-image:radial-gradient(ellipse 80% 70% at 70% 30%,black,transparent 75%)"></div>
+  </sc-if>
+  <div style="position:relative;max-width:1200px;margin:0 auto;padding:clamp(56px,10vw,128px) clamp(20px,5vw,72px) clamp(64px,9vw,112px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(40px,6vw,72px);align-items:center">
+    <div>
+      <h1 id="hero-h" style="font-size:clamp(40px,5.6vw,76px);line-height:1.03;letter-spacing:-0.035em;font-weight:500;margin:0;text-wrap:balance">{{ t.h1a }}<span style="position:relative;white-space:nowrap">{{ t.h1b }}<span aria-hidden="true" style="position:absolute;inset-inline-start:0;bottom:-.04em;height:2px;width:{{ underline }};background:var(--color-accent);box-shadow:0 0 16px var(--color-accent);transition:width .7s cubic-bezier(.2,.8,.2,1)"></span></span>{{ t.h1c }}</h1>
+      <p style="font-size:17px;line-height:1.6;margin:28px 0 0;max-width:52ch;color:color-mix(in srgb,var(--color-text) 78%,transparent)">{{ t.sub }}</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:32px">
+        <a href="#contact" class="btn btn-primary" onMouseMove="{{ magnet }}" onMouseLeave="{{ unmagnet }}" style="min-height:44px;padding:0 18px;font-size:15px;white-space:nowrap;transition:transform .2s ease,background .2s"><i class="ph ph-calendar-blank" style="font-size:17px"></i>{{ t.cta1 }}</a>
+        <a href="#work" class="btn btn-secondary" onMouseMove="{{ magnet }}" onMouseLeave="{{ unmagnet }}" style="min-height:44px;padding:0 18px;font-size:15px;white-space:nowrap;transition:transform .2s ease,background .2s">{{ t.cta2 }}<i class="ph ph-arrow-down" style="font-size:15px"></i></a>
+      </div>
+      <p style="display:flex;flex-wrap:wrap;gap:6px 16px;margin:28px 0 0;font:400 12px/1.4 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 62%,transparent)"><span>Tel Aviv · GMT+3</span><span>EN / HE / FR</span><span>Remote, EU + US overlap</span></p>
+    </div>
+
+    <div role="img" aria-label="A CI/CD pipeline running build, test, scan and deploy, ending in a successful production deploy" style="border-radius:var(--radius-lg);border:1px solid color-mix(in srgb,var(--color-text) 14%,transparent);background:color-mix(in srgb,var(--color-surface) 72%,transparent);backdrop-filter:blur(10px);box-shadow:0 24px 64px rgba(0,0,0,.45),0 0 0 1px color-mix(in srgb,var(--color-accent) 10%,transparent) inset;overflow:hidden">
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--color-divider);font:400 11.5px/1 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 66%,transparent)">
+        <i class="ph ph-git-branch" style="font-size:14px"></i><span>main</span><span style="opacity:.5">/</span><span>run #128</span>
+        <span style="margin-inline-start:auto;color:{{ runColor }}">{{ runLabel }}</span>
+        <button type="button" class="btn btn-ghost" onClick="{{ rerun }}" style="font:500 11px/1 'JetBrains Mono',ui-monospace,monospace;padding:5px 6px"><i class="ph ph-arrow-clockwise" style="font-size:13px"></i>re-run</button>
+      </div>
+      <sc-if value="{{ isPipeline }}" hint-placeholder-val="{{ true }}">
+        <div style="padding:22px 18px 8px">
+          <div style="position:relative">
+            <div aria-hidden="true" style="position:absolute;top:50%;left:12.5%;right:12.5%;height:1px;background:var(--color-divider)"></div>
+            <div aria-hidden="true" style="position:absolute;top:50%;left:12.5%;height:1px;width:{{ fillW }};background:var(--color-accent);box-shadow:0 0 10px var(--color-accent);transition:width .3s ease"></div>
+            <div style="position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px" dir="ltr">
+              <sc-for list="{{ stages }}" as="s" hint-placeholder-count="4">
+                <div style="display:flex;flex-direction:column;gap:8px;padding:11px 10px;border-radius:var(--radius-md);background:var(--color-surface);border:1px solid {{ s.border }};box-shadow:{{ s.glow }};transition:border-color .25s,box-shadow .25s">
+                  <div style="display:flex;justify-content:space-between;align-items:center"><i class="ph {{ s.icon }}" style="font-size:18px;color:{{ s.iconColor }};transition:color .25s"></i><span style="font:400 10px/1 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 55%,transparent)">{{ s.time }}</span></div>
+                  <div style="font:500 13px/1 'JetBrains Mono',ui-monospace,monospace">{{ s.name }}</div>
+                  <div style="font:400 10.5px/1 'JetBrains Mono',ui-monospace,monospace;color:{{ s.statusColor }}">{{ s.status }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+      <div dir="ltr" style="padding:14px 18px 18px;min-height:{{ logMinH }};display:flex;flex-direction:column;gap:7px;font:400 12.5px/1.45 'JetBrains Mono',ui-monospace,monospace;text-align:left">
+        <sc-for list="{{ logs }}" as="l" hint-placeholder-count="3">
+          <div style="display:flex;gap:12px;color:{{ l.color }}"><span style="flex:none;width:{{ l.pw }};color:{{ l.pcolor }}">{{ l.p }}</span><span style="min-width:0;overflow-wrap:anywhere">{{ l.text }}</span></div>
+        </sc-for>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:6px;color:{{ finalColor }};font-weight:500">{{ finalText }}{{ caret }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-label="Experience" style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px) 40px">
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px clamp(24px,4vw,56px)">
+    <span style="font:400 11px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 60%,transparent)">Experience with</span>
+    <span style="font-size:19px;font-weight:500;letter-spacing:-.01em;color:var(--color-neutral-400)">Unit 81</span>
+    <span style="font-size:19px;font-weight:500;letter-spacing:-.01em;color:var(--color-neutral-400)">Porsche Digital</span>
+    <span style="font-size:19px;font-weight:500;letter-spacing:-.01em;color:var(--color-neutral-400)">ReySecurity</span>
+    <span style="font-size:19px;font-weight:500;letter-spacing:-.01em;color:var(--color-neutral-400)">Reichman University</span>
+  </div>
+</section>
+<section aria-label="At a glance" style="background:radial-gradient(900px 420px at 85% -40%,color-mix(in srgb,var(--color-section-glow) 70%,transparent),transparent 64%),var(--color-section)">
+  <div style="max-width:1200px;margin:0 auto;padding:56px clamp(20px,5vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:36px 48px">
+    <div data-reveal="1"><p style="font-size:clamp(36px,3.8vw,54px);font-weight:500;line-height:1;letter-spacing:-.03em;margin:0"><span data-count="3">3</span>+ years</p><p style="font:400 12px/1.5 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.04em;text-transform:uppercase;margin:14px 0 0;color:color-mix(in srgb,var(--color-text) 70%,transparent)">Running production infrastructure</p></div>
+    <div data-reveal="1"><p style="font-size:clamp(36px,3.8vw,54px);font-weight:500;line-height:1;letter-spacing:-.03em;margin:0">K8s · Azure · AWS</p><p style="font:400 12px/1.5 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.04em;text-transform:uppercase;margin:14px 0 0;color:color-mix(in srgb,var(--color-text) 70%,transparent)">Where your workloads live</p></div>
+    <div data-reveal="1"><p style="font-size:clamp(36px,3.8vw,54px);font-weight:500;line-height:1;letter-spacing:-.03em;margin:0">Security-first</p><p style="font:400 12px/1.5 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.04em;text-transform:uppercase;margin:14px 0 0;color:color-mix(in srgb,var(--color-text) 70%,transparent)">By default, not as an add-on</p></div>
+  </div>
+</section>
+
+<section id="services" aria-labelledby="services-h" style="max-width:1200px;margin:0 auto;padding:clamp(80px,10vw,128px) clamp(20px,5vw,72px) 0;scroll-margin-top:64px">
+  <div style="display:flex;align-items:center;gap:12px;font:500 12px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent)"><span style="width:28px;height:1px;background:var(--color-accent)"></span>01 — Services</div>
+  <h2 id="services-h" style="font-size:clamp(32px,4.2vw,54px);line-height:1.05;letter-spacing:-0.03em;margin:18px 0 0;max-width:20ch;text-wrap:balance">Fixed scope. Fixed price. Shipped.</h2>
+  <p style="font-size:16px;line-height:1.6;margin:16px 0 0;max-width:54ch;color:color-mix(in srgb,var(--color-text) 72%,transparent)">Three packages for the problems startups hit first — plus a retainer for when you need someone on call.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:16px;margin-top:44px">
+    <article data-reveal="1" onMouseMove="{{ glow }}" style="display:flex;flex-direction:column;gap:16px;padding:26px;border-radius:var(--radius-lg);border:1px solid var(--color-divider);background:radial-gradient(420px circle at var(--mx,-500px) var(--my,-500px),color-mix(in srgb,var(--color-accent) 13%,transparent),transparent 65%),color-mix(in srgb,var(--color-surface) 55%,transparent);transition:border-color .25s" style-hover="border-color:color-mix(in srgb,var(--color-accent) 45%,transparent)">
+      <div style="display:flex;justify-content:space-between;align-items:center"><i class="ph ph-git-merge" style="font-size:26px;color:var(--color-accent)"></i><span style="font:400 11px/1 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 62%,transparent)">1–2 weeks</span></div>
+      <h3 style="font-size:22px;letter-spacing:-.015em;margin:0">CI/CD Pipeline Setup</h3>
+      <p style="margin:0;font-size:14.5px;line-height:1.55;color:color-mix(in srgb,var(--color-text) 74%,transparent)">Every push built, tested, scanned and shipped — without anyone babysitting a deploy.</p>
+      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;font-size:14px;flex:1">
+        <li style="display:flex;gap:10px"><i class="ph ph-check" style="color:var(--color-accent);margin-top:3px"></i>GitHub Actions: build → test → deploy</li>
+        <li style="display:flex;gap:10px"><i class="ph ph-check" style="color:var(--color-accent);margin-top:3px"></i>Secrets management, no long-lived keys</li>
+        <li style="display:flex;gap:10px"><i class="ph ph-check" style="color:var(--color-accent);margin-top:3px"></i>Dependency &amp; container security scanning</li>
+        <li style="display:flex;gap:10px"><i class="ph ph-check" style="color:var(--color-accent);margin-top:3px"></i>Runbook and handover docs</li>
+      </ul>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;padding-top:16px;border-top:1px solid var(--color-divider)"><span style="font:400 12px/1 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 62%,transparent)">Starting at</span><span style="font-size:20px;font-weight:500">$___</span></div>
+    </article>
+    <article data-reveal="1" onMouseMove="{{ glow }}" style="display:flex;flex-direction:column;gap:16px;padding:26px;border-radius:var(--radius-lg);border:1px solid var(--color-divider);background:radial-gradient(420px circle at var(--mx,-500px) var(--my,-500px),color-mix(in srgb,var(--color-accent) 13%,transparent),transparent 65%),color-mix(in srgb,var(--color-surface) 55%,transparent);transition:border-color .25s" style-hover="border-color:color-mix(in srgb,var(--color-accent) 45%,transparent)">
+      <div style="display:flex;justify-content:space-between;align-items:center"><i class="ph ph-cloud-arrow-up" style="font-size:26px;color:var(--color-accent)"></i><span style="font:400 11px/1 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 62%,transparent)">2–4 weeks</span></div>
+      <h3 style="font-size:22px;letter-spacing:-.015em;margin:0">Cloud &amp; Kubernetes Deployment</h3>
+      <p style="margin:0;font-size:14.5px;line-height:1.55;color:color-mix(in srgb,var(--color-text) 74%,transparent)">Your app containerized, deployed and hardened — with a cloud bill you can predict.</p>
+      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;font-size:14px;flex:1">
+        <li style="display:flex;gap:10px"><i class="ph ph-check" style="color:var(--color-accent);margin-top:3px"></i>Containerization with Docker</li>
+        <li style="display:flex;gap:10px"><i class="ph ph-check" style="color:var(--color-accent);margin-top:3px"></i>Kubernetes on AWS or Azure</li>
+        <li style="display:flex;gap:10px"><i class="ph ph-check" style="color:var(--color-accent);margin-top:3px"></i>IAM hardening, least privilege</li>
+        <li style="display:flex;gap:10px"><i class="ph ph-check" style="color:var(--color-accent);margin-top:3px"></i>Cost review and rightsizing</li>
+      </ul>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;padding-top:16px;border-top:1px solid var(--color-divider)"><span style="font:400 12px/1 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 62%,transparent)">Starting at</span><span style="font-size:20px;font-weight:500">$___</span></div>
+    </article>
+    <article data-reveal="1" onMouseMove="{{ glow }}" style="display:flex;flex-direction:column;gap:16px;padding:26px;border-radius:var(--radius-lg);border:1px solid var(--color-divider);background:radial-gradient(420px circle at var(--mx,-500px) var(--my,-500px),color-mix(in srgb,var(--color-accent) 13%,transparent),transparent 65%),color-mix(in srgb,var(--color-surface) 55%,transparent);transition:border-color .25s" style-hover="border-color:color-mix(in srgb,var(--color-accent) 45%,transparent)">
+      <div style="display:flex;justify-content:space-between;align-items:center"><i class="ph ph-rocket-launch" style="font-size:26px;color:var(--color-accent)"></i><span style="font:400 11px/1 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 62%,transparent)">4–8 weeks</span></div>
+      <h3 style="font-size:22px;letter-spacing:-.015em;margin:0">MVP / Web App Build</h3>
+      <p style="margin:0;font-size:14.5px;line-height:1.55;color:color-mix(in srgb,var(--color-text) 74%,transparent)">From idea to a production app real users can sign into — deployed, monitored, yours.</p>
+      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;font-size:14px;flex:1">
+        <li style="display:flex;gap:10px"><i class="ph ph-check" style="color:var(--color-accent);margin-top:3px"></i>FastAPI backend</li>
+        <li style="display:flex;gap:10px"><i class="ph ph-check" style="color:var(--color-accent);margin-top:3px"></i>React frontend</li>
+        <li style="display:flex;gap:10px"><i class="ph ph-check" style="color:var(--color-accent);margin-top:3px"></i>Supabase auth and database</li>
+        <li style="display:flex;gap:10px"><i class="ph ph-check" style="color:var(--color-accent);margin-top:3px"></i>Production deploy with CI from day one</li>
+      </ul>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;padding-top:16px;border-top:1px solid var(--color-divider)"><span style="font:400 12px/1 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 62%,transparent)">Starting at</span><span style="font-size:20px;font-weight:500">$___</span></div>
+    </article>
+  </div>
+  <div data-reveal="1" onMouseMove="{{ glow }}" style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:16px;padding:22px 26px;border-radius:var(--radius-lg);border:1px dashed color-mix(in srgb,var(--color-text) 22%,transparent);background:radial-gradient(420px circle at var(--mx,-500px) var(--my,-500px),color-mix(in srgb,var(--color-accent) 11%,transparent),transparent 65%);transition:border-color .25s" style-hover="border-color:color-mix(in srgb,var(--color-accent) 45%,transparent)">
+    <i class="ph ph-infinity" style="font-size:26px;color:var(--color-accent)"></i>
+    <div style="flex:1 1 320px"><h3 style="font-size:18px;margin:0">Ongoing DevOps retainer</h3><p style="margin:4px 0 0;font-size:14px;color:color-mix(in srgb,var(--color-text) 72%,transparent)">Your part-time infrastructure engineer: upgrades, monitoring, incident help, and a second opinion on every architecture call.</p></div>
+    <span style="font:400 12px/1 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 62%,transparent)">from $___/mo</span>
+    <a href="#contact" class="btn btn-secondary">Ask about retainers</a>
+  </div>
+</section>
+
+<section id="work" aria-labelledby="work-h" style="max-width:1200px;margin:0 auto;padding:clamp(80px,10vw,128px) clamp(20px,5vw,72px) 0;scroll-margin-top:64px">
+  <div style="display:flex;align-items:center;gap:12px;font:500 12px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent)"><span style="width:28px;height:1px;background:var(--color-accent)"></span>02 — Selected work</div>
+  <h2 id="work-h" style="font-size:clamp(32px,4.2vw,54px);line-height:1.05;letter-spacing:-0.03em;margin:18px 0 0;max-width:20ch;text-wrap:balance">Systems that are running right now.</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:16px;margin-top:44px">
+    <button type="button" data-case="rey" onClick="{{ openCase }}" onMouseMove="{{ glow }}" data-reveal="1" style="all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:18px;padding:28px;min-height:360px;border-radius:var(--radius-lg);border:1px solid var(--color-divider);background:radial-gradient(480px circle at var(--mx,-500px) var(--my,-500px),color-mix(in srgb,var(--color-accent) 14%,transparent),transparent 65%),color-mix(in srgb,var(--color-surface) 55%,transparent);transition:border-color .25s" style-hover="border-color:color-mix(in srgb,var(--color-accent) 50%,transparent)">
+      <span style="font:500 11px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent)">Co-founder · Infrastructure lead</span>
+      <span style="font-size:clamp(28px,3vw,38px);font-weight:500;letter-spacing:-.03em;line-height:1.05">ReySecurity</span>
+      <span style="font-size:15px;line-height:1.55;color:color-mix(in srgb,var(--color-text) 76%,transparent);max-width:46ch">A cybersecurity startup protecting non-human identities in CI/CD pipelines and agentic supply chains. I built the delivery pipeline and put hard budget caps on an AI agent fleet.</span>
+      <span style="flex:1"></span>
+      <span dir="ltr" style="display:grid;grid-template-columns:auto 1fr;gap:6px 18px;padding:14px 16px;border-radius:var(--radius-md);background:color-mix(in srgb,var(--color-bg) 70%,transparent);font:400 12px/1.4 'JetBrains Mono',ui-monospace,monospace;text-align:left"><span style="color:color-mix(in srgb,var(--color-text) 55%,transparent)">stack</span><span>aws · github-actions · ecr · iam</span><span style="color:color-mix(in srgb,var(--color-text) 55%,transparent)">focus</span><span>pipeline security · agent cost control</span></span>
+      <span style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-accent)">Read case study<i class="ph ph-arrow-up-right"></i></span>
+    </button>
+    <button type="button" data-case="runi" onClick="{{ openCase }}" onMouseMove="{{ glow }}" data-reveal="1" style="all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:18px;padding:28px;min-height:360px;border-radius:var(--radius-lg);border:1px solid var(--color-divider);background:radial-gradient(480px circle at var(--mx,-500px) var(--my,-500px),color-mix(in srgb,var(--color-accent) 14%,transparent),transparent 65%),color-mix(in srgb,var(--color-surface) 55%,transparent);transition:border-color .25s" style-hover="border-color:color-mix(in srgb,var(--color-accent) 50%,transparent)">
+      <span style="font:500 11px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent)">Founder · End-to-end build</span>
+      <span style="font-size:clamp(28px,3vw,38px);font-weight:500;letter-spacing:-.03em;line-height:1.05">RuniTutors</span>
+      <span style="font-size:15px;line-height:1.55;color:color-mix(in srgb,var(--color-text) 76%,transparent);max-width:46ch">A peer-to-peer tutoring platform matching university students with top-performing peers. Designed, built and deployed solo — now in pilot discussions with Reichman University.</span>
+      <span style="flex:1"></span>
+      <span dir="ltr" style="display:grid;grid-template-columns:auto 1fr;gap:6px 18px;padding:14px 16px;border-radius:var(--radius-md);background:color-mix(in srgb,var(--color-bg) 70%,transparent);font:400 12px/1.4 'JetBrains Mono',ui-monospace,monospace;text-align:left"><span style="color:color-mix(in srgb,var(--color-text) 55%,transparent)">stack</span><span>fastapi · react · supabase · railway · vercel</span><span style="color:color-mix(in srgb,var(--color-text) 55%,transparent)">status</span><span>live · university pilot in talks</span></span>
+      <span style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-accent)">Read case study<i class="ph ph-arrow-up-right"></i></span>
+    </button>
+    <button type="button" data-case="unit" onClick="{{ openCase }}" onMouseMove="{{ glow }}" data-reveal="1" style="all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:18px;padding:28px;min-height:360px;border-radius:var(--radius-lg);border:1px solid var(--color-divider);background:radial-gradient(480px circle at var(--mx,-500px) var(--my,-500px),color-mix(in srgb,var(--color-accent) 14%,transparent),transparent 65%),color-mix(in srgb,var(--color-surface) 55%,transparent);transition:border-color .25s" style-hover="border-color:color-mix(in srgb,var(--color-accent) 50%,transparent)">
+      <span style="font:500 11px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent)">Software &amp; infrastructure engineer</span>
+      <span style="font-size:clamp(28px,3vw,38px);font-weight:500;letter-spacing:-.03em;line-height:1.05">Unit 81</span>
+      <span style="font-size:15px;line-height:1.55;color:color-mix(in srgb,var(--color-text) 76%,transparent);max-width:46ch">Three years on production systems: data pipelines, microservices on Kubernetes, and internal platforms in Python and FastAPI. Described at a high level, by design.</span>
+      <span style="flex:1"></span>
+      <span dir="ltr" style="display:grid;grid-template-columns:auto 1fr;gap:6px 18px;padding:14px 16px;border-radius:var(--radius-md);background:color-mix(in srgb,var(--color-bg) 70%,transparent);font:400 12px/1.4 'JetBrains Mono',ui-monospace,monospace;text-align:left"><span style="color:color-mix(in srgb,var(--color-text) 55%,transparent)">stack</span><span>kubernetes · python · fastapi</span><span style="color:color-mix(in srgb,var(--color-text) 55%,transparent)">scope</span><span>production · data pipelines · platforms</span></span>
+      <span style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-accent)">Read case study<i class="ph ph-arrow-up-right"></i></span>
+    </button>
+    <a href="#contact" data-reveal="1" style="box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-end;gap:14px;padding:28px;min-height:360px;border-radius:var(--radius-lg);border:1px dashed color-mix(in srgb,var(--color-text) 24%,transparent);color:var(--color-text);text-decoration:none;background:repeating-linear-gradient(135deg,transparent 0 14px,color-mix(in srgb,var(--color-text) 3%,transparent) 14px 15px);transition:border-color .25s" style-hover="border-color:var(--color-accent);color:var(--color-text)">
+      <span style="font:500 11px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 60%,transparent)">run #129 · queued</span>
+      <span style="font-size:clamp(28px,3vw,38px);font-weight:500;letter-spacing:-.03em;line-height:1.05">Your project could be here.</span>
+      <span style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-accent)">Book a free call<i class="ph ph-arrow-right"></i></span>
+    </a>
+  </div>
+</section>
+
+<section id="process" aria-labelledby="process-h" style="max-width:1200px;margin:0 auto;padding:clamp(80px,10vw,128px) clamp(20px,5vw,72px) 0">
+  <div style="display:flex;align-items:center;gap:12px;font:500 12px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent)"><span style="width:28px;height:1px;background:var(--color-accent)"></span>03 — How I work</div>
+  <h2 id="process-h" style="font-size:clamp(32px,4.2vw,54px);line-height:1.05;letter-spacing:-0.03em;margin:18px 0 0;max-width:20ch;text-wrap:balance">Five stages. No surprises.</h2>
+  <ol style="list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:28px 0">
+    <li data-reveal="1" style="display:flex;flex-direction:column;gap:12px;padding-inline-end:20px">
+      <div style="display:flex;align-items:center;gap:0"><span style="flex:none;width:11px;height:11px;border-radius:50%;background:var(--color-accent);box-shadow:0 0 12px var(--color-accent)"></span><span style="flex:1;height:1px;background:linear-gradient(to right,var(--color-accent),color-mix(in srgb,var(--color-accent) 40%,transparent))"></span></div>
+      <span style="font:400 11px/1 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 60%,transparent)">stage_01</span>
+      <h3 style="font-size:19px;margin:0">Discovery call</h3>
+      <p style="margin:0;font-size:14px;line-height:1.55;color:color-mix(in srgb,var(--color-text) 72%,transparent)">20 minutes. Your goals, your constraints, and whether I’m the right fit.</p>
+    </li>
+    <li data-reveal="1" style="display:flex;flex-direction:column;gap:12px;padding-inline-end:20px">
+      <div style="display:flex;align-items:center"><span style="flex:none;width:11px;height:11px;border-radius:50%;border:1px solid var(--color-accent);background:var(--color-bg)"></span><span style="flex:1;height:1px;background:color-mix(in srgb,var(--color-accent) 40%,transparent)"></span></div>
+      <span style="font:400 11px/1 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 60%,transparent)">stage_02</span>
+      <h3 style="font-size:19px;margin:0">Audit &amp; plan</h3>
+      <p style="margin:0;font-size:14px;line-height:1.55;color:color-mix(in srgb,var(--color-text) 72%,transparent)">I review what exists and send a fixed-scope plan with a fixed price.</p>
+    </li>
+    <li data-reveal="1" style="display:flex;flex-direction:column;gap:12px;padding-inline-end:20px">
+      <div style="display:flex;align-items:center"><span style="flex:none;width:11px;height:11px;border-radius:50%;border:1px solid var(--color-accent);background:var(--color-bg)"></span><span style="flex:1;height:1px;background:color-mix(in srgb,var(--color-accent) 40%,transparent)"></span></div>
+      <span style="font:400 11px/1 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 60%,transparent)">stage_03</span>
+      <h3 style="font-size:19px;margin:0">Build</h3>
+      <p style="margin:0;font-size:14px;line-height:1.55;color:color-mix(in srgb,var(--color-text) 72%,transparent)">Short cycles, written updates, working increments you can see.</p>
+    </li>
+    <li data-reveal="1" style="display:flex;flex-direction:column;gap:12px;padding-inline-end:20px">
+      <div style="display:flex;align-items:center"><span style="flex:none;width:11px;height:11px;border-radius:50%;border:1px solid var(--color-accent);background:var(--color-bg)"></span><span style="flex:1;height:1px;background:color-mix(in srgb,var(--color-accent) 40%,transparent)"></span></div>
+      <span style="font:400 11px/1 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 60%,transparent)">stage_04</span>
+      <h3 style="font-size:19px;margin:0">Deploy &amp; document</h3>
+      <p style="margin:0;font-size:14px;line-height:1.55;color:color-mix(in srgb,var(--color-text) 72%,transparent)">Shipped to production, with runbooks and architecture docs.</p>
+    </li>
+    <li data-reveal="1" style="display:flex;flex-direction:column;gap:12px;padding-inline-end:20px">
+      <div style="display:flex;align-items:center"><span style="flex:none;width:11px;height:11px;border-radius:50%;border:1px solid var(--color-accent);background:var(--color-bg)"></span><span style="flex:1;height:1px;background:linear-gradient(to right,color-mix(in srgb,var(--color-accent) 40%,transparent),transparent)"></span></div>
+      <span style="font:400 11px/1 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 60%,transparent)">stage_05</span>
+      <h3 style="font-size:19px;margin:0">Handover / support</h3>
+      <p style="margin:0;font-size:14px;line-height:1.55;color:color-mix(in srgb,var(--color-text) 72%,transparent)">A walkthrough for your team. Optional support after launch.</p>
+    </li>
+  </ol>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px;margin-top:48px">
+    <div style="display:flex;gap:14px;padding:18px 20px;border-radius:var(--radius-md);background:color-mix(in srgb,var(--color-surface) 50%,transparent)"><i class="ph ph-chat-circle-text" style="font-size:22px;color:var(--color-accent)"></i><div><strong style="font-weight:500">Clear communication</strong><p style="margin:4px 0 0;font-size:14px;color:color-mix(in srgb,var(--color-text) 72%,transparent)">Weekly written updates. No black boxes.</p></div></div>
+    <div style="display:flex;gap:14px;padding:18px 20px;border-radius:var(--radius-md);background:color-mix(in srgb,var(--color-surface) 50%,transparent)"><i class="ph ph-file-text" style="font-size:22px;color:var(--color-accent)"></i><div><strong style="font-weight:500">Documentation delivered</strong><p style="margin:4px 0 0;font-size:14px;color:color-mix(in srgb,var(--color-text) 72%,transparent)">Runbooks, diagrams and decisions — written down.</p></div></div>
+    <div style="display:flex;gap:14px;padding:18px 20px;border-radius:var(--radius-md);background:color-mix(in srgb,var(--color-surface) 50%,transparent)"><i class="ph ph-lock-key-open" style="font-size:22px;color:var(--color-accent)"></i><div><strong style="font-weight:500">No vendor lock-in</strong><p style="margin:4px 0 0;font-size:14px;color:color-mix(in srgb,var(--color-text) 72%,transparent)">Your cloud, your repos, your keys.</p></div></div>
+  </div>
+</section>
+
+<section id="about" aria-labelledby="about-h" style="max-width:1200px;margin:0 auto;padding:clamp(80px,10vw,128px) clamp(20px,5vw,72px) 0;scroll-margin-top:64px">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(32px,6vw,80px);align-items:start">
+    <figure class="lighten" data-reveal="1" style="margin:0;max-width:440px;aspect-ratio:4/5;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--color-divider)">
+      <image-slot id="rafa-portrait" shape="rect" placeholder="Portrait of Rafa — ideally shot on a dark background" style="width:100%;height:100%"></image-slot>
+    </figure>
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;font:500 12px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent)"><span style="width:28px;height:1px;background:var(--color-accent)"></span>04 — About</div>
+      <h2 id="about-h" style="font-size:clamp(32px,4.2vw,54px);line-height:1.05;letter-spacing:-0.03em;margin:18px 0 0;max-width:18ch;text-wrap:balance">I understand the code and the business.</h2>
+      <div style="display:flex;flex-direction:column;gap:14px;margin-top:24px;font-size:16px;line-height:1.65;color:color-mix(in srgb,var(--color-text) 78%,transparent);max-width:56ch">
+        <p style="margin:0">For three years I was a software &amp; infrastructure engineer in Unit 81, running production systems. I also served as a course instructor and commander — designing a software curriculum and mentoring junior engineers.</p>
+        <p style="margin:0">Today I’m co-founding ReySecurity while studying Economics &amp; Entrepreneurship (Data Science track) at Reichman University.</p>
+        <p style="margin:0;color:var(--color-text)">So I build what your startup actually needs — not over-engineered infrastructure.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:28px">
+        <span class="tag tag-accent" style="gap:6px;padding:6px 12px"><i class="ph ph-translate"></i>English · Hebrew · French</span>
+        <span class="tag tag-neutral" style="gap:6px;padding:6px 12px"><i class="ph ph-map-pin"></i>Tel Aviv — remote worldwide</span>
+        <span class="tag tag-neutral" style="gap:6px;padding:6px 12px"><i class="ph ph-clock"></i>Overlaps EU &amp; US hours</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stack" aria-labelledby="stack-h" style="max-width:1200px;margin:0 auto;padding:clamp(80px,10vw,128px) clamp(20px,5vw,72px) 0;scroll-margin-top:64px">
+  <div style="display:flex;align-items:center;gap:12px;font:500 12px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent)"><span style="width:28px;height:1px;background:var(--color-accent)"></span>05 — Stack</div>
+  <h2 id="stack-h" style="font-size:clamp(32px,4.2vw,54px);line-height:1.05;letter-spacing:-0.03em;margin:18px 0 0;max-width:20ch;text-wrap:balance">Boring, proven tools — used well.</h2>
+  <div style="display:flex;flex-direction:column;margin-top:40px">
+    <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:12px 24px;padding:20px 0;border-top:1px solid var(--color-divider)">
+      <span style="flex:0 0 180px;font:500 12px/2.6 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 62%,transparent)">Cloud &amp; DevOps</span>
+      <div style="flex:1 1 320px;display:flex;flex-wrap:wrap;gap:8px">
+        <span title="Container orchestration" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-md);border:1px solid var(--color-divider);font-size:14px;transition:all .2s" style-hover="border-color:var(--color-accent);box-shadow:0 0 18px color-mix(in srgb,var(--color-accent) 30%,transparent)"><i class="ph ph-steering-wheel" style="font-size:17px;color:var(--color-accent)"></i>Kubernetes</span>
+        <span title="Containers" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-md);border:1px solid var(--color-divider);font-size:14px;transition:all .2s" style-hover="border-color:var(--color-accent);box-shadow:0 0 18px color-mix(in srgb,var(--color-accent) 30%,transparent)"><i class="ph ph-cube" style="font-size:17px;color:var(--color-accent)"></i>Docker</span>
+        <span title="Microsoft cloud" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-md);border:1px solid var(--color-divider);font-size:14px;transition:all .2s" style-hover="border-color:var(--color-accent);box-shadow:0 0 18px color-mix(in srgb,var(--color-accent) 30%,transparent)"><i class="ph ph-cloud" style="font-size:17px;color:var(--color-accent)"></i>Azure</span>
+        <span title="Amazon Web Services" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-md);border:1px solid var(--color-divider);font-size:14px;transition:all .2s" style-hover="border-color:var(--color-accent);box-shadow:0 0 18px color-mix(in srgb,var(--color-accent) 30%,transparent)"><i class="ph ph-cloud-arrow-up" style="font-size:17px;color:var(--color-accent)"></i>AWS</span>
+        <span title="Workflows and pipelines" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-md);border:1px solid var(--color-divider);font-size:14px;transition:all .2s" style-hover="border-color:var(--color-accent);box-shadow:0 0 18px color-mix(in srgb,var(--color-accent) 30%,transparent)"><i class="ph ph-github-logo" style="font-size:17px;color:var(--color-accent)"></i>GitHub Actions</span>
+        <span title="Continuous integration and delivery" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-md);border:1px solid var(--color-divider);font-size:14px;transition:all .2s" style-hover="border-color:var(--color-accent);box-shadow:0 0 18px color-mix(in srgb,var(--color-accent) 30%,transparent)"><i class="ph ph-arrows-clockwise" style="font-size:17px;color:var(--color-accent)"></i>CI/CD</span>
+      </div>
+    </div>
+    <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:12px 24px;padding:20px 0;border-top:1px solid var(--color-divider)">
+      <span style="flex:0 0 180px;font:500 12px/2.6 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 62%,transparent)">Backend · Frontend</span>
+      <div style="flex:1 1 320px;display:flex;flex-wrap:wrap;gap:8px">
+        <span title="Backend language" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-md);border:1px solid var(--color-divider);font-size:14px;transition:all .2s" style-hover="border-color:var(--color-accent);box-shadow:0 0 18px color-mix(in srgb,var(--color-accent) 30%,transparent)"><i class="ph ph-file-py" style="font-size:17px;color:var(--color-accent)"></i>Python</span>
+        <span title="APIs" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-md);border:1px solid var(--color-divider);font-size:14px;transition:all .2s" style-hover="border-color:var(--color-accent);box-shadow:0 0 18px color-mix(in srgb,var(--color-accent) 30%,transparent)"><i class="ph ph-lightning" style="font-size:17px;color:var(--color-accent)"></i>FastAPI</span>
+        <span title="User interfaces" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-md);border:1px solid var(--color-divider);font-size:14px;transition:all .2s" style-hover="border-color:var(--color-accent);box-shadow:0 0 18px color-mix(in srgb,var(--color-accent) 30%,transparent)"><i class="ph ph-atom" style="font-size:17px;color:var(--color-accent)"></i>React</span>
+      </div>
+    </div>
+    <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:12px 24px;padding:20px 0;border-top:1px solid var(--color-divider)">
+      <span style="flex:0 0 180px;font:500 12px/2.6 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 62%,transparent)">Data &amp; hosting</span>
+      <div style="flex:1 1 320px;display:flex;flex-wrap:wrap;gap:8px">
+        <span title="Postgres, auth, storage" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-md);border:1px solid var(--color-divider);font-size:14px;transition:all .2s" style-hover="border-color:var(--color-accent);box-shadow:0 0 18px color-mix(in srgb,var(--color-accent) 30%,transparent)"><i class="ph ph-database" style="font-size:17px;color:var(--color-accent)"></i>Supabase</span>
+        <span title="Backend hosting" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-md);border:1px solid var(--color-divider);font-size:14px;transition:all .2s" style-hover="border-color:var(--color-accent);box-shadow:0 0 18px color-mix(in srgb,var(--color-accent) 30%,transparent)"><i class="ph ph-train" style="font-size:17px;color:var(--color-accent)"></i>Railway</span>
+        <span title="Frontend hosting" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-md);border:1px solid var(--color-divider);font-size:14px;transition:all .2s" style-hover="border-color:var(--color-accent);box-shadow:0 0 18px color-mix(in srgb,var(--color-accent) 30%,transparent)"><i class="ph ph-triangle" style="font-size:17px;color:var(--color-accent)"></i>Vercel</span>
+      </div>
+    </div>
+    <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:12px 24px;padding:20px 0;border-top:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider)">
+      <span style="flex:0 0 180px;font:500 12px/2.6 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 62%,transparent)">Security</span>
+      <div style="flex:1 1 320px;display:flex;flex-wrap:wrap;gap:8px">
+        <span title="Scanning, signing, policy" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-md);border:1px solid var(--color-divider);font-size:14px;transition:all .2s" style-hover="border-color:var(--color-accent);box-shadow:0 0 18px color-mix(in srgb,var(--color-accent) 30%,transparent)"><i class="ph ph-shield-check" style="font-size:17px;color:var(--color-accent)"></i>Pipeline security</span>
+        <span title="Least-privilege access" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-md);border:1px solid var(--color-divider);font-size:14px;transition:all .2s" style-hover="border-color:var(--color-accent);box-shadow:0 0 18px color-mix(in srgb,var(--color-accent) 30%,transparent)"><i class="ph ph-identification-badge" style="font-size:17px;color:var(--color-accent)"></i>IAM</span>
+        <span title="No secrets in code" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-md);border:1px solid var(--color-divider);font-size:14px;transition:all .2s" style-hover="border-color:var(--color-accent);box-shadow:0 0 18px color-mix(in srgb,var(--color-accent) 30%,transparent)"><i class="ph ph-key" style="font-size:17px;color:var(--color-accent)"></i>Secrets management</span>
+        <span title="Cost-capped agent fleets" style="display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:var(--radius-md);border:1px solid var(--color-divider);font-size:14px;transition:all .2s" style-hover="border-color:var(--color-accent);box-shadow:0 0 18px color-mix(in srgb,var(--color-accent) 30%,transparent)"><i class="ph ph-robot" style="font-size:17px;color:var(--color-accent)"></i>AI agent infrastructure</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="testi-h" style="max-width:1200px;margin:0 auto;padding:clamp(80px,10vw,128px) clamp(20px,5vw,72px) 0">
+  <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;font:500 12px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent)"><span style="width:28px;height:1px;background:var(--color-accent)"></span>06 — Clients</div>
+      <h2 id="testi-h" style="font-size:clamp(32px,4.2vw,54px);line-height:1.05;letter-spacing:-0.03em;margin:18px 0 0">In their words.</h2>
+    </div>
+    <div style="display:flex;gap:8px">
+      <button type="button" class="btn btn-secondary btn-icon" onClick="{{ slidePrev }}" aria-label="Previous testimonial" style="width:44px;height:44px"><i class="ph ph-arrow-left" style="font-size:18px"></i></button>
+      <button type="button" class="btn btn-secondary btn-icon" onClick="{{ slideNext }}" aria-label="Next testimonial" style="width:44px;height:44px"><i class="ph ph-arrow-right" style="font-size:18px"></i></button>
+    </div>
+  </div>
+  <div ref="{{ carouselRef }}" style="display:flex;gap:16px;margin-top:36px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px">
+    <figure style="flex:0 0 min(460px,86%);scroll-snap-align:start;margin:0;display:flex;flex-direction:column;gap:24px;padding:28px;border-radius:var(--radius-lg);border:1px dashed color-mix(in srgb,var(--color-text) 22%,transparent)">
+      <i class="ph ph-quotes" style="font-size:28px;color:var(--color-accent)"></i>
+      <blockquote style="margin:0;font-size:19px;line-height:1.5;color:color-mix(in srgb,var(--color-text) 62%,transparent)">First client review goes here — one sentence on the problem, one on the result.</blockquote>
+      <figcaption style="display:flex;align-items:center;gap:12px;margin:0;font-size:14px"><span style="width:36px;height:36px;border-radius:50%;background:var(--color-neutral-800)"></span><span>Client name<br><span style="color:color-mix(in srgb,var(--color-text) 60%,transparent)">Role, Company</span></span></figcaption>
+    </figure>
+    <figure style="flex:0 0 min(460px,86%);scroll-snap-align:start;margin:0;display:flex;flex-direction:column;gap:24px;padding:28px;border-radius:var(--radius-lg);border:1px dashed color-mix(in srgb,var(--color-text) 22%,transparent)">
+      <i class="ph ph-quotes" style="font-size:28px;color:var(--color-accent)"></i>
+      <blockquote style="margin:0;font-size:19px;line-height:1.5;color:color-mix(in srgb,var(--color-text) 62%,transparent)">Second review slot. Short, specific quotes convert best.</blockquote>
+      <figcaption style="display:flex;align-items:center;gap:12px;margin:0;font-size:14px"><span style="width:36px;height:36px;border-radius:50%;background:var(--color-neutral-800)"></span><span>Client name<br><span style="color:color-mix(in srgb,var(--color-text) 60%,transparent)">Role, Company</span></span></figcaption>
+    </figure>
+    <figure style="flex:0 0 min(460px,86%);scroll-snap-align:start;margin:0;display:flex;flex-direction:column;gap:24px;padding:28px;border-radius:var(--radius-lg);border:1px dashed color-mix(in srgb,var(--color-text) 22%,transparent)">
+      <i class="ph ph-quotes" style="font-size:28px;color:var(--color-accent)"></i>
+      <blockquote style="margin:0;font-size:19px;line-height:1.5;color:color-mix(in srgb,var(--color-text) 62%,transparent)">Third review slot — ideally a founder or CTO outside Israel.</blockquote>
+      <figcaption style="display:flex;align-items:center;gap:12px;margin:0;font-size:14px"><span style="width:36px;height:36px;border-radius:50%;background:var(--color-neutral-800)"></span><span>Client name<br><span style="color:color-mix(in srgb,var(--color-text) 60%,transparent)">Role, Company</span></span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section aria-labelledby="faq-h" style="max-width:1200px;margin:0 auto;padding:clamp(80px,10vw,128px) clamp(20px,5vw,72px) 0">
+  <div style="display:flex;flex-wrap:wrap;gap:32px clamp(32px,6vw,80px)">
+    <div style="flex:1 1 280px">
+      <div style="display:flex;align-items:center;gap:12px;font:500 12px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent)"><span style="width:28px;height:1px;background:var(--color-accent)"></span>07 — FAQ</div>
+      <h2 id="faq-h" style="font-size:clamp(32px,4.2vw,54px);line-height:1.05;letter-spacing:-0.03em;margin:18px 0 0">Straight answers.</h2>
+    </div>
+    <div style="flex:2 1 460px;display:flex;flex-direction:column">
+      <details open="" style="border-top:1px solid var(--color-divider);padding:0">
+        <summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;font-size:17px;font-weight:500">Rates &amp; payment<i class="ph ph-plus" style="font-size:16px;color:var(--color-accent)"></i></summary>
+        <p style="margin:0 0 22px;max-width:60ch;font-size:15px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 74%,transparent)">Packages are fixed-price, agreed before work starts. Typically 50% upfront, 50% on delivery. Retainers are billed monthly. I invoice in USD, EUR or ILS.</p>
+      </details>
+      <details style="border-top:1px solid var(--color-divider)">
+        <summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;font-size:17px;font-weight:500">Timezone &amp; availability<i class="ph ph-plus" style="font-size:16px;color:var(--color-accent)"></i></summary>
+        <p style="margin:0 0 22px;max-width:60ch;font-size:15px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 74%,transparent)">I’m in Tel Aviv (GMT+2/+3). That’s a full working day of overlap with Europe and the morning with the US East Coast.</p>
+      </details>
+      <details style="border-top:1px solid var(--color-divider)">
+        <summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;font-size:17px;font-weight:500">Do you work with non-technical founders?<i class="ph ph-plus" style="font-size:16px;color:var(--color-accent)"></i></summary>
+        <p style="margin:0 0 22px;max-width:60ch;font-size:15px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 74%,transparent)">Yes. I explain trade-offs in plain language — cost, risk, speed — and you make the calls.</p>
+      </details>
+      <details style="border-top:1px solid var(--color-divider)">
+        <summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;font-size:17px;font-weight:500">What happens after delivery?<i class="ph ph-plus" style="font-size:16px;color:var(--color-accent)"></i></summary>
+        <p style="margin:0 0 22px;max-width:60ch;font-size:15px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 74%,transparent)">You get documentation, a handover session, and everything in your own accounts. Stay on a retainer, or run it yourselves.</p>
+      </details>
+      <details style="border-top:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider)">
+        <summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;font-size:17px;font-weight:500">Can you work in French or Hebrew?<i class="ph ph-plus" style="font-size:16px;color:var(--color-accent)"></i></summary>
+        <p style="margin:0 0 22px;max-width:60ch;font-size:15px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 74%,transparent)">Yes — calls, docs and updates in English, Hebrew or French.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="contact" aria-labelledby="contact-h" style="max-width:1200px;margin:0 auto;padding:clamp(80px,10vw,128px) clamp(20px,5vw,72px) 0;scroll-margin-top:64px">
+  <div style="position:relative;overflow:hidden;border-radius:var(--radius-lg);border:1px solid color-mix(in srgb,var(--color-accent) 30%,transparent);background:radial-gradient(900px 500px at 0% 0%,color-mix(in srgb,var(--color-accent-900) 90%,transparent),transparent 70%),color-mix(in srgb,var(--color-surface) 45%,transparent);padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,5vw,64px)">
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <h2 id="contact-h" style="font-size:clamp(38px,5.4vw,72px);line-height:1.02;letter-spacing:-0.035em;margin:0;text-wrap:balance">{{ t.final }}</h2>
+      <p style="margin:0;font-size:16px;line-height:1.6;max-width:44ch;color:color-mix(in srgb,var(--color-text) 76%,transparent)">Tell me what you’re shipping. You’ll get a straight answer on scope, timeline and cost.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <a href="#contact" class="btn btn-primary" onMouseMove="{{ magnet }}" onMouseLeave="{{ unmagnet }}" style="min-height:48px;padding:0 22px;font-size:16px;white-space:nowrap;transition:transform .2s ease,background .2s"><i class="ph ph-calendar-blank" style="font-size:18px"></i>{{ t.bookFree }}</a>
+      </div>
+      <a href="mailto:hello@rafaelperetz.dev" style="display:flex;align-items:center;gap:8px;font:400 14px/1 'JetBrains Mono',ui-monospace,monospace;text-decoration:none"><i class="ph ph-envelope-simple" style="font-size:16px"></i>hello@rafaelperetz.dev</a>
+    </div>
+    <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+      <form onSubmit="{{ submit }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:14px">
+        <div class="field"><label for="f-name">Name</label><input id="f-name" class="input" required="" autocomplete="name" style="min-height:44px"></div>
+        <div class="field"><label for="f-company">Company</label><input id="f-company" class="input" autocomplete="organization" style="min-height:44px"></div>
+        <div class="field" style="grid-column:1/-1"><label for="f-email">Email</label><input id="f-email" type="email" class="input" required="" autocomplete="email" style="min-height:44px"></div>
+        <div class="field"><label for="f-type">Project type</label><select id="f-type" class="input" style="min-height:44px"><option>CI/CD pipeline</option><option>Cloud &amp; Kubernetes</option><option>MVP / web app</option><option>DevOps retainer</option><option>Not sure yet</option></select></div>
+        <div class="field"><label for="f-budget">Budget range</label><select id="f-budget" class="input" style="min-height:44px"><option>Under $5k</option><option>$5k – $15k</option><option>$15k – $40k</option><option>$40k+</option><option>Let’s discuss</option></select></div>
+        <div class="field" style="grid-column:1/-1"><label for="f-msg">What are you building?</label><textarea id="f-msg" class="input" rows="4"></textarea></div>
+        <button type="submit" class="btn btn-primary" style="grid-column:1/-1;min-height:46px;font-size:15px">Send message<i class="ph ph-paper-plane-tilt"></i></button>
+      </form>
+    </sc-if>
+    <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+      <div role="status" style="display:flex;flex-direction:column;justify-content:center;gap:12px;padding:28px;border-radius:var(--radius-md);background:color-mix(in srgb,var(--color-bg) 60%,transparent);font-family:'JetBrains Mono',ui-monospace,monospace">
+        <span style="color:var(--color-accent);font-size:15px">✓ message delivered</span>
+        <span style="font-size:13px;color:color-mix(in srgb,var(--color-text) 74%,transparent)">Thanks — I’ll reply by email shortly.</span>
+      </div>
+    </sc-if>
+  </div>
+</section>
+</main>
+
+<footer style="max-width:1200px;margin:0 auto;padding:72px clamp(20px,5vw,72px) 40px;display:flex;flex-wrap:wrap;align-items:center;gap:18px 28px">
+  <span style="display:grid;place-items:center;width:30px;height:30px;border-radius:var(--radius-md);border:1px solid var(--color-divider);font:500 12px/1 'JetBrains Mono',ui-monospace,monospace">RP</span>
+  <nav aria-label="Elsewhere" style="display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;margin-inline-end:auto">
+    <a href="#" style="color:color-mix(in srgb,var(--color-text) 72%,transparent);text-decoration:none;display:flex;align-items:center;gap:6px" style-hover="color:var(--color-text)"><i class="ph ph-github-logo"></i>GitHub</a>
+    <a href="#" style="color:color-mix(in srgb,var(--color-text) 72%,transparent);text-decoration:none;display:flex;align-items:center;gap:6px" style-hover="color:var(--color-text)"><i class="ph ph-linkedin-logo"></i>LinkedIn</a>
+    <a href="#" style="color:color-mix(in srgb,var(--color-text) 72%,transparent);text-decoration:none;display:flex;align-items:center;gap:6px" style-hover="color:var(--color-text)"><i class="ph ph-briefcase"></i>Upwork</a>
+    <a href="#" style="color:color-mix(in srgb,var(--color-text) 72%,transparent);text-decoration:none;display:flex;align-items:center;gap:6px" style-hover="color:var(--color-text)"><i class="ph ph-storefront"></i>Malt</a>
+    <a href="mailto:hello@rafaelperetz.dev" style="color:color-mix(in srgb,var(--color-text) 72%,transparent);text-decoration:none;display:flex;align-items:center;gap:6px" style-hover="color:var(--color-text)"><i class="ph ph-envelope-simple"></i>Email</a>
+  </nav>
+  <span style="font-size:13px;color:color-mix(in srgb,var(--color-text) 60%,transparent)">© 2026 Rafael Peretz</span>
+  <span style="font:400 11px/1 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 55%,transparent);display:flex;align-items:center;gap:8px">{{ pulseDot }}uptime: 99.99% · last deploy: 2.4s</span>
+</footer>
+
+<sc-if value="{{ caseOpen }}" hint-placeholder-val="{{ false }}">
+  <div class="dialog-backdrop" onClick="{{ closeCase }}" style="z-index:100;backdrop-filter:blur(6px);padding:16px">
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="case-title" onClick="{{ stop }}" style="width:min(760px,100%);max-height:88vh;overflow:auto;padding:clamp(22px,4vw,40px);gap:22px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px">
+        <div>
+          <span style="font:500 11px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent)">{{ cs.role }}</span>
+          <h3 id="case-title" style="font-size:clamp(28px,4vw,40px);letter-spacing:-.03em;margin:10px 0 0">{{ cs.title }}</h3>
+        </div>
+        <button type="button" class="btn btn-secondary btn-icon" onClick="{{ closeCase }}" aria-label="Close"><i class="ph ph-x" style="font-size:16px"></i></button>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:22px 32px">
+        <div><div style="font:400 11px/1 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 60%,transparent);margin-bottom:8px">01 · context</div><p style="margin:0;font-size:15px;line-height:1.6">{{ cs.context }}</p></div>
+        <div><div style="font:400 11px/1 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 60%,transparent);margin-bottom:8px">02 · challenge</div><p style="margin:0;font-size:15px;line-height:1.6">{{ cs.challenge }}</p></div>
+      </div>
+      <div>
+        <div style="font:400 11px/1 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 60%,transparent);margin-bottom:10px">03 · what I built</div>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px">
+          <sc-for list="{{ cs.built }}" as="b" hint-placeholder-count="3">
+            <li style="display:flex;gap:10px;font-size:15px;line-height:1.55"><i class="ph ph-check" style="color:var(--color-accent);margin-top:4px"></i><span>{{ b }}</span></li>
+          </sc-for>
+        </ul>
+      </div>
+      <div>
+        <div style="font:400 11px/1 'JetBrains Mono',ui-monospace,monospace;color:color-mix(in srgb,var(--color-text) 60%,transparent);margin-bottom:10px">04 · stack</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <sc-for list="{{ cs.stack }}" as="k" hint-placeholder-count="4"><span class="tag tag-neutral" style="font-family:'JetBrains Mono',ui-monospace,monospace">{{ k }}</span></sc-for>
+        </div>
+      </div>
+      <div style="padding:18px 20px;border-radius:var(--radius-md);border:1px solid color-mix(in srgb,var(--color-accent) 35%,transparent);background:color-mix(in srgb,var(--color-accent-900) 60%,transparent)">
+        <div style="font:400 11px/1 'JetBrains Mono',ui-monospace,monospace;color:var(--color-accent-300);margin-bottom:8px">05 · outcome</div>
+        <p style="margin:0;font-size:16px;line-height:1.55">{{ cs.outcome }}</p>
+      </div>
+      <a href="#contact" onClick="{{ closeCase }}" class="btn btn-primary" style="align-self:flex-start;min-height:44px;padding:0 18px">Need something similar? Book a call</a>
+    </div>
+  </div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroVisual&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;pipeline&quot;,&quot;terminal&quot;],&quot;default&quot;:&quot;pipeline&quot;,&quot;tsType&quot;:&quot;'pipeline' | 'terminal'&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;showGrid&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;availability&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;available&quot;,&quot;limited&quot;,&quot;booked&quot;],&quot;default&quot;:&quot;available&quot;,&quot;tsType&quot;:&quot;'available' | 'limited' | 'booked'&quot;,&quot;section&quot;:&quot;Nav status&quot;}}">
+const DICT = {
+  en: { dir: 'ltr', nav: ['Services', 'Work', 'About', 'Stack', 'Contact'], book: 'Book a call', h1a: 'I build the ', h1b: 'infrastructure', h1c: ' your startup runs on.', sub: 'DevOps, cloud & CI/CD for startups that need to ship fast and stay secure. Ex–Unit 81 engineer. Currently building security infrastructure at ReySecurity.', cta1: 'Book a free 20-min call', cta2: 'See my work', status: 'Available for new projects', final: 'Let’s make your infrastructure boring — in the best way.', bookFree: 'Book a free call' },
+  fr: { dir: 'ltr', nav: ['Services', 'Projets', 'À propos', 'Stack', 'Contact'], book: 'Réserver un appel', h1a: 'Je construis l’', h1b: 'infrastructure', h1c: ' sur laquelle tourne votre startup.', sub: 'DevOps, cloud et CI/CD pour les startups qui doivent livrer vite et rester sécurisées. Ancien ingénieur de l’Unité 81. Je construis aujourd’hui l’infrastructure de sécurité de ReySecurity.', cta1: 'Appel gratuit de 20 min', cta2: 'Voir mes projets', status: 'Disponible pour de nouveaux projets', final: 'Rendons votre infrastructure ennuyeuse — dans le bon sens.', bookFree: 'Réserver un appel gratuit' },
+  he: { dir: 'rtl', nav: ['שירותים', 'פרויקטים', 'אודות', 'טכנולוגיות', 'צור קשר'], book: 'קביעת שיחה', h1a: 'אני בונה את ', h1b: 'התשתית', h1c: ' שהסטארטאפ שלך רץ עליה.', sub: 'DevOps, ענן ו־CI/CD לסטארטאפים שצריכים לשחרר מהר ולהישאר מאובטחים. בוגר יחידה 81. כיום בונה תשתיות אבטחה ב־ReySecurity.', cta1: 'שיחת היכרות חינם, 20 דק׳', cta2: 'לפרויקטים שלי', status: 'פנוי לפרויקטים חדשים', final: 'בוא נהפוך את התשתית שלך למשעממת — במובן הטוב.', bookFree: 'קביעת שיחה חינם' }
+};
+const HREFS = ['#services', '#work', '#about', '#stack', '#contact'];
+const STAGES = [
+  { name: 'build', icon: 'ph-package', time: '0.6s' },
+  { name: 'test', icon: 'ph-flask', time: '0.5s' },
+  { name: 'scan', icon: 'ph-shield-check', time: '0.6s' },
+  { name: 'deploy', icon: 'ph-rocket-launch', time: '0.7s' }
+];
+const PIPE_LOGS = [
+  { at: 1, p: 'build', text: 'docker build rafa/app:9f3c2e1' },
+  { at: 3, p: 'test', text: '142 passed · 0 failed' },
+  { at: 5, p: 'scan', text: 'trivy + gitleaks · 0 critical' },
+  { at: 7, p: 'deploy', text: 'kubectl rollout · 3/3 pods ready' }
+];
+const TERM_LOGS = [
+  { at: 0, p: '$', text: 'rafa deploy --env production', cmd: true },
+  { at: 1, p: '→', text: 'building image rafa/portfolio:2026.09' },
+  { at: 3, p: '→', text: 'running 142 tests … passed' },
+  { at: 5, p: '→', text: 'scanning deps & secrets … 0 critical' },
+  { at: 7, p: '→', text: 'rolling out to k8s (eu-central-1) … 3/3' }
+];
+const CASES = {
+  rey: { role: 'Co-founder · Infrastructure lead', title: 'ReySecurity',
+    context: 'A cybersecurity startup protecting non-human identities — tokens, service accounts, bots — in CI/CD pipelines and agentic supply chains.',
+    challenge: 'Ship a security product fast, on infrastructure that is itself beyond reproach — while an AI agent fleet’s costs grew unpredictably.',
+    built: ['AWS + GitHub Actions CI/CD pipeline with ECR image registry and scoped IAM roles', 'Redesigned the AI agent fleet into a lean, cost-controlled architecture', 'Hard budget caps per agent, so spend can’t run away overnight'],
+    stack: ['aws', 'github-actions', 'ecr', 'iam', 'ai-agents'],
+    outcome: 'Automated, secure releases and an agent fleet with predictable, capped spend.' },
+  runi: { role: 'Founder · End-to-end build', title: 'RuniTutors',
+    context: 'A peer-to-peer tutoring platform connecting university students with top-performing peers.',
+    challenge: 'Go from idea to a production app real students use — solo, on a student budget.',
+    built: ['FastAPI backend and React frontend', 'Supabase for auth and data', 'Deployed on Railway and Vercel with CI'],
+    stack: ['fastapi', 'react', 'supabase', 'railway', 'vercel'],
+    outcome: 'Live product, now in pilot discussions with Reichman University administration.' },
+  unit: { role: 'Software & infrastructure engineer', title: 'Unit 81',
+    context: 'Three years as a software & infrastructure engineer on production systems. Details stay high level.',
+    challenge: 'Systems that must run reliably, with high standards for security and correctness.',
+    built: ['Data pipelines in production', 'Microservices running on Kubernetes', 'Internal platforms in Python / FastAPI', 'Designed a software curriculum and mentored junior engineers as instructor and commander'],
+    stack: ['kubernetes', 'python', 'fastapi', 'microservices'],
+    outcome: 'Production experience under real constraints — the standard I bring to every client.' }
+};
+const LIGHT = { '--color-bg': '#f3f5fe', '--color-surface': '#e4e7f5', '--color-text': '#292b31', '--color-divider': 'color-mix(in srgb, #292b31 16%, transparent)', '--color-accent': '#796cbf', '--color-accent-300': '#5d5294', '--color-accent-900': '#e7e5fe', '--color-section': '#e7e5fe', '--color-section-glow': '#d2cefd', '--color-neutral-400': '#595d6c', '--color-neutral-800': '#cfd3e5' };
+const MONO_MUTED = 'color-mix(in srgb,var(--color-text) 55%,transparent)';
+
+class Component extends DCLogic {
+  state = { step: 0, lang: 'en', light: false, caseId: null, menu: false, wide: true, sent: false };
+  rootRef = React.createRef();
+  carouselRef = React.createRef();
+
+  componentDidMount() {
+    this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.onResize = () => this.setState({ wide: window.innerWidth >= 900 });
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+    this.onKey = (e) => { if (e.key === 'Escape') this.setState({ caseId: null }); };
+    window.addEventListener('keydown', this.onKey);
+    this.run();
+    setTimeout(() => this.setupReveal(), 60);
+  }
+  componentWillUnmount() {
+    clearInterval(this.t); clearTimeout(this.t0);
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('keydown', this.onKey);
+    this.io && this.io.disconnect();
+  }
+  run = () => {
+    clearInterval(this.t); clearTimeout(this.t0);
+    if (this.reduced) { this.setState({ step: 8 }); return; }
+    this.setState({ step: 0 });
+    this.t0 = setTimeout(() => {
+      this.t = setInterval(() => this.setState(s => {
+        if (s.step >= 8) { clearInterval(this.t); return null; }
+        return { step: s.step + 1 };
+      }), 290);
+    }, 250);
+  };
+  setupReveal() {
+    const root = this.rootRef.current;
+    if (!root || this.reduced || !('IntersectionObserver' in window)) return;
+    this.io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target; this.io.unobserve(el);
+      if (el.dataset.count != null) this.countUp(el);
+      else { el.style.opacity = '1'; el.style.transform = 'none'; }
+    }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    root.querySelectorAll('[data-reveal]').forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight) return;
+      el.style.opacity = '0'; el.style.transform = 'translateY(16px)';
+      el.style.transition = (el.style.transition ? el.style.transition + ',' : '') + 'opacity .6s ease, transform .6s cubic-bezier(.2,.8,.2,1)';
+      this.io.observe(el);
+    });
+    root.querySelectorAll('[data-count]').forEach(el => this.io.observe(el));
+  }
+  countUp(el) {
+    const to = +el.dataset.count, t0 = performance.now();
+    const tick = now => { const p = Math.min(1, (now - t0) / 1100); el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(tick); };
+    el.textContent = '0'; requestAnimationFrame(tick);
+  }
+  applyTheme(light) {
+    const s = document.documentElement.style;
+    Object.entries(LIGHT).forEach(([k, v]) => light ? s.setProperty(k, v) : s.removeProperty(k));
+  }
+
+  renderVals() {
+    const { step, lang, light, caseId, menu, wide, sent } = this.state;
+    const T = DICT[lang];
+    const visual = this.props.heroVisual ?? 'pipeline';
+    const avail = this.props.availability ?? 'available';
+    const isPipeline = visual === 'pipeline';
+    const deployed = step >= 8;
+    const passed = STAGES.filter((_, k) => step >= 2 * k + 2).length;
+    const accent = 'var(--color-accent)';
+    const stages = STAGES.map((s, k) => {
+      const st = step >= 2 * k + 2 ? 'passed' : step === 2 * k + 1 ? 'running' : 'queued';
+      return {
+        ...s,
+        time: st === 'passed' ? s.time : st === 'running' ? '…' : '—',
+        status: st === 'passed' ? '✓ passed' : st === 'running' ? '● running' : '○ queued',
+        statusColor: st === 'queued' ? MONO_MUTED : 'var(--color-accent-300)',
+        iconColor: st === 'queued' ? MONO_MUTED : accent,
+        border: st === 'running' ? accent : st === 'passed' ? 'color-mix(in srgb,var(--color-accent) 55%,transparent)' : 'var(--color-divider)',
+        glow: st === 'running' ? '0 0 0 1px var(--color-accent), 0 0 28px color-mix(in srgb,var(--color-accent) 40%,transparent)' : 'none'
+      };
+    });
+    const src = isPipeline ? PIPE_LOGS : TERM_LOGS;
+    const logs = src.filter(l => step >= l.at).slice(isPipeline ? -3 : 0).map(l => ({
+      p: l.p, text: l.text, pw: isPipeline ? '52px' : '12px',
+      pcolor: l.cmd ? accent : MONO_MUTED,
+      color: l.cmd ? 'var(--color-text)' : 'color-mix(in srgb,var(--color-text) 78%,transparent)'
+    }));
+    const statusMap = {
+      available: { text: T.status, color: 'var(--color-accent)', pulse: true },
+      limited: { text: 'Limited availability — Q4', color: 'var(--color-neutral-400)', pulse: false },
+      booked: { text: 'Booked — next opening Jan 2027', color: 'var(--color-neutral-600)', pulse: false }
+    }[avail] || { text: T.status, color: 'var(--color-accent)', pulse: true };
+    const dotStyle = { flex: 'none', width: 7, height: 7, borderRadius: '50%', background: statusMap.color, animation: statusMap.pulse ? 'rpPulse 2s ease-out infinite' : 'none' };
+    const cs = caseId ? CASES[caseId] : null;
+    return {
+      rootRef: this.rootRef, carouselRef: this.carouselRef,
+      t: T, dir: T.dir, lang,
+      wide, narrow: !wide, menu, menuOpen: !wide && menu, menuIcon: menu ? 'ph-x' : 'ph-list',
+      navLinks: T.nav.map((label, i) => ({ label, href: HREFS[i] })),
+      langs: ['en', 'fr', 'he'].map(code => ({ code, label: code.toUpperCase(), active: code === lang,
+        bg: code === lang ? 'color-mix(in srgb,var(--color-accent) 16%,transparent)' : 'transparent',
+        color: code === lang ? 'var(--color-accent-300)' : 'color-mix(in srgb,var(--color-text) 62%,transparent)' })),
+      statusText: statusMap.text,
+      pulseDot: React.createElement('span', { 'aria-hidden': true, style: dotStyle }),
+      themeIcon: light ? 'ph-moon' : 'ph-sun', themeLabel: light ? 'Switch to dark mode' : 'Switch to light mode',
+      showGrid: this.props.showGrid ?? true,
+      isPipeline, stages, logs,
+      fillW: `${(Math.min(passed, 3) / 3) * 75}%`,
+      logMinH: isPipeline ? '118px' : '214px',
+      underline: deployed ? '100%' : '0%',
+      runLabel: deployed ? '✓ success' : step === 0 ? 'queued' : 'running…',
+      runColor: deployed ? 'var(--color-accent-300)' : MONO_MUTED,
+      finalText: deployed ? (isPipeline ? '✓ deployed → production in 2.4s' : '✓ Rafael Peretz is live.') : '',
+      finalColor: 'var(--color-accent)',
+      caret: React.createElement('span', { 'aria-hidden': true, style: { display: 'inline-block', width: 8, height: 15, background: 'var(--color-accent)', animation: 'rpBlink 1s steps(1) infinite', opacity: isPipeline && deployed ? 0 : 1 } }),
+      rerun: this.run,
+      setLang: (e) => { const l = e.currentTarget.dataset.lang; document.documentElement.lang = l; document.documentElement.dir = DICT[l].dir; this.setState({ lang: l }); },
+      toggleTheme: () => { const l = !this.state.light; this.applyTheme(l); this.setState({ light: l }); },
+      toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
+      closeMenu: () => this.setState({ menu: false }),
+      glow: (e) => { const el = e.currentTarget, r = el.getBoundingClientRect(); el.style.setProperty('--mx', `${e.clientX - r.left}px`); el.style.setProperty('--my', `${e.clientY - r.top}px`); },
+      magnet: (e) => { if (this.reduced) return; const el = e.currentTarget, r = el.getBoundingClientRect(); el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.18}px, ${(e.clientY - r.top - r.height / 2) * 0.3}px)`; },
+      unmagnet: (e) => { e.currentTarget.style.transform = ''; },
+      openCase: (e) => this.setState({ caseId: e.currentTarget.dataset.case }),
+      closeCase: () => this.setState({ caseId: null }),
+      stop: (e) => e.stopPropagation(),
+      caseOpen: !!cs, cs: cs || CASES.rey,
+      slidePrev: () => { const c = this.carouselRef.current; c && c.scrollBy({ left: -c.clientWidth * 0.8 * (lang === 'he' ? -1 : 1), behavior: 'smooth' }); },
+      slideNext: () => { const c = this.carouselRef.current; c && c.scrollBy({ left: c.clientWidth * 0.8 * (lang === 'he' ? -1 : 1), behavior: 'smooth' }); },
+      sent, notSent: !sent,
+      submit: (e) => { e.preventDefault(); this.setState({ sent: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+Design/
+.next/
+.velite/
+node_modules/
+pnpm-lock.yaml
+public/

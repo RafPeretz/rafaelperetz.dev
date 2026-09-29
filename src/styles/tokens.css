@@ -1,0 +1,139 @@
+/*
+ * Design tokens — extracted from the Claude Design export (Nocturne design system).
+ * Single source of truth for colour, type, radius, shadow and motion.
+ *
+ * `@theme` variables become Tailwind utilities (bg-bg, text-fg-muted, rounded-lg, …)
+ * AND plain CSS custom properties on :root. Light mode overrides the same variables
+ * under [data-theme="light"] (set on <html> by next-themes), so every utility
+ * switches theme without a `dark:` variant.
+ */
+
+@theme {
+  /* Drop Tailwind's default palette: only design tokens are allowed. */
+  --color-*: initial;
+
+  /* ── Colour: dark (default) ───────────────────────────────────────── */
+  --color-bg: #161826;
+  --color-surface: #232532;
+  --color-fg: #e9e9ed;
+  --color-divider: color-mix(in srgb, var(--color-fg) 16%, transparent);
+  --color-hairline: color-mix(in srgb, var(--color-fg) 8%, transparent);
+
+  /* Text emphasis steps (design used 9 mixes between 55–78%; consolidated to 4). */
+  --color-fg-soft: color-mix(in srgb, var(--color-fg) 78%, transparent);
+  --color-fg-muted: color-mix(in srgb, var(--color-fg) 72%, transparent);
+  --color-fg-subtle: color-mix(in srgb, var(--color-fg) 62%, transparent);
+  --color-fg-faint: color-mix(in srgb, var(--color-fg) 55%, transparent);
+
+  /* Accent: `accent` for lines, icons, borders and glows;
+     `accent-text` for accent-coloured text (AA-safe in both themes). */
+  --color-accent: #9184d9;
+  --color-accent-text: #9184d9;
+  --color-accent-300: #d2cefd;
+  --color-accent-400: #b5abfc;
+  --color-accent-800: #423a6a;
+  --color-accent-900: #2b2741;
+
+  --color-neutral-400: #b2b6ca;
+  --color-neutral-600: #75798c;
+  --color-neutral-800: #3f424d;
+
+  --color-section: #262a60;
+  --color-section-glow: #353b80;
+
+  /* ── Typography ───────────────────────────────────────────────────── */
+  /* --font-inter / --font-jetbrains / --font-hebrew are injected by next/font. */
+  --font-sans: var(--font-inter), var(--font-hebrew, system-ui), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", monospace;
+
+  --text-display: clamp(40px, 5.6vw, 76px);
+  --text-display--line-height: 1.03;
+  --text-display--letter-spacing: -0.035em;
+  --text-display-cta: clamp(38px, 5.4vw, 72px);
+  --text-display-cta--line-height: 1.02;
+  --text-display-cta--letter-spacing: -0.035em;
+  --text-h2: clamp(32px, 4.2vw, 54px);
+  --text-h2--line-height: 1.05;
+  --text-h2--letter-spacing: -0.03em;
+  --text-stat: clamp(30px, 3.8vw, 54px);
+  --text-stat--line-height: 1;
+  --text-stat--letter-spacing: -0.03em;
+  --text-case: clamp(28px, 3vw, 38px);
+  --text-case--line-height: 1.05;
+  --text-case--letter-spacing: -0.03em;
+
+  /* ── Layout ───────────────────────────────────────────────────────── */
+  --breakpoint-xs: 26.25rem; /* 420px — compact pipeline threshold */
+  --breakpoint-nav: 56.25rem; /* 900px — desktop nav */
+  --container-page: 1200px;
+
+  /* ── Radius ───────────────────────────────────────────────────────── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+
+  /* ── Shadow & glow ────────────────────────────────────────────────── */
+  --shadow-window:
+    0 24px 64px rgb(0 0 0 / 0.45), inset 0 0 0 1px color-mix(in srgb, var(--color-accent) 10%, transparent);
+  --shadow-stage-running:
+    0 0 0 1px var(--color-accent), 0 0 28px color-mix(in srgb, var(--color-accent) 40%, transparent);
+  --shadow-glow: 0 0 16px var(--color-accent);
+  --shadow-glow-sm: 0 0 12px var(--color-accent);
+  --shadow-chip: 0 0 18px color-mix(in srgb, var(--color-accent) 30%, transparent);
+
+  /* ── Motion ───────────────────────────────────────────────────────── */
+  --ease-out-expo: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --animate-pulse-dot: pulse-dot 2s ease-out infinite;
+  --animate-blink: blink 1s steps(1) infinite;
+
+  @keyframes pulse-dot {
+    0% {
+      box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 60%, transparent);
+    }
+    100% {
+      box-shadow: 0 0 0 9px transparent;
+    }
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+}
+
+/* ── Colour: light ─────────────────────────────────────────────────────
+   From the design's LIGHT map, with contrast fixes:
+   - accent-text darkened to #5d5294 (the design's #796cbf is ~4:1 on bg → fails AA)
+   - subtle/faint text steps raised (62%/55% of #292b31 on #f3f5fe fail AA) */
+[data-theme="light"] {
+  --color-bg: #f3f5fe;
+  --color-surface: #e4e7f5;
+  --color-fg: #292b31;
+
+  --color-fg-soft: color-mix(in srgb, var(--color-fg) 82%, transparent);
+  --color-fg-muted: color-mix(in srgb, var(--color-fg) 78%, transparent);
+  --color-fg-subtle: color-mix(in srgb, var(--color-fg) 74%, transparent);
+  --color-fg-faint: color-mix(in srgb, var(--color-fg) 70%, transparent);
+
+  --color-accent: #796cbf;
+  --color-accent-text: #5d5294;
+  --color-accent-300: #5d5294;
+  --color-accent-400: #5d5294;
+  --color-accent-800: #e7e5fe;
+  --color-accent-900: #e7e5fe;
+
+  --color-neutral-400: #595d6c;
+  --color-neutral-800: #cfd3e5;
+
+  --color-section: #e7e5fe;
+  --color-section-glow: #d2cefd;
+
+  --shadow-window:
+    0 24px 64px rgb(41 43 49 / 0.14), inset 0 0 0 1px color-mix(in srgb, var(--color-accent) 14%, transparent);
+
+  color-scheme: light;
+}
+
+:root {
+  color-scheme: dark;
+}
