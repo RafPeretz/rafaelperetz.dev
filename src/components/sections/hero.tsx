@@ -5,7 +5,7 @@ import { type CSSProperties } from "react";
 import { DEPLOYED_AT, ms, UNDERLINE_DURATION } from "@/components/hero/pipeline-timeline";
 import { PipelineWindow } from "@/components/hero/pipeline-window";
 import { BookCallButton } from "@/components/book-call-button";
-import { ButtonLink } from "@/components/ui/button";
+import { ButtonLink } from "@/components/ui/button-link";
 
 export async function Hero() {
   const t = await getTranslations("hero");

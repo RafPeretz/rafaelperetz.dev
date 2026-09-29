@@ -7,5 +7,5 @@ export const proxy = createMiddleware(routing);
 
 export const config = {
   // Skip API routes, Next internals, Vercel internals and any path with a file extension.
-  matcher: "/((?!api|_next|_vercel|.*\\..*).*)",
+  matcher: "/((?!api|_next|_vercel|apple-icon|.*opengraph-image|.*\\..*).*)",
 };

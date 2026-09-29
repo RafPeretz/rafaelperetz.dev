@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    groups:
+      framework:
+        patterns: ["next", "react", "react-dom", "@types/react*", "eslint-config-next"]
+      tooling:
+        dependency-type: development
+      runtime:
+        dependency-type: production
+        exclude-patterns: ["next", "react", "react-dom"]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    groups:
+      actions:
+        patterns: ["*"]

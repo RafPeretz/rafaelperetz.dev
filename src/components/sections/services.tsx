@@ -2,7 +2,7 @@ import { CheckIcon } from "@phosphor-icons/react/ssr";
 import { getTranslations } from "next-intl/server";
 
 import { ContentIcon } from "@/components/ui/content-icon";
-import { ButtonLink } from "@/components/ui/button";
+import { ButtonLink } from "@/components/ui/button-link";
 import { getServices } from "@/lib/content";
 
 import { SectionHeading } from "./section-heading";

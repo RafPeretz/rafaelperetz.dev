@@ -38,7 +38,9 @@ Placeholders are marked `TODO` in the code. Items are grouped by where they live
 - [ ] **Upstash Redis** (free tier) → `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`
 - [ ] **GitHub repo** + **Vercel project** (Git integration)
 - [ ] **Vercel Protection Bypass for Automation** secret → GitHub secret `VERCEL_AUTOMATION_BYPASS_SECRET` (needed for Lighthouse CI on previews)
-- [ ] **Domain** `rafaelperetz.dev`: buy it, then follow README → Custom domain
+- [ ] **Branch protection** on `main`: require the `Lint · Types · Build` and `Lighthouse (Preview)` checks (see README → Deployment)
+- [ ] Enable **Web Analytics** and **Speed Insights** in the Vercel project
+- [ ] **Domain** `rafaelperetz.dev`: buy it, then follow README → _Custom domain runbook_ (DNS, `NEXT_PUBLIC_SITE_URL`, Resend domain verification, email forwarding, Search Console)
 
 ## Optional
 

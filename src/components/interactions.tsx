@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-import { usePathname } from "@/i18n/navigation";
+import { usePathname } from "next/navigation";
 
 /**
  * All page-level micro-interactions in one small island, driven by data attributes on

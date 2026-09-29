@@ -1,7 +1,6 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { type ComponentProps } from "react";
 
-import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 /** Nocturne buttons: the primary is an accent outline, never a fill. Base styles live in globals.css (.btn). */
@@ -33,11 +32,6 @@ export function Button({
   ...props
 }: ComponentProps<"button"> & Variants) {
   return <button type={type} className={cn(buttonVariants({ variant, size }), className)} {...props} />;
-}
-
-/** Internal, locale-aware link styled as a button. */
-export function ButtonLink({ className, variant, size, ...props }: ComponentProps<typeof Link> & Variants) {
-  return <Link className={cn(buttonVariants({ variant, size }), className)} {...props} />;
 }
 
 /** External link styled as a button. */

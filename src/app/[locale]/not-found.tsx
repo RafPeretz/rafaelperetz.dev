@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 
-import { ButtonLink } from "@/components/ui/button";
+import { ButtonLink } from "@/components/ui/button-link";
 
 export default function NotFound() {
   const t = useTranslations("notFound");

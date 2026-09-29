@@ -1,0 +1,61 @@
+name: Lighthouse
+
+# Vercel's Git integration reports each deployment back to GitHub. When a deployment succeeds,
+# audit the real deployed URL (not a local build) and fail the check below the thresholds in
+# lighthouserc.json. On pull requests this shows up as a check on the PR's head commit.
+on: deployment_status
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lighthouse-${{ github.event.deployment.sha }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    name: Lighthouse (${{ github.event.deployment.environment }})
+    if: github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      BASE_URL: ${{ github.event.deployment_status.environment_url }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.deployment.sha }}
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+
+      - name: Run Lighthouse CI
+        env:
+          # Vercel → Project Settings → Deployment Protection → "Protection Bypass for Automation".
+          # Without it, protected preview URLs return the Vercel login page instead of the site.
+          VERCEL_BYPASS: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+        run: |
+          HEADERS=$(node -e 'console.log(JSON.stringify({
+            "x-vercel-protection-bypass": process.env.VERCEL_BYPASS || "",
+            "x-vercel-set-bypass-cookie": "true",
+            "Accept-Language": "en-US"
+          }))')
+          npx --yes @lhci/cli@0.15.1 autorun \
+            --collect.url="$BASE_URL/" \
+            --collect.url="$BASE_URL/fr" \
+            --collect.url="$BASE_URL/he" \
+            --collect.url="$BASE_URL/work/reysecurity" \
+            --collect.settings.extraHeaders="$HEADERS"
+
+      - name: Summary
+        if: always()
+        run: node scripts/lighthouse-summary.mjs >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci/
+          retention-days: 14

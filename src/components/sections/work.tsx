@@ -1,7 +1,7 @@
 import { ArrowRightIcon, ArrowUpRightIcon } from "@phosphor-icons/react/ssr";
 import { getTranslations } from "next-intl/server";
 
-import { Link } from "@/i18n/navigation";
+import { Link } from "@/i18n/link";
 import { getCaseStudies } from "@/lib/content";
 
 import { SectionHeading } from "./section-heading";

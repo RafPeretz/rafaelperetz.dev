@@ -5,6 +5,9 @@ export const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  // Not preloaded: the headline paints immediately in next/font's metric-matched fallback (no CLS)
+  // and swaps to Inter. Preloading 48KB of font cost ~1 point of mobile Lighthouse (simulated LCP).
+  preload: false,
 });
 
 export const jetbrainsMono = JetBrains_Mono({

@@ -13,18 +13,16 @@ import {
 
 import { submitContact } from "@/app/actions/contact";
 import {
-  BUDGETS,
   FIELDS,
   HONEYPOT,
-  PROJECT_TYPES,
-  readForm,
   STARTED_AT,
-  validateContact,
+  BUDGETS,
   type ContactField,
   type ContactState,
   type FieldErrorCode,
   type FieldErrors,
-} from "@/lib/contact-schema";
+  PROJECT_TYPES,
+} from "@/lib/contact-fields";
 import { cn } from "@/lib/utils";
 
 export type ContactFormLabels = {
@@ -90,13 +88,16 @@ function Form({
 
   // With JS we submit manually: React resets uncontrolled fields after a form `action` completes,
   // which would wipe the visitor's message on a failed send. Without JS, `action` still works.
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  // The zod schema is loaded on first submit, keeping it out of the page's initial JavaScript.
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const { readForm, validateContact } = await import("@/lib/contact-schema");
     const result = validateContact(readForm(data));
     if (!result.ok) {
       setClientErrors(result.errors);
-      focusFirstInvalid(e.currentTarget, result.errors);
+      focusFirstInvalid(form, result.errors);
       return;
     }
     setClientErrors({});

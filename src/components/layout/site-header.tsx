@@ -1,8 +1,8 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import { BrandMark } from "@/components/ui/brand-mark";
 import { BookCallButton } from "@/components/book-call-button";
-import { Link } from "@/i18n/navigation";
+import { Link } from "@/i18n/link";
 import { siteConfig } from "@/site.config";
 
 import { AvailabilityBadge } from "./availability-badge";
@@ -14,6 +14,7 @@ const SECTIONS = ["services", "work", "about", "stack", "contact"] as const;
 
 export async function SiteHeader() {
   const t = await getTranslations();
+  const locale = await getLocale();
 
   const links = SECTIONS.map((id) => ({ id, href: `/#${id}`, label: t(`nav.${id}`) }));
 
@@ -42,7 +43,7 @@ export async function SiteHeader() {
           <AvailabilityBadge />
         </div>
 
-        <LocaleSwitcher label={t("nav.language")} />
+        <LocaleSwitcher label={t("nav.language")} locale={locale} />
         <ThemeToggle toLight={t("theme.toLight")} toDark={t("theme.toDark")} />
 
         <BookCallButton data-magnetic variant="primary" className="hidden nav:inline-flex">

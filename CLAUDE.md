@@ -26,6 +26,8 @@ pnpm typecheck        # velite build && next typegen && tsc --noEmit
 pnpm content          # rebuild the content layer (.velite/) only
 pnpm format           # Prettier (+ Tailwind class sorting)
 pnpm check:contrast   # WCAG AA guard over the colour tokens, dark + light
+pnpm check:i18n       # FR/HE keys + placeholders match EN
+pnpm smoke [url]      # end-to-end smoke test (Chrome) against a running build
 node scripts/screenshot.mjs http://localhost:3000 / [paths…]  # full-page shots at 375/768/1280/1920, dark+light
 ```
 
@@ -73,7 +75,11 @@ scripts/                  # contrast check, screenshots
 - **Layout helpers:** `container-page` (1200px max + fluid gutter), `section-pad`, `font-mono-ui`. Desktop nav breakpoint: `nav:` (900px).
 - **RTL.** Use logical properties only (`ms-*`, `me-*`, `ps-*`, `start-*`, `text-start`, `border-s`). Mirror directional icons in RTL. Code, terminal and pipeline visuals stay `dir="ltr"`.
 - **Theme-dependent UI** renders both variants and switches with the `light:` variant. Never branch on `useTheme()` during render, because it causes hydration mismatches.
-- **Links.** Use `Link` from `@/i18n/navigation` for internal links (it adds the locale prefix), and plain `<a>` for external ones.
+- **Links.**
+  - For internal links in Server Components, use `Link` from `@/i18n/link`. It adds the locale prefix on the server and renders `next/link`.
+  - For client components, pass the href in as a prop.
+  - There is deliberately **no `NextIntlClientProvider`**, so next-intl's client runtime never ships.
+  - Use a plain `<a>` for external links, the locale switcher and any link to `/work/*` from a case page. The modal interception would otherwise catch a client-side navigation.
 - **Strings** go in `messages/*.json`, never hard-coded in components. Add every key to all three locale files.
 - **Placeholders** carry a `TODO` comment and are listed in `TODO.md`.
 - **Reduced motion:** every animation must have a final-state fallback under `prefers-reduced-motion`.
@@ -118,6 +124,20 @@ scripts/                  # contrast check, screenshots
   - The log area has a reserved `min-height` so the window never changes size (CLS).
 - Everything respects `prefers-reduced-motion` (global rule in `globals.css`, plus JS checks).
 - Links to in-page anchors on the homepage (`/#services`) use `prefetch={false}`, as do locale-switcher links.
+
+## SEO, headers, CI
+
+- **Metadata:**
+  - Build every page's canonical URL, hreflang alternates and Open Graph data with `src/lib/seo.ts` (`alternates()`, `openGraph()`), from `siteConfig.url`.
+  - next-intl's `alternateLinks` is off, because metadata owns hreflang.
+  - Previews are `noindex`.
+- **OG images:** `opengraph-image.tsx` renders them with next/og. The fonts are subset WOFFs in `assets/og-fonts/`; don't use emoji or glyphs they lack, because satori would fetch fonts at build time. Hebrew goes through `src/lib/bidi.ts`. The proxy matcher excludes `opengraph-image` and `apple-icon`.
+- **Security headers** are in `next.config.ts`. If you add a third-party origin, add it to the CSP and run `pnpm smoke`.
+- **CI:**
+  - `.github/workflows/ci.yml` runs the full gate plus a smoke test.
+  - `lighthouse.yml` audits each successful Vercel deployment, with thresholds in `lighthouserc.json`: ≥ 0.95 in every category, mobile. Keep client JS lean.
+  - Actions are pinned to commit SHAs.
+- **Performance:** fonts aren't preloaded (the simulated LCP penalty is documented in `app/fonts.ts`), zod loads on first form submit, and analytics render only on Vercel.
 
 ## Commits
 

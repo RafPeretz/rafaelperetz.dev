@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import { BookCallButton } from "@/components/book-call-button";
 import { ContactForm, type ContactFormLabels } from "@/components/contact/contact-form";
-import { BUDGETS, PROJECT_TYPES } from "@/lib/contact-schema";
+import { BUDGETS, PROJECT_TYPES } from "@/lib/contact-fields";
 import { siteConfig } from "@/site.config";
 
 export async function Contact({ locale }: { locale: string }) {

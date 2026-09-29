@@ -5,20 +5,11 @@ import * as z from "zod/mini";
  * Issues carry *codes* (e.g. "required"), not sentences, so each locale renders its own messages.
  */
 
-export const PROJECT_TYPES = ["cicd", "cloud", "mvp", "retainer", "unsure"] as const;
-export const BUDGETS = ["lt5k", "k5to15", "k15to40", "gt40k", "discuss"] as const;
+import { BUDGETS, PROJECT_TYPES, type ContactField, type FieldErrors } from "./contact-fields";
 
-export const FIELDS = ["name", "email", "company", "projectType", "budget", "message"] as const;
-export type ContactField = (typeof FIELDS)[number];
-export type FieldErrorCode = "required" | "invalid" | "tooShort" | "tooLong";
+export * from "./contact-fields";
 
-/** Honeypot field name: visually hidden, humans leave it empty. */
-export const HONEYPOT = "website";
-/** Hidden field with the render timestamp; submissions faster than this are treated as bots. */
-export const STARTED_AT = "startedAt";
-export const MIN_FILL_MS = 3000;
-
-// zod/mini: same validation, tree-shakable functional API (this module ships to the browser).
+// zod/mini: small, tree-shakable API. This module is also loaded in the browser (on first submit).
 const text = (max: number, ...checks: z.core.$ZodCheck<string>[]) =>
   z.string().check(z.trim(), ...checks, z.maxLength(max, "tooLong"));
 
@@ -32,7 +23,6 @@ export const contactSchema = z.object({
 });
 
 export type ContactInput = z.infer<typeof contactSchema>;
-export type FieldErrors = Partial<Record<ContactField, FieldErrorCode>>;
 
 /** Read the form into a plain object; empty selects become `undefined`. */
 export function readForm(form: FormData) {
@@ -66,10 +56,3 @@ export function validateContact(
   }
   return { ok: false, errors };
 }
-
-export type ContactState =
-  | { status: "idle" }
-  | { status: "success" }
-  | { status: "invalid"; errors: FieldErrors }
-  | { status: "rateLimited" }
-  | { status: "error" };

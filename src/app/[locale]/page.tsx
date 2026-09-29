@@ -1,3 +1,6 @@
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+
 import { About } from "@/components/sections/about";
 import { Contact } from "@/components/sections/contact";
 import { Experience } from "@/components/sections/experience";
@@ -10,8 +13,15 @@ import { Stats } from "@/components/sections/stats";
 import { Testimonials } from "@/components/sections/testimonials";
 import { Work } from "@/components/sections/work";
 import { resolveLocale } from "@/i18n/server";
-import { getTestimonials } from "@/lib/content";
+import { getServices, getTestimonials } from "@/lib/content";
+import { homeJsonLd, jsonLdScript } from "@/lib/jsonld";
+import { alternates } from "@/lib/seo";
 import { siteConfig } from "@/site.config";
+
+export async function generateMetadata({ params }: PageProps<"/[locale]">): Promise<Metadata> {
+  const locale = await resolveLocale(params);
+  return { alternates: alternates(locale, "/") };
+}
 
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const locale = await resolveLocale(params);
@@ -25,8 +35,15 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
   );
   const n = (id: string) => numbered.indexOf(id) + 1;
 
+  const meta = await getTranslations("meta");
+  const jsonLd = homeJsonLd(locale, {
+    description: meta("description"),
+    services: getServices(locale).map((s) => s.title),
+  });
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
       <Hero />
       <Experience />
       <Stats />

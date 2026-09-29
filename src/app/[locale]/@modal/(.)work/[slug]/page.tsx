@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import { CaseModal } from "@/components/case-study/case-modal";
 import { CaseStudyBody } from "@/components/case-study/case-study-body";
-import { Link } from "@/i18n/navigation";
+import { Link } from "@/i18n/link";
 import { routing } from "@/i18n/routing";
 import { resolveLocale } from "@/i18n/server";
 import { getCaseStudy, getCaseStudySlugs } from "@/lib/content";
