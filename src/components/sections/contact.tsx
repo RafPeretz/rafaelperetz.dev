@@ -50,7 +50,15 @@ export async function Contact() {
           </div>
           <div className="field col-span-full">
             <label htmlFor="f-email">{t("form.email")}</label>
-            <input id="f-email" name="email" type="email" className="input" required autoComplete="email" />
+            <input
+              id="f-email"
+              name="email"
+              type="email"
+              dir="ltr"
+              className="input"
+              required
+              autoComplete="email"
+            />
           </div>
           <div className="field">
             <label htmlFor="f-type">{t("form.projectType")}</label>

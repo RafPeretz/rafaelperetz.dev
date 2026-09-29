@@ -79,6 +79,14 @@ scripts/                  # contrast check, screenshots
 - **Reduced motion:** every animation must have a final-state fallback under `prefers-reduced-motion`.
 - **Imports:** `@/*` maps to `src/*`. Type-only imports use inline `type`.
 
+## i18n / RTL
+
+- Locales: `en` (default, served at `/`), `fr` (`/fr`), `he` (`/he`, RTL). `/` redirects returning or `Accept-Language` visitors to their locale (next-intl detection + cookie). Playwright scripts pin `locale: "en-US"` for that reason.
+- `pnpm check:i18n` verifies that all locales have the same keys and placeholders as `en.json`.
+- Hebrew uses Noto Sans Hebrew (`--font-hebrew`, only on `/he`, not preloaded). Inter has no Hebrew glyphs; the font stacks fall through per glyph.
+- Bidi pitfalls: numeric ranges like "2–4" render reversed inside Hebrew text, so use words ("2 עד 4"). Currency goes after the number (`2,500$`). Email inputs get `dir="ltr"`.
+- The French nav is long: the status pill is hidden for `:lang(fr)` below 1100px (see globals.css).
+
 ## Motion & interactions
 
 - **CSS first, no animation library in the bundle.** Page-level effects are driven by data attributes and handled by one client island, `src/components/interactions.tsx`:

@@ -31,14 +31,14 @@ export async function SiteHeader() {
               <Link
                 href={l.href}
                 prefetch={false}
-                className="text-sm text-fg-muted no-underline transition-colors hover:text-fg"
+                className="text-sm whitespace-nowrap text-fg-muted no-underline transition-colors hover:text-fg"
               >
                 {l.label}
               </Link>
             </li>
           ))}
         </ul>
-        <div className="hidden nav:block">
+        <div className="nav-status hidden nav:block">
           <AvailabilityBadge />
         </div>
 

@@ -1,0 +1,25 @@
+groups:
+  - label: "Cloud & DevOps"
+    items:
+      - { name: "Kubernetes", icon: steering-wheel, hint: "Orchestration de conteneurs" }
+      - { name: "Docker", icon: cube, hint: "Conteneurs" }
+      - { name: "Azure", icon: cloud, hint: "Cloud Microsoft" }
+      - { name: "AWS", icon: cloud-arrow-up, hint: "Amazon Web Services" }
+      - { name: "GitHub Actions", icon: github-logo, hint: "Workflows et pipelines" }
+      - { name: "CI/CD", icon: arrows-clockwise, hint: "Intégration et livraison continues" }
+  - label: "Backend · Frontend"
+    items:
+      - { name: "Python", icon: file-py, hint: "Langage backend" }
+      - { name: "FastAPI", icon: lightning, hint: "API" }
+      - { name: "React", icon: atom, hint: "Interfaces utilisateur" }
+  - label: "Données & hébergement"
+    items:
+      - { name: "Supabase", icon: database, hint: "Postgres, auth, stockage" }
+      - { name: "Railway", icon: train, hint: "Hébergement backend" }
+      - { name: "Vercel", icon: triangle, hint: "Hébergement frontend" }
+  - label: "Sécurité"
+    items:
+      - { name: "Sécurité des pipelines", icon: shield-check, hint: "Scan, signature, politiques" }
+      - { name: "IAM", icon: identification-badge, hint: "Accès au moindre privilège" }
+      - { name: "Gestion des secrets", icon: key, hint: "Aucun secret dans le code" }
+      - { name: "Infrastructure d’agents IA", icon: robot, hint: "Flottes d’agents à coûts plafonnés" }

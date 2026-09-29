@@ -15,7 +15,8 @@
     "check:contrast": "node scripts/check-contrast.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "content": "velite build"
+    "content": "velite build",
+    "check:i18n": "node scripts/check-messages.mjs"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

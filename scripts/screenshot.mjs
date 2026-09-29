@@ -22,6 +22,7 @@ for (const theme of themes) {
   for (const width of widths) {
     const context = await browser.newContext({
       viewport: { width, height: 900 },
+      locale: "en-US", // pin Accept-Language: "/" redirects to the browser's preferred locale
       deviceScaleFactor: 1,
       reducedMotion: process.env.REDUCED ? "reduce" : "no-preference",
     });

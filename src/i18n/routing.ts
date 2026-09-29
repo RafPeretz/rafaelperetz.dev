@@ -1,8 +1,7 @@
 import { defineRouting } from "next-intl/routing";
 
 export const routing = defineRouting({
-  // FR and HE are added in Phase 4.
-  locales: ["en"],
+  locales: ["en", "fr", "he"],
   defaultLocale: "en",
   // "/" serves English; other locales are prefixed ("/fr", "/he").
   localePrefix: "as-needed",

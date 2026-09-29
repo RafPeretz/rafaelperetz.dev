@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
-// Company names are proper nouns and stay untranslated. TODO: confirm "Porsche Digital" (see TODO.md).
-const COMPANIES = ["Unit 81", "Porsche Digital", "ReySecurity", "Reichman University"];
+// TODO: confirm "Porsche Digital" (see TODO.md). Names are localized where an official form exists.
+const COMPANIES = ["unit81", "porsche", "reysecurity", "reichman"] as const;
 
 export async function Experience() {
   const t = await getTranslations("experience");
@@ -13,9 +13,9 @@ export async function Experience() {
           {t("label")}
         </p>
         <ul role="list" className="contents">
-          {COMPANIES.map((name) => (
-            <li key={name} className="text-[19px] font-medium tracking-[-0.01em] text-neutral-400">
-              {name}
+          {COMPANIES.map((key) => (
+            <li key={key} className="text-[19px] font-medium tracking-[-0.01em] text-neutral-400">
+              {t(`companies.${key}`)}
             </li>
           ))}
         </ul>

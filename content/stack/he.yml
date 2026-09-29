@@ -1,0 +1,25 @@
+groups:
+  - label: "ענן ו־DevOps"
+    items:
+      - { name: "Kubernetes", icon: steering-wheel, hint: "תזמור קונטיינרים" }
+      - { name: "Docker", icon: cube, hint: "קונטיינרים" }
+      - { name: "Azure", icon: cloud, hint: "הענן של מיקרוסופט" }
+      - { name: "AWS", icon: cloud-arrow-up, hint: "Amazon Web Services" }
+      - { name: "GitHub Actions", icon: github-logo, hint: "וורקפלואים ופייפליינים" }
+      - { name: "CI/CD", icon: arrows-clockwise, hint: "אינטגרציה ומסירה רציפות" }
+  - label: "בקאנד · פרונטאנד"
+    items:
+      - { name: "Python", icon: file-py, hint: "שפת בקאנד" }
+      - { name: "FastAPI", icon: lightning, hint: "ממשקי API" }
+      - { name: "React", icon: atom, hint: "ממשקי משתמש" }
+  - label: "נתונים ואחסון"
+    items:
+      - { name: "Supabase", icon: database, hint: "Postgres, אימות, אחסון" }
+      - { name: "Railway", icon: train, hint: "אחסון בקאנד" }
+      - { name: "Vercel", icon: triangle, hint: "אחסון פרונטאנד" }
+  - label: "אבטחה"
+    items:
+      - { name: "אבטחת פייפליינים", icon: shield-check, hint: "סריקה, חתימה, מדיניות" }
+      - { name: "IAM", icon: identification-badge, hint: "הרשאות מינימליות" }
+      - { name: "ניהול סודות", icon: key, hint: "בלי סודות בקוד" }
+      - { name: "תשתית לסוכני AI", icon: robot, hint: "צי סוכנים עם תקרת עלויות" }

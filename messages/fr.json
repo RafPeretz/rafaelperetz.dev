@@ -1,0 +1,216 @@
+{
+  "meta": {
+    "title": "Rafael Peretz — Ingénieur DevOps & Cloud freelance",
+    "description": "DevOps, cloud et CI/CD pour les startups qui doivent livrer vite et rester sécurisées. Tel Aviv, en remote partout dans le monde."
+  },
+  "common": {
+    "skipToContent": "Aller au contenu"
+  },
+  "nav": {
+    "label": "Principale",
+    "services": "Services",
+    "work": "Projets",
+    "about": "À propos",
+    "stack": "Stack",
+    "contact": "Contact",
+    "book": "Réserver un appel",
+    "menu": "Menu",
+    "closeMenu": "Fermer le menu",
+    "language": "Langue"
+  },
+  "theme": {
+    "toLight": "Passer en mode clair",
+    "toDark": "Passer en mode sombre"
+  },
+  "availability": {
+    "available": "Disponible pour de nouveaux projets",
+    "limited": "Disponibilité limitée — T4",
+    "booked": "Complet — prochaine disponibilité en janv. 2027"
+  },
+  "footer": {
+    "elsewhere": "Ailleurs",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "upwork": "Upwork",
+    "malt": "Malt",
+    "email": "E-mail",
+    "copyright": "© {year} Rafael Peretz",
+    "deployed": "deployed {sha} · {date}",
+    "local": "local build · {date}"
+  },
+  "notFound": {
+    "path": "this-page",
+    "status": "route not found · 0 pods ready",
+    "title": "Cette page n’est jamais arrivée en production.",
+    "body": "Le lien est peut-être cassé, ou la page a été déplacée. Tout le reste fonctionne normalement.",
+    "home": "Retour à l’accueil"
+  },
+  "hero": {
+    "title": "Je construis l’<em>infrastructure</em> sur laquelle tourne votre startup.",
+    "lede": "DevOps, cloud et CI/CD pour les startups qui doivent livrer vite et rester sécurisées. Ancien ingénieur de l’Unité 81. Je construis aujourd’hui l’infrastructure de sécurité de ReySecurity.",
+    "ctaBook": "Appel gratuit de 20 min",
+    "ctaWork": "Voir mes projets",
+    "meta": {
+      "location": "Tel Aviv · GMT+3",
+      "languages": "EN / HE / FR",
+      "remote": "Remote, horaires UE + US"
+    }
+  },
+  "pipeline": {
+    "caption": "Un pipeline CI/CD qui exécute build, tests, scan et déploiement, et se termine par un déploiement réussi en production.",
+    "branch": "main",
+    "run": "run #128",
+    "queued": "queued",
+    "running": "running…",
+    "success": "✓ success",
+    "rerun": "re-run",
+    "rerunLabel": "Relancer l’animation du pipeline",
+    "stage": {
+      "queued": "queued",
+      "running": "running",
+      "passed": "passed"
+    },
+    "deployed": "✓ deployed → production in 2.4s"
+  },
+  "experience": {
+    "label": "Expérience avec",
+    "section": "Expérience",
+    "companies": {
+      "unit81": "Unité 81",
+      "porsche": "Porsche Digital",
+      "reysecurity": "ReySecurity",
+      "reichman": "Université Reichman"
+    }
+  },
+  "stats": {
+    "label": "En bref",
+    "years": {
+      "value": "<count>3</count>+ ans",
+      "label": "D’infrastructure en production"
+    },
+    "clouds": {
+      "value": "K8s · Azure · AWS",
+      "label": "Là où tournent vos workloads"
+    },
+    "security": {
+      "value": "Security-first",
+      "label": "Par défaut, pas en option"
+    }
+  },
+  "services": {
+    "kicker": "Services",
+    "title": "Périmètre fixe. Prix fixe. Livré.",
+    "lede": "Trois offres pour les problèmes que les startups rencontrent en premier — plus un forfait mensuel quand vous avez besoin de quelqu’un d’astreinte.",
+    "startingAt": "À partir de",
+    "retainerCta": "Parlons du forfait"
+  },
+  "work": {
+    "kicker": "Projets choisis",
+    "title": "Des systèmes qui tournent en ce moment même.",
+    "readCase": "Lire l’étude de cas",
+    "slot": {
+      "kicker": "run #129 · queued",
+      "title": "Votre projet pourrait être ici.",
+      "cta": "Réserver un appel gratuit"
+    }
+  },
+  "process": {
+    "kicker": "Ma méthode",
+    "title": "Cinq étapes. Aucune surprise.",
+    "stages": {
+      "discovery": {
+        "title": "Appel découverte",
+        "body": "20 minutes. Vos objectifs, vos contraintes, et si je suis la bonne personne."
+      },
+      "audit": {
+        "title": "Audit & plan",
+        "body": "J’analyse l’existant et vous envoie un plan au périmètre et au prix fixes."
+      },
+      "build": {
+        "title": "Réalisation",
+        "body": "Cycles courts, points d’avancement écrits, incréments fonctionnels visibles."
+      },
+      "deploy": {
+        "title": "Déploiement & documentation",
+        "body": "Mis en production, avec runbooks et documentation d’architecture."
+      },
+      "handover": {
+        "title": "Passation / support",
+        "body": "Une présentation pour votre équipe. Support optionnel après le lancement."
+      }
+    },
+    "principles": {
+      "communication": {
+        "title": "Communication claire",
+        "body": "Un point écrit chaque semaine. Pas de boîte noire."
+      },
+      "docs": {
+        "title": "Documentation livrée",
+        "body": "Runbooks, schémas et décisions — tout est écrit."
+      },
+      "lockin": {
+        "title": "Aucune dépendance",
+        "body": "Votre cloud, vos dépôts, vos clés."
+      }
+    }
+  },
+  "about": {
+    "kicker": "À propos",
+    "title": "Je comprends le code et le business.",
+    "p1": "Pendant trois ans, j’ai été ingénieur logiciel et infrastructure à l’Unité 81, en charge de systèmes en production. J’y ai aussi été formateur et commandant — j’ai conçu un cursus logiciel et accompagné des ingénieurs juniors.",
+    "p2": "Aujourd’hui, je cofonde ReySecurity tout en étudiant l’économie et l’entrepreneuriat (filière data science) à l’Université Reichman.",
+    "p3": "Je construis donc ce dont votre startup a vraiment besoin — pas une infrastructure surdimensionnée.",
+    "tags": {
+      "languages": "Anglais · Hébreu · Français",
+      "location": "Tel Aviv — remote partout",
+      "hours": "Horaires compatibles UE & US"
+    },
+    "portraitAlt": "Portrait de Rafael Peretz",
+    "portraitPlaceholder": "portrait · bientôt"
+  },
+  "stack": {
+    "kicker": "Stack",
+    "title": "Des outils éprouvés, sans surprise — bien utilisés."
+  },
+  "testimonials": {
+    "kicker": "Clients",
+    "title": "Ce qu’ils en disent.",
+    "prev": "Témoignage précédent",
+    "next": "Témoignage suivant",
+    "region": "Témoignages clients"
+  },
+  "faq": {
+    "kicker": "FAQ",
+    "title": "Des réponses claires."
+  },
+  "contact": {
+    "title": "Rendons votre infrastructure ennuyeuse — dans le bon sens.",
+    "lede": "Dites-moi ce que vous construisez. Vous aurez une réponse franche sur le périmètre, le délai et le coût.",
+    "book": "Réserver un appel gratuit",
+    "form": {
+      "name": "Nom",
+      "company": "Entreprise",
+      "email": "E-mail",
+      "projectType": "Type de projet",
+      "budget": "Budget",
+      "message": "Que construisez-vous ?",
+      "select": "Choisir…",
+      "submit": "Envoyer le message",
+      "sending": "Envoi…",
+      "projectTypes": {
+        "cicd": "Pipeline CI/CD",
+        "cloud": "Cloud & Kubernetes",
+        "mvp": "MVP / application web",
+        "retainer": "Forfait DevOps mensuel",
+        "unsure": "Je ne sais pas encore"
+      },
+      "budgets": {
+        "lt5k": "Moins de 5 k$",
+        "k5to15": "5 k$ – 15 k$",
+        "k15to40": "15 k$ – 40 k$",
+        "gt40k": "40 k$ et plus",
+        "discuss": "À discuter"
+      }
+    }
+  }
+}

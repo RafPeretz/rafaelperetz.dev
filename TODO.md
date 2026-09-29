@@ -21,10 +21,13 @@ Placeholders are marked `TODO` in the code. Items are grouped by where they live
 - [ ] **Confirm "Porsche Digital"** in the "Experience with" strip. It isn't mentioned anywhere else in your bio.
 - [ ] **Brand mark / favicon**: the "RP" monogram is used for now
 
-## Translations (Phase 4)
+## Translations (drafted in Phase 4, please review)
 
-- [ ] Review the drafted **French** copy (`messages/fr.json`, `content/**/fr.*`)
-- [ ] Review the drafted **Hebrew** copy (`messages/he.json`, `content/**/he.*`)
+- [ ] **French**: `messages/fr.json` and `content/**/fr.*`. Uses _vous_. The retainer is called "forfait DevOps mensuel".
+- [ ] **Hebrew**: `messages/he.json` and `content/**/he.*`
+  - Follows the design's own Hebrew lines, which address the reader in masculine singular ("בוא", "שלך", "ספר לי"). Consider gender-neutral or plural forms ("בואו", "ספרו לי") if you prefer.
+  - Prices use the Hebrew convention (amount, then `$`: `2,500$`). Ranges are written in words ("2 עד 4 שבועות") because "2–4" renders reversed in RTL.
+- [ ] Terminal-style text (the pipeline window, the 404 console, the mono "stack/focus" rows on case-study cards) intentionally stays English in every locale.
 
 ## Accounts / environment (Phase 5–6)
 

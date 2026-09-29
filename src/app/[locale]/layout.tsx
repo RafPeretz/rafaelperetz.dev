@@ -11,7 +11,7 @@ import { resolveLocale } from "@/i18n/server";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/site.config";
 
-import { inter, jetbrainsMono } from "../fonts";
+import { inter, jetbrainsMono, notoHebrew } from "../fonts";
 import "../globals.css";
 
 // Every locale is pre-rendered at build time; anything else is a 404.
@@ -44,7 +44,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
     <html
       lang={locale}
       dir={getDirection(locale)}
-      className={cn(inter.variable, jetbrainsMono.variable)}
+      className={cn(inter.variable, jetbrainsMono.variable, locale === "he" && notoHebrew.variable)}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >

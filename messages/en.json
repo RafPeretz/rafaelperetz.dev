@@ -74,7 +74,13 @@
   },
   "experience": {
     "label": "Experience with",
-    "section": "Experience"
+    "section": "Experience",
+    "companies": {
+      "unit81": "Unit 81",
+      "porsche": "Porsche Digital",
+      "reysecurity": "ReySecurity",
+      "reichman": "Reichman University"
+    }
   },
   "stats": {
     "label": "At a glance",
