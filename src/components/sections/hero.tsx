@@ -4,8 +4,8 @@ import { type CSSProperties } from "react";
 
 import { DEPLOYED_AT, ms, UNDERLINE_DURATION } from "@/components/hero/pipeline-timeline";
 import { PipelineWindow } from "@/components/hero/pipeline-window";
-import { ButtonAnchor, ButtonLink } from "@/components/ui/button";
-import { calUrl } from "@/site.config";
+import { BookCallButton } from "@/components/book-call-button";
+import { ButtonLink } from "@/components/ui/button";
 
 export async function Hero() {
   const t = await getTranslations("hero");
@@ -37,17 +37,10 @@ export async function Hero() {
           </h1>
           <p className="mt-7 max-w-[52ch] text-[17px] leading-relaxed text-fg-soft">{t("lede")}</p>
           <div className="mt-8 flex flex-wrap gap-2.5">
-            <ButtonAnchor
-              data-magnetic
-              variant="primary"
-              size="md"
-              href={calUrl}
-              target="_blank"
-              rel="noopener"
-            >
+            <BookCallButton data-magnetic variant="primary" size="md">
               <CalendarBlankIcon aria-hidden="true" className="size-4.25" />
               {t("ctaBook")}
-            </ButtonAnchor>
+            </BookCallButton>
             <ButtonLink data-magnetic variant="secondary" size="md" href="/#work" prefetch={false}>
               {t("ctaWork")}
               <ArrowDownIcon aria-hidden="true" className="size-3.75" />

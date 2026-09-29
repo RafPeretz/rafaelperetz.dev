@@ -37,7 +37,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       <Stack locale={locale} index={n("stack")} />
       {testimonials.length > 0 ? <Testimonials items={testimonials} index={n("testimonials")} /> : null}
       <Faq locale={locale} index={n("faq")} />
-      <Contact />
+      <Contact locale={locale} />
     </>
   );
 }

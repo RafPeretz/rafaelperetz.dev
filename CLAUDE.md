@@ -79,6 +79,23 @@ scripts/                  # contrast check, screenshots
 - **Reduced motion:** every animation must have a final-state fallback under `prefers-reduced-motion`.
 - **Imports:** `@/*` maps to `src/*`. Type-only imports use inline `type`.
 
+## Contact form & booking
+
+- `src/lib/contact-schema.ts` is shared by the browser and the Server Action (`src/app/actions/contact.ts`). It uses **`zod/mini`** because it ships to the client; full zod added about 400 KB raw. Server-only code (`lib/env.ts`) may use full `zod`.
+- Validation issues are **codes** (`required`, `invalid`, `tooShort`, `tooLong`), and each locale maps them to its own strings.
+- Spam protection:
+  - A honeypot field (`website`).
+  - A minimum fill time (`startedAt`, 3s). Bots get a fake success.
+  - Upstash rate limit: 3 per 10 min per IP. It's skipped with a warning when the env vars are missing, and fails open if Redis is down.
+- The form submits via `startTransition(formAction)` in `onSubmit`, so React doesn't reset the fields after a failed send. `action={formAction}` stays for no-JS.
+- `BookCallButton` is a real cal.com link. Cal's embed loads on first hover/focus, and the click opens Cal's popup only if the embed is ready.
+
+## Case studies
+
+- `/[locale]/work/[slug]` is the standalone, indexable page. `@modal/(.)work/[slug]` intercepts the same URL from the homepage and shows it in a native `<dialog>`; closing it calls `router.back()`.
+- `@modal/default.tsx`, `@modal/page.tsx` and `@modal/[...rest]` all render `null`, which closes the modal on other navigations. The slot's catch-all must share the page catch-all's param name (`rest`).
+- Both routes use `CaseStudyBody`. The homepage cards link with `scroll={false}`.
+
 ## i18n / RTL
 
 - Locales: `en` (default, served at `/`), `fr` (`/fr`), `he` (`/he`, RTL). `/` redirects returning or `Accept-Language` visitors to their locale (next-intl detection + cookie). Playwright scripts pin `locale: "en-US"` for that reason.

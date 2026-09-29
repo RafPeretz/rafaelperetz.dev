@@ -210,7 +210,34 @@
         "k15to40": "$15k – $40k",
         "gt40k": "$40k+",
         "discuss": "Let’s discuss"
-      }
+      },
+      "optional": "optional",
+      "honeypot": "Leave this field empty",
+      "errors": {
+        "required": "This field is required.",
+        "invalid": "Enter a valid email address.",
+        "tooShort": "A few more words, please (at least 20 characters).",
+        "tooLong": "That’s a bit long — please shorten it."
+      },
+      "invalid": "Please check the highlighted fields.",
+      "successTitle": "✓ message delivered",
+      "successBody": "Thanks — I’ll reply by email shortly.",
+      "sendAnother": "Send another message",
+      "error": "Something went wrong on my side and the message wasn’t sent. Please email me directly at {email}.",
+      "rateLimited": "Too many messages in a short time. Please try again in a few minutes, or email me at {email}."
     }
+  },
+  "caseStudy": {
+    "context": "context",
+    "challenge": "challenge",
+    "built": "what I built",
+    "stack": "stack",
+    "outcome": "outcome",
+    "cta": "Need something similar? Book a call",
+    "back": "All work",
+    "close": "Close",
+    "more": "More work",
+    "next": "Next case study",
+    "metaTitle": "{title} — case study"
   }
 }

@@ -1,9 +1,9 @@
 import { getTranslations } from "next-intl/server";
 
 import { BrandMark } from "@/components/ui/brand-mark";
-import { ButtonAnchor } from "@/components/ui/button";
+import { BookCallButton } from "@/components/book-call-button";
 import { Link } from "@/i18n/navigation";
-import { calUrl, siteConfig } from "@/site.config";
+import { siteConfig } from "@/site.config";
 
 import { AvailabilityBadge } from "./availability-badge";
 import { LocaleSwitcher } from "./locale-switcher";
@@ -45,16 +45,9 @@ export async function SiteHeader() {
         <LocaleSwitcher label={t("nav.language")} />
         <ThemeToggle toLight={t("theme.toLight")} toDark={t("theme.toDark")} />
 
-        <ButtonAnchor
-          data-magnetic
-          variant="primary"
-          href={calUrl}
-          target="_blank"
-          rel="noopener"
-          className="hidden nav:inline-flex"
-        >
+        <BookCallButton data-magnetic variant="primary" className="hidden nav:inline-flex">
           {t("nav.book")}
-        </ButtonAnchor>
+        </BookCallButton>
 
         <MobileMenu label={t("nav.menu")} closeLabel={t("nav.closeMenu")}>
           <div className="container-page flex flex-col gap-1 pt-2 pb-5">
@@ -74,15 +67,9 @@ export async function SiteHeader() {
             <div className="mt-3.5">
               <AvailabilityBadge variant="inline" />
             </div>
-            <ButtonAnchor
-              variant="primary"
-              href={calUrl}
-              target="_blank"
-              rel="noopener"
-              className="mt-3.5 min-h-11"
-            >
+            <BookCallButton variant="primary" className="mt-3.5 min-h-11">
               {t("nav.book")}
-            </ButtonAnchor>
+            </BookCallButton>
           </div>
         </MobileMenu>
       </nav>

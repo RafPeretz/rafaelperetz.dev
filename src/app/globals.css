@@ -407,3 +407,25 @@
     display: none;
   }
 }
+
+/* ── Case study dialog ─────────────────────────────────────────────────── */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+.case-dialog[open] {
+  animation: dialog-in 0.28s var(--ease-out-expo);
+}
+.case-dialog[open]::backdrop {
+  animation: backdrop-in 0.28s ease-out;
+}
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+}

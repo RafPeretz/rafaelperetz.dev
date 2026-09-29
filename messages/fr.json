@@ -210,7 +210,34 @@
         "k15to40": "15 k$ – 40 k$",
         "gt40k": "40 k$ et plus",
         "discuss": "À discuter"
-      }
+      },
+      "optional": "facultatif",
+      "honeypot": "Laissez ce champ vide",
+      "errors": {
+        "required": "Ce champ est obligatoire.",
+        "invalid": "Saisissez une adresse e-mail valide.",
+        "tooShort": "Encore quelques mots, s’il vous plaît (20 caractères minimum).",
+        "tooLong": "C’est un peu long — pouvez-vous raccourcir ?"
+      },
+      "invalid": "Merci de vérifier les champs signalés.",
+      "successTitle": "✓ message delivered",
+      "successBody": "Merci — je vous réponds très vite par e-mail.",
+      "sendAnother": "Envoyer un autre message",
+      "error": "Un problème de mon côté a empêché l’envoi du message. Écrivez-moi directement à {email}.",
+      "rateLimited": "Trop de messages en peu de temps. Réessayez dans quelques minutes, ou écrivez-moi à {email}."
     }
+  },
+  "caseStudy": {
+    "context": "contexte",
+    "challenge": "défi",
+    "built": "ce que j’ai construit",
+    "stack": "stack",
+    "outcome": "résultat",
+    "cta": "Besoin de quelque chose de similaire ? Réservez un appel",
+    "back": "Tous les projets",
+    "close": "Fermer",
+    "more": "Autres projets",
+    "next": "Étude de cas suivante",
+    "metaTitle": "{title} — étude de cas"
   }
 }

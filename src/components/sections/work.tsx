@@ -19,6 +19,7 @@ export async function Work({ locale, index }: { locale: string; index: number })
           <li key={c.slug} data-reveal className="flex">
             <Link
               href={`/work/${c.slug}`}
+              scroll={false}
               className="flex min-h-90 w-full flex-col gap-4.5 rounded-lg border border-divider p-7 text-fg no-underline transition-colors duration-250 [--glow-size:480px] [--glow-strength:14%] glow-card hover:border-[color-mix(in_srgb,var(--color-accent)_50%,transparent)] hover:text-fg"
             >
               <span className="font-mono-ui text-[11px] leading-none font-medium tracking-[0.08em] text-accent-text uppercase">

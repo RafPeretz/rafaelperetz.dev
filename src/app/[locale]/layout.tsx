@@ -35,7 +35,7 @@ export const viewport: Viewport = {
   colorScheme: "dark light",
 };
 
-export default async function LocaleLayout({ children, params }: LayoutProps<"/[locale]">) {
+export default async function LocaleLayout({ children, modal, params }: LayoutProps<"/[locale]">) {
   const locale = await resolveLocale(params);
 
   const t = await getTranslations("common");
@@ -62,6 +62,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
             <main id="main">{children}</main>
             <SiteFooter />
             <Interactions />
+            {modal}
           </NextIntlClientProvider>
         </Providers>
       </body>
