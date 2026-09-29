@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { notFound } from "next/navigation";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { Providers } from "@/components/providers";
 import { getDirection, routing } from "@/i18n/routing";
+import { resolveLocale } from "@/i18n/server";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/site.config";
 
@@ -20,7 +20,7 @@ export function generateStaticParams() {
 export const dynamicParams = false;
 
 export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Promise<Metadata> {
-  const { locale } = await params;
+  const locale = await resolveLocale(params);
   const t = await getTranslations({ locale, namespace: "meta" });
   return {
     metadataBase: new URL(siteConfig.url),
@@ -35,9 +35,7 @@ export const viewport: Viewport = {
 };
 
 export default async function LocaleLayout({ children, params }: LayoutProps<"/[locale]">) {
-  const { locale } = await params;
-  if (!hasLocale(routing.locales, locale)) notFound();
-  setRequestLocale(locale);
+  const locale = await resolveLocale(params);
 
   const t = await getTranslations("common");
 

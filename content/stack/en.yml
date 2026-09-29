@@ -1,0 +1,25 @@
+groups:
+  - label: Cloud & DevOps
+    items:
+      - { name: Kubernetes, icon: steering-wheel, hint: Container orchestration }
+      - { name: Docker, icon: cube, hint: Containers }
+      - { name: Azure, icon: cloud, hint: Microsoft cloud }
+      - { name: AWS, icon: cloud-arrow-up, hint: Amazon Web Services }
+      - { name: GitHub Actions, icon: github-logo, hint: Workflows and pipelines }
+      - { name: CI/CD, icon: arrows-clockwise, hint: Continuous integration and delivery }
+  - label: Backend · Frontend
+    items:
+      - { name: Python, icon: file-py, hint: Backend language }
+      - { name: FastAPI, icon: lightning, hint: APIs }
+      - { name: React, icon: atom, hint: User interfaces }
+  - label: Data & hosting
+    items:
+      - { name: Supabase, icon: database, hint: "Postgres, auth, storage" }
+      - { name: Railway, icon: train, hint: Backend hosting }
+      - { name: Vercel, icon: triangle, hint: Frontend hosting }
+  - label: Security
+    items:
+      - { name: Pipeline security, icon: shield-check, hint: "Scanning, signing, policy" }
+      - { name: IAM, icon: identification-badge, hint: Least-privilege access }
+      - { name: Secrets management, icon: key, hint: No secrets in code }
+      - { name: AI agent infrastructure, icon: robot, hint: Cost-capped agent fleets }

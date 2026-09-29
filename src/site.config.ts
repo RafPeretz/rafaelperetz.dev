@@ -32,6 +32,9 @@ export const siteConfig = {
   /** Drives the nav/footer status pill. Localized labels live in messages/*.json → availability.* */
   availability: "available" as Availability,
 
+  /** Portrait in /public, e.g. "/images/portrait.jpg" (4:5, ≥ 880×1100). null renders a placeholder. */
+  portrait: null as string | null, // TODO: add portrait photo
+
   links: {
     email: "hello@rafaelperetz.dev", // TODO: mailbox not live until the domain is bought — see TODO.md
     github: "https://github.com/", // TODO: GitHub profile URL

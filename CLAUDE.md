@@ -18,11 +18,12 @@ The design source is `Design/Rafa's portfolio mockup/Rafa Peretz Portfolio.dc.ht
 ## Commands
 
 ```bash
-pnpm dev              # dev server (http://localhost:3000)
-pnpm build            # production build; routes must stay ○/● (static), except the catch-all 404
+pnpm dev              # Velite (content, watch) + next dev (http://localhost:3000)
+pnpm build            # velite build && next build; routes must stay ○/● (static), except the catch-all 404
 pnpm start            # serve the production build
 pnpm lint             # ESLint (flat config); `next lint` no longer exists in Next 16
-pnpm typecheck        # next typegen && tsc --noEmit
+pnpm typecheck        # velite build && next typegen && tsc --noEmit
+pnpm content          # rebuild the content layer (.velite/) only
 pnpm format           # Prettier (+ Tailwind class sorting)
 pnpm check:contrast   # WCAG AA guard over the colour tokens, dark + light
 node scripts/screenshot.mjs http://localhost:3000 / [paths…]  # full-page shots at 375/768/1280/1920, dark+light
@@ -45,14 +46,28 @@ src/
   lib/                    # utilities
   styles/tokens.css       # design tokens: the single source of truth for colour/type/radius/shadow/motion
 messages/{en,fr,he}.json  # UI strings; all three files keep identical keys
+content/                  # editable content (Velite, schemas in velite.config.ts)
+  work/<slug>/<locale>.md       # case studies (card + Context → Challenge → Built → Stack → Outcome)
+  services/<slug>/<locale>.md   # packages + retainer (kind: package | retainer)
+  faq/<slug>/<locale>.md        # question in frontmatter, answer as Markdown body
+  testimonials/<slug>/<locale>.md  # section hidden while empty
+  stack/<locale>.yml            # stack groups
+velite.config.ts          # content schemas; output → .velite/ (imported as #site/content)
 scripts/                  # contrast check, screenshots
 ```
+
+## Content
+
+- Copy that the owner edits lives in `content/` (Velite, typed via zod schemas in `velite.config.ts`). Interface strings live in `messages/`.
+- A missing `<locale>` file falls back to English (`src/lib/content.ts`). Read content only through those accessors.
+- Content icons are validated names from `src/content-icons.ts`, rendered by `ContentIcon`. To add an icon, update both.
+- Velite runs as its own process (`next.config.ts` can't use top-level await in Next 16).
 
 ## Conventions
 
 - **Server Components by default.** Add `"use client"` only for interactivity (menu, theme, animations, form). Pass server-rendered content into client islands as `children` instead of moving it client-side.
-- **Static by default.** Pages read only `params`. Never use `cookies()`, `headers()` or `searchParams` in pages. Every page calls `setRequestLocale(locale)`, and `[locale]/layout.tsx` sets `generateStaticParams` + `dynamicParams = false`.
-- **Tokens only.** Use colours such as `bg-bg`, `text-fg-muted`, `text-accent-text`, `border-divider`, and never raw hex. The default Tailwind palette is disabled. For accent-coloured *text* use `accent-text` (AA-safe in light mode); `accent` is for lines, icons and glows. After changing tokens, run `pnpm check:contrast`.
+- **Static by default.** Pages read only `params`, via `resolveLocale(params)` from `@/i18n/server` (narrows the type + `setRequestLocale`). Never use `cookies()`, `headers()` or `searchParams` in pages. Every page calls `setRequestLocale(locale)`, and `[locale]/layout.tsx` sets `generateStaticParams` + `dynamicParams = false`.
+- **Tokens only.** Use colours such as `bg-bg`, `text-fg-muted`, `text-accent-text`, `border-divider`, and never raw hex. The default Tailwind palette is disabled. For accent-coloured _text_ use `accent-text` (AA-safe in light mode); `accent` is for lines, icons and glows. After changing tokens, run `pnpm check:contrast`.
 - **Text emphasis steps:** `fg` > `fg-soft` (78%) > `fg-muted` (72%) > `fg-subtle` (62%) > `fg-faint` (55%).
 - **Type scale:** `text-display`, `text-display-cta`, `text-h2`, `text-stat`, `text-case`. Don't name a size token after a colour token; `text-section` would collide with `--color-section`.
 - **Layout helpers:** `container-page` (1200px max + fluid gutter), `section-pad`, `font-mono-ui`. Desktop nav breakpoint: `nav:` (900px).

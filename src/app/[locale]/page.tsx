@@ -1,19 +1,43 @@
-import { setRequestLocale } from "next-intl/server";
+import { About } from "@/components/sections/about";
+import { Contact } from "@/components/sections/contact";
+import { Experience } from "@/components/sections/experience";
+import { Faq } from "@/components/sections/faq";
+import { Hero } from "@/components/sections/hero";
+import { Process } from "@/components/sections/process";
+import { Services } from "@/components/sections/services";
+import { Stack } from "@/components/sections/stack";
+import { Stats } from "@/components/sections/stats";
+import { Testimonials } from "@/components/sections/testimonials";
+import { Work } from "@/components/sections/work";
+import { resolveLocale } from "@/i18n/server";
+import { getTestimonials } from "@/lib/content";
+import { siteConfig } from "@/site.config";
 
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
-  const { locale } = await params;
-  setRequestLocale(locale);
+  const locale = await resolveLocale(params);
 
-  // Phase 2 replaces this with the homepage sections.
+  const testimonials = siteConfig.features.testimonials ? getTestimonials(locale) : [];
+
+  // Numbered sections ("01 — Services" …) are counted from what's actually shown,
+  // so hiding testimonials doesn't leave a gap in the sequence.
+  const numbered = ["services", "work", "process", "about", "stack", "testimonials", "faq"].filter(
+    (s) => s !== "testimonials" || testimonials.length > 0,
+  );
+  const n = (id: string) => numbered.indexOf(id) + 1;
+
   return (
-    <div className="container-page min-h-[60vh] section-pad">
-      <p className="font-mono-ui text-xs tracking-[0.08em] text-accent-text uppercase">phase 1 · shell</p>
-      <h1 className="mt-4 max-w-[16ch] text-display">Layout, tokens, nav, footer and theme.</h1>
-      {["services", "work", "about", "stack", "contact"].map((id) => (
-        <section key={id} id={id} className="mt-24 border-t border-divider pt-6">
-          <p className="font-mono-ui text-xs text-fg-subtle">#{id}</p>
-        </section>
-      ))}
-    </div>
+    <>
+      <Hero />
+      <Experience />
+      <Stats />
+      <Services locale={locale} index={n("services")} />
+      <Work locale={locale} index={n("work")} />
+      <Process index={n("process")} />
+      <About index={n("about")} />
+      <Stack locale={locale} index={n("stack")} />
+      {testimonials.length > 0 ? <Testimonials items={testimonials} index={n("testimonials")} /> : null}
+      <Faq locale={locale} index={n("faq")} />
+      <Contact />
+    </>
   );
 }

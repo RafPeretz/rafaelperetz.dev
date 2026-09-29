@@ -9,7 +9,7 @@ Placeholders are marked `TODO` in the code. Items are grouped by where they live
 - [ ] **Upwork** profile URL (`links.upwork`)
 - [ ] **Malt** profile URL (`links.malt`)
 - [ ] **Cal.com** event slug (`links.cal`, e.g. `rafaelperetz/20min`)
-- [ ] **Contact email.** `hello@rafaelperetz.dev` won't receive mail until the domain is bought *and* forwarding is set up (see README → Custom domain). Until then, use an address that works.
+- [ ] **Contact email.** `hello@rafaelperetz.dev` won't receive mail until the domain is bought _and_ forwarding is set up (see README → Custom domain). Until then, use an address that works.
 - [ ] **Availability** (`availability`: `available` | `limited` | `booked`). The limited/booked wording is in `messages/*.json → availability`.
 
 ## Content

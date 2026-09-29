@@ -122,6 +122,18 @@
   font-feature-settings: "calt" 0;
 }
 
+/* Card with a cursor-following accent glow. Phase 3's GlowCard sets --mx/--my on pointer move;
+   --glow-size / --glow-strength / --glow-fill tune the three variants used in the design. */
+@utility glow-card {
+  background:
+    radial-gradient(
+      var(--glow-size, 420px) circle at var(--mx, -500px) var(--my, -500px),
+      color-mix(in srgb, var(--color-accent) var(--glow-strength, 13%), transparent),
+      transparent 65%
+    ),
+    var(--glow-fill, color-mix(in srgb, var(--color-surface) 55%, transparent));
+}
+
 /* ── Nocturne components ──────────────────────────────────────────────── */
 @layer components {
   .btn {

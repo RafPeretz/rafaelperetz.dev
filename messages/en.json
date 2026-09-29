@@ -45,5 +45,167 @@
     "title": "This page never made it to production.",
     "body": "The link may be broken, or the page was moved. Everything else is running fine.",
     "home": "Back to the homepage"
+  },
+  "hero": {
+    "title": "I build the <em>infrastructure</em> your startup runs on.",
+    "lede": "DevOps, cloud & CI/CD for startups that need to ship fast and stay secure. Ex–Unit 81 engineer. Currently building security infrastructure at ReySecurity.",
+    "ctaBook": "Book a free 20-min call",
+    "ctaWork": "See my work",
+    "meta": {
+      "location": "Tel Aviv · GMT+3",
+      "languages": "EN / HE / FR",
+      "remote": "Remote, EU + US overlap"
+    }
+  },
+  "pipeline": {
+    "caption": "A CI/CD pipeline running build, test, scan and deploy, ending in a successful production deploy.",
+    "branch": "main",
+    "run": "run #128",
+    "queued": "queued",
+    "running": "running…",
+    "success": "✓ success",
+    "rerun": "re-run",
+    "rerunLabel": "Re-run the pipeline animation",
+    "stage": {
+      "queued": "queued",
+      "running": "running",
+      "passed": "passed"
+    },
+    "deployed": "✓ deployed → production in 2.4s"
+  },
+  "experience": {
+    "label": "Experience with",
+    "section": "Experience"
+  },
+  "stats": {
+    "label": "At a glance",
+    "years": {
+      "value": "<count>3</count>+ years",
+      "label": "Running production infrastructure"
+    },
+    "clouds": {
+      "value": "K8s · Azure · AWS",
+      "label": "Where your workloads live"
+    },
+    "security": {
+      "value": "Security-first",
+      "label": "By default, not as an add-on"
+    }
+  },
+  "services": {
+    "kicker": "Services",
+    "title": "Fixed scope. Fixed price. Shipped.",
+    "lede": "Three packages for the problems startups hit first — plus a retainer for when you need someone on call.",
+    "startingAt": "Starting at",
+    "retainerCta": "Ask about retainers"
+  },
+  "work": {
+    "kicker": "Selected work",
+    "title": "Systems that are running right now.",
+    "readCase": "Read case study",
+    "slot": {
+      "kicker": "run #129 · queued",
+      "title": "Your project could be here.",
+      "cta": "Book a free call"
+    }
+  },
+  "process": {
+    "kicker": "How I work",
+    "title": "Five stages. No surprises.",
+    "stages": {
+      "discovery": {
+        "title": "Discovery call",
+        "body": "20 minutes. Your goals, your constraints, and whether I’m the right fit."
+      },
+      "audit": {
+        "title": "Audit & plan",
+        "body": "I review what exists and send a fixed-scope plan with a fixed price."
+      },
+      "build": {
+        "title": "Build",
+        "body": "Short cycles, written updates, working increments you can see."
+      },
+      "deploy": {
+        "title": "Deploy & document",
+        "body": "Shipped to production, with runbooks and architecture docs."
+      },
+      "handover": {
+        "title": "Handover / support",
+        "body": "A walkthrough for your team. Optional support after launch."
+      }
+    },
+    "principles": {
+      "communication": {
+        "title": "Clear communication",
+        "body": "Weekly written updates. No black boxes."
+      },
+      "docs": {
+        "title": "Documentation delivered",
+        "body": "Runbooks, diagrams and decisions — written down."
+      },
+      "lockin": {
+        "title": "No vendor lock-in",
+        "body": "Your cloud, your repos, your keys."
+      }
+    }
+  },
+  "about": {
+    "kicker": "About",
+    "title": "I understand the code and the business.",
+    "p1": "For three years I was a software & infrastructure engineer in Unit 81, running production systems. I also served as a course instructor and commander — designing a software curriculum and mentoring junior engineers.",
+    "p2": "Today I’m co-founding ReySecurity while studying Economics & Entrepreneurship (Data Science track) at Reichman University.",
+    "p3": "So I build what your startup actually needs — not over-engineered infrastructure.",
+    "tags": {
+      "languages": "English · Hebrew · French",
+      "location": "Tel Aviv — remote worldwide",
+      "hours": "Overlaps EU & US hours"
+    },
+    "portraitAlt": "Portrait of Rafael Peretz",
+    "portraitPlaceholder": "portrait · coming soon"
+  },
+  "stack": {
+    "kicker": "Stack",
+    "title": "Boring, proven tools — used well."
+  },
+  "testimonials": {
+    "kicker": "Clients",
+    "title": "In their words.",
+    "prev": "Previous testimonial",
+    "next": "Next testimonial",
+    "region": "Client testimonials"
+  },
+  "faq": {
+    "kicker": "FAQ",
+    "title": "Straight answers."
+  },
+  "contact": {
+    "title": "Let’s make your infrastructure boring — in the best way.",
+    "lede": "Tell me what you’re shipping. You’ll get a straight answer on scope, timeline and cost.",
+    "book": "Book a free call",
+    "form": {
+      "name": "Name",
+      "company": "Company",
+      "email": "Email",
+      "projectType": "Project type",
+      "budget": "Budget range",
+      "message": "What are you building?",
+      "select": "Select…",
+      "submit": "Send message",
+      "sending": "Sending…",
+      "projectTypes": {
+        "cicd": "CI/CD pipeline",
+        "cloud": "Cloud & Kubernetes",
+        "mvp": "MVP / web app",
+        "retainer": "DevOps retainer",
+        "unsure": "Not sure yet"
+      },
+      "budgets": {
+        "lt5k": "Under $5k",
+        "k5to15": "$5k – $15k",
+        "k15to40": "$15k – $40k",
+        "gt40k": "$40k+",
+        "discuss": "Let’s discuss"
+      }
+    }
   }
 }
