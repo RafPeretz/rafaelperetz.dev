@@ -1,7 +1,7 @@
 # rafaelperetz.dev
 
-[![CI](https://github.com/OWNER/REPO/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/REPO/actions/workflows/ci.yml)
-[![Lighthouse](https://github.com/OWNER/REPO/actions/workflows/lighthouse.yml/badge.svg)](https://github.com/OWNER/REPO/actions/workflows/lighthouse.yml)
+[![CI](https://github.com/RafPeretz/rafaelperetz.dev/actions/workflows/ci.yml/badge.svg)](https://github.com/RafPeretz/rafaelperetz.dev/actions/workflows/ci.yml)
+[![Lighthouse](https://github.com/RafPeretz/rafaelperetz.dev/actions/workflows/lighthouse.yml/badge.svg)](https://github.com/RafPeretz/rafaelperetz.dev/actions/workflows/lighthouse.yml)
 ![Lighthouse scores](https://img.shields.io/badge/lighthouse-95%2B%20%C2%B7%20100%20%C2%B7%20100%20%C2%B7%20100-9184d9)
 ![Next.js](https://img.shields.io/badge/Next.js-16-161826?logo=nextdotjs)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white)
