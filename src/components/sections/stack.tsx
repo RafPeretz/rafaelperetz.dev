@@ -17,6 +17,7 @@ export async function Stack({ locale, index }: { locale: string; index: number }
         {groups.map((g) => (
           <div
             key={g.label}
+            data-reveal
             className="flex flex-wrap gap-x-6 gap-y-3 border-t border-divider py-5 last:border-b"
           >
             <h3 className="flex-[0_0_180px] font-mono-ui text-xs leading-[2.6] font-medium tracking-[0.06em] text-fg-subtle uppercase">

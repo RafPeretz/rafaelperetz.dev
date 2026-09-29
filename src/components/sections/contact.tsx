@@ -18,7 +18,14 @@ export async function Contact() {
             {t("title")}
           </h2>
           <p className="max-w-[44ch] text-base leading-relaxed text-fg-soft">{t("lede")}</p>
-          <ButtonAnchor variant="primary" size="lg" href={calUrl} target="_blank" rel="noopener">
+          <ButtonAnchor
+            data-magnetic
+            variant="primary"
+            size="lg"
+            href={calUrl}
+            target="_blank"
+            rel="noopener"
+          >
             <CalendarBlankIcon aria-hidden="true" className="size-4.5" />
             {t("book")}
           </ButtonAnchor>

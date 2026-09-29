@@ -255,3 +255,138 @@
     mix-blend-mode: normal;
   }
 }
+
+/* ── Hero pipeline timeline ───────────────────────────────────────────────
+   Base styles are the FINAL state ("✓ deployed"). Each animation only holds a
+   pre-final state for a window of time; windows come from CSS variables set
+   inline by PipelineWindow (see components/hero/pipeline-timeline.ts).
+   When the animations finish — or never run (reduced motion) — the base wins. */
+
+/* Hidden for [0, --pl-for), then visible (base). */
+.pl-late {
+  animation: pl-invisible var(--pl-for) linear;
+}
+/* Visible only during [--pl-from, --pl-from + --pl-for); hidden otherwise. */
+.pl-window {
+  opacity: 0;
+  animation: pl-visible var(--pl-for) linear var(--pl-from);
+}
+@keyframes pl-invisible {
+  from,
+  to {
+    opacity: 0;
+  }
+}
+@keyframes pl-visible {
+  from,
+  to {
+    opacity: 1;
+  }
+}
+
+/* Stage card: queued until --pl-run, running until --pl-pass, then passed (base). */
+.pl-stage {
+  animation:
+    pl-stage-queued var(--pl-run) linear,
+    pl-stage-running var(--pl-running) linear var(--pl-run);
+}
+.pl-stage-icon {
+  animation: pl-icon-queued var(--pl-run) linear;
+}
+@keyframes pl-stage-queued {
+  from,
+  to {
+    border-color: var(--color-divider);
+  }
+}
+@keyframes pl-stage-running {
+  from,
+  to {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-stage-running);
+  }
+}
+@keyframes pl-icon-queued {
+  from,
+  to {
+    color: var(--color-fg-faint);
+  }
+}
+
+/* Log rows collapse to zero height (grid 0fr) while not shown, so later lines move up like a real log. */
+.pl-row {
+  display: grid;
+  grid-template-rows: 1fr;
+  margin-top: 7px;
+}
+.pl-row > * {
+  min-height: 0;
+  overflow: hidden;
+}
+/* Appears at --pl-for. */
+.pl-row-late {
+  animation:
+    pl-row-collapsed var(--pl-for) linear,
+    pl-fade-up 250ms ease-out var(--pl-for) backwards;
+}
+/* Shown only during [--pl-from, --pl-from + --pl-for) — the line that scrolls out. */
+.pl-row-temp {
+  grid-template-rows: 0fr;
+  margin-top: 0;
+  opacity: 0;
+  animation: pl-row-shown var(--pl-for) linear var(--pl-from);
+}
+@keyframes pl-row-collapsed {
+  from,
+  to {
+    grid-template-rows: 0fr;
+    margin-top: 0;
+    opacity: 0;
+  }
+}
+@keyframes pl-row-shown {
+  from {
+    grid-template-rows: 1fr;
+    margin-top: 7px;
+    opacity: 0;
+  }
+  15%,
+  to {
+    grid-template-rows: 1fr;
+    margin-top: 7px;
+    opacity: 1;
+  }
+}
+@keyframes pl-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+
+/* Progress line segments and the headline underline sweep in (scaleX 0 → 1). */
+.pl-grow {
+  animation: pl-grow var(--pl-for) var(--ease-out-expo) var(--pl-from) backwards;
+}
+@keyframes pl-grow {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+/* "Re-run": the button adds this class, forces a reflow and removes it, restarting every animation. */
+.pl-reset,
+.pl-reset * {
+  animation: none !important;
+}
+
+/* ── Scroll reveal (driven by components/interactions.tsx) ──────────────── */
+.reveal-pending {
+  opacity: 0;
+  transform: translateY(16px);
+}
+.reveal-in {
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s var(--ease-out-expo);
+}

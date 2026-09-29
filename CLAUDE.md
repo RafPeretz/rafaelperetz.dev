@@ -79,6 +79,21 @@ scripts/                  # contrast check, screenshots
 - **Reduced motion:** every animation must have a final-state fallback under `prefers-reduced-motion`.
 - **Imports:** `@/*` maps to `src/*`. Type-only imports use inline `type`.
 
+## Motion & interactions
+
+- **CSS first, no animation library in the bundle.** Page-level effects are driven by data attributes and handled by one client island, `src/components/interactions.tsx`:
+  - `data-reveal`: fade/slide in on scroll. Only elements below the fold at load are hidden, so there's no flash and no JS is needed.
+  - `data-count="N"`: count-up.
+  - `.glow-card`: cursor glow via `--mx`/`--my`.
+  - `data-magnetic`: magnetic buttons, on fine pointers only.
+- **Hero pipeline** (`components/hero/`) is pure CSS. Timings live in `pipeline-timeline.ts` and reach the markup as `--pl-*` variables; the classes are under "Hero pipeline timeline" in `globals.css`.
+  - The markup's resting state is the final "✓ deployed" state. Animations only hold earlier states for a time window, so reduced motion, no-JS and crawlers get the finished pipeline.
+  - "Re-run" toggles `.pl-reset` on `[data-pipeline-root]` to restart every animation.
+  - Keep the whole run under 3s, and prefer `opacity`/`transform` (compositor) for anything new.
+  - The log area has a reserved `min-height` so the window never changes size (CLS).
+- Everything respects `prefers-reduced-motion` (global rule in `globals.css`, plus JS checks).
+- Links to in-page anchors on the homepage (`/#services`) use `prefetch={false}`, as do locale-switcher links.
+
 ## Commits
 
 One commit per phase or logical change. Use a short imperative subject with the scope first, e.g. `feat(hero): …`, `chore(ci): …`.

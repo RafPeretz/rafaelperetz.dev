@@ -3,19 +3,28 @@ import { getTranslations } from "next-intl/server";
 
 import { type Testimonial } from "#site/content";
 
+import { CarouselControls } from "./carousel-controls";
 import { SectionHeading } from "./section-heading";
 
-/** Rendered only when testimonials exist (see page.tsx); carousel controls arrive in Phase 3. */
+const LIST_ID = "testimonials-list";
+
+/** Rendered only when testimonials exist (see page.tsx). */
 export async function Testimonials({ items, index }: { items: Testimonial[]; index: number }) {
   const t = await getTranslations("testimonials");
 
   return (
     <section aria-labelledby="testi-h" className="container-page section-pad">
-      <SectionHeading id="testi-h" index={index} kicker={t("kicker")} title={t("title")} />
+      <div className="flex flex-wrap items-end justify-between gap-5">
+        <SectionHeading id="testi-h" index={index} kicker={t("kicker")} title={t("title")} />
+        {items.length > 1 ? <CarouselControls listId={LIST_ID} prev={t("prev")} next={t("next")} /> : null}
+      </div>
+      {/* Focusable so keyboard users can scroll it with the arrow keys. */}
       <ul
+        id={LIST_ID}
         role="list"
+        tabIndex={0}
         aria-label={t("region")}
-        className="mt-9 flex snap-x snap-mandatory [scrollbar-width:none] gap-4 overflow-x-auto pb-1"
+        className="mt-9 flex snap-x snap-mandatory [scrollbar-width:none] gap-4 overflow-x-auto rounded-lg pb-1"
       >
         {items.map((item) => (
           <li

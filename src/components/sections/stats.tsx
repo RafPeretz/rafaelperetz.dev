@@ -12,13 +12,13 @@ export async function Stats() {
     >
       <dl className="container-page grid grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] gap-x-12 gap-y-9 py-14">
         {STATS.map((key) => (
-          <div key={key} className="flex flex-col-reverse">
+          <div key={key} data-reveal className="flex flex-col-reverse">
             <dt className="mt-3.5 font-mono-ui text-xs leading-normal tracking-[0.04em] text-fg-muted uppercase">
               {t(`${key}.label`)}
             </dt>
             <dd className="text-stat font-medium">
               {key === "years"
-                ? t.rich("years.value", { count: (chunks) => <span>{chunks}</span> })
+                ? t.rich("years.value", { count: (chunks) => <span data-count="3">{chunks}</span> })
                 : t(`${key}.value`)}
             </dd>
           </div>

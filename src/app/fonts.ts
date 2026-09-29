@@ -12,4 +12,6 @@ export const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500"],
   variable: "--font-jetbrains",
   display: "swap",
+  // Not needed for the first paint of the headline; skip the preload to keep the critical path lean.
+  preload: false,
 });

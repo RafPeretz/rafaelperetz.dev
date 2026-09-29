@@ -1,6 +1,8 @@
 import { ArrowDownIcon, CalendarBlankIcon } from "@phosphor-icons/react/ssr";
 import { getTranslations } from "next-intl/server";
+import { type CSSProperties } from "react";
 
+import { DEPLOYED_AT, ms, UNDERLINE_DURATION } from "@/components/hero/pipeline-timeline";
 import { PipelineWindow } from "@/components/hero/pipeline-window";
 import { ButtonAnchor, ButtonLink } from "@/components/ui/button";
 import { calUrl } from "@/site.config";
@@ -9,7 +11,7 @@ export async function Hero() {
   const t = await getTranslations("hero");
 
   return (
-    <section aria-labelledby="hero-h" className="relative overflow-hidden">
+    <section aria-labelledby="hero-h" data-pipeline-root className="relative overflow-hidden">
       {/* Masked 56px grid */}
       <div
         aria-hidden="true"
@@ -24,7 +26,10 @@ export async function Hero() {
                   {chunks}
                   <span
                     aria-hidden="true"
-                    className="absolute start-0 -bottom-[0.04em] h-0.5 w-full bg-accent shadow-glow"
+                    className="pl-grow absolute start-0 -bottom-[0.04em] h-0.5 w-full bg-accent shadow-glow ltr:origin-left rtl:origin-right"
+                    style={
+                      { "--pl-from": ms(DEPLOYED_AT), "--pl-for": ms(UNDERLINE_DURATION) } as CSSProperties
+                    }
                   />
                 </span>
               ),
@@ -32,11 +37,18 @@ export async function Hero() {
           </h1>
           <p className="mt-7 max-w-[52ch] text-[17px] leading-relaxed text-fg-soft">{t("lede")}</p>
           <div className="mt-8 flex flex-wrap gap-2.5">
-            <ButtonAnchor variant="primary" size="md" href={calUrl} target="_blank" rel="noopener">
+            <ButtonAnchor
+              data-magnetic
+              variant="primary"
+              size="md"
+              href={calUrl}
+              target="_blank"
+              rel="noopener"
+            >
               <CalendarBlankIcon aria-hidden="true" className="size-4.25" />
               {t("ctaBook")}
             </ButtonAnchor>
-            <ButtonLink variant="secondary" size="md" href="/#work">
+            <ButtonLink data-magnetic variant="secondary" size="md" href="/#work" prefetch={false}>
               {t("ctaWork")}
               <ArrowDownIcon aria-hidden="true" className="size-3.75" />
             </ButtonLink>

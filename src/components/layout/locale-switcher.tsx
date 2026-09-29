@@ -23,6 +23,7 @@ export function LocaleSwitcher({ label }: { label: string }) {
             href={pathname}
             locale={locale}
             hrefLang={locale}
+            prefetch={false}
             lang={locale}
             aria-current={isActive ? "true" : undefined}
             aria-label={NAMES[locale]}

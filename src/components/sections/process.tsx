@@ -24,7 +24,7 @@ export async function Process({ index }: { index: number }) {
           const first = i === 0;
           const last = i === STAGES.length - 1;
           return (
-            <li key={key} className="flex flex-col gap-3 pe-5">
+            <li key={key} data-reveal className="flex flex-col gap-3 pe-5">
               <div aria-hidden="true" className="flex items-center">
                 <span
                   className={cn(

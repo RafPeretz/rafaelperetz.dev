@@ -16,7 +16,7 @@ export async function Work({ locale, index }: { locale: string; index: number })
 
       <ul role="list" className="mt-11 grid grid-cols-[repeat(auto-fit,minmax(min(100%,460px),1fr))] gap-4">
         {cases.map((c) => (
-          <li key={c.slug} className="flex">
+          <li key={c.slug} data-reveal className="flex">
             <Link
               href={`/work/${c.slug}`}
               className="flex min-h-90 w-full flex-col gap-4.5 rounded-lg border border-divider p-7 text-fg no-underline transition-colors duration-250 [--glow-size:480px] [--glow-strength:14%] glow-card hover:border-[color-mix(in_srgb,var(--color-accent)_50%,transparent)] hover:text-fg"
@@ -45,9 +45,10 @@ export async function Work({ locale, index }: { locale: string; index: number })
             </Link>
           </li>
         ))}
-        <li className="flex">
+        <li data-reveal className="flex">
           <Link
             href="/#contact"
+            prefetch={false}
             className="flex min-h-90 w-full flex-col justify-end gap-3.5 rounded-lg border border-dashed border-[color-mix(in_srgb,var(--color-fg)_24%,transparent)] bg-[repeating-linear-gradient(135deg,transparent_0_14px,color-mix(in_srgb,var(--color-fg)_3%,transparent)_14px_15px)] p-7 text-fg no-underline transition-colors duration-250 hover:border-accent hover:text-fg"
           >
             <span className="font-mono-ui text-[11px] leading-none font-medium tracking-[0.08em] text-fg-subtle uppercase">

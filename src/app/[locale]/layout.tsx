@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 
+import { Interactions } from "@/components/interactions";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { Providers } from "@/components/providers";
@@ -49,7 +50,8 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
     >
       <body>
         <Providers>
-          <NextIntlClientProvider>
+          {/* Client components receive strings as props; only the locale is needed client-side. */}
+          <NextIntlClientProvider messages={null}>
             <a
               href="#main"
               className="btn btn-primary sr-only z-60 bg-bg focus:not-sr-only focus:fixed focus:start-4 focus:top-3 focus:px-3 focus:py-2"
@@ -59,6 +61,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
             <SiteHeader />
             <main id="main">{children}</main>
             <SiteFooter />
+            <Interactions />
           </NextIntlClientProvider>
         </Providers>
       </body>

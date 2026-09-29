@@ -27,6 +27,7 @@ export async function Services({ locale, index }: { locale: string; index: numbe
         {packages.map((s) => (
           <article
             key={s.slug}
+            data-reveal
             className="flex flex-col gap-4 rounded-lg border border-divider p-6.5 transition-colors duration-250 glow-card hover:border-[color-mix(in_srgb,var(--color-accent)_45%,transparent)]"
           >
             <div className="flex items-center justify-between">
@@ -54,14 +55,19 @@ export async function Services({ locale, index }: { locale: string; index: numbe
       </div>
 
       {retainer ? (
-        <div className="mt-4 flex flex-wrap items-center gap-x-7 gap-y-4 rounded-lg border border-dashed border-[color-mix(in_srgb,var(--color-fg)_22%,transparent)] px-6.5 py-5.5 transition-colors duration-250 [--glow-fill:transparent] [--glow-strength:11%] glow-card hover:border-[color-mix(in_srgb,var(--color-accent)_45%,transparent)]">
+        <div
+          data-reveal
+          className="mt-4 flex flex-wrap items-center gap-x-7 gap-y-4 rounded-lg border border-dashed border-[color-mix(in_srgb,var(--color-fg)_22%,transparent)] px-6.5 py-5.5 transition-colors duration-250 [--glow-fill:transparent] [--glow-strength:11%] glow-card hover:border-[color-mix(in_srgb,var(--color-accent)_45%,transparent)]"
+        >
           <ContentIcon name={retainer.icon} className="size-6.5 text-accent" />
           <div className="flex-[1_1_320px]">
             <h3 className="text-lg">{retainer.title}</h3>
             <p className="mt-1 text-sm text-fg-muted">{retainer.summary}</p>
           </div>
           <span className="font-mono-ui text-xs leading-none text-fg-subtle">{retainer.price}</span>
-          <ButtonLink href="/#contact">{t("retainerCta")}</ButtonLink>
+          <ButtonLink href="/#contact" prefetch={false}>
+            {t("retainerCta")}
+          </ButtonLink>
         </div>
       ) : null}
     </section>

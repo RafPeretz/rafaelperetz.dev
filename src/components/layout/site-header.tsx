@@ -20,11 +20,7 @@ export async function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-hairline bg-[color-mix(in_srgb,var(--color-bg)_74%,transparent)] backdrop-blur-[14px] backdrop-saturate-[1.4]">
       <nav aria-label={t("nav.label")} className="container-page flex items-center gap-2.5 py-3 nav:gap-4.5">
-        <Link
-          href="/"
-          aria-label={t("common.homeLabel")}
-          className="me-auto flex items-center gap-2.5 text-fg no-underline hover:text-fg"
-        >
+        <Link href="/" className="me-auto flex items-center gap-2.5 text-fg no-underline hover:text-fg">
           <BrandMark />
           <span className="text-sm font-medium whitespace-nowrap">{siteConfig.name}</span>
         </Link>
@@ -34,6 +30,7 @@ export async function SiteHeader() {
             <li key={l.id}>
               <Link
                 href={l.href}
+                prefetch={false}
                 className="text-sm text-fg-muted no-underline transition-colors hover:text-fg"
               >
                 {l.label}
@@ -49,6 +46,7 @@ export async function SiteHeader() {
         <ThemeToggle toLight={t("theme.toLight")} toDark={t("theme.toDark")} />
 
         <ButtonAnchor
+          data-magnetic
           variant="primary"
           href={calUrl}
           target="_blank"
@@ -65,6 +63,7 @@ export async function SiteHeader() {
                 <li key={l.id}>
                   <Link
                     href={l.href}
+                    prefetch={false}
                     className="block border-b border-hairline py-2.5 text-xl text-fg no-underline hover:text-fg"
                   >
                     {l.label}

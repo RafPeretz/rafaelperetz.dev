@@ -4,8 +4,7 @@
     "description": "DevOps, cloud and CI/CD for startups that need to ship fast and stay secure. Tel Aviv, remote worldwide."
   },
   "common": {
-    "skipToContent": "Skip to content",
-    "homeLabel": "Rafael Peretz — home"
+    "skipToContent": "Skip to content"
   },
   "nav": {
     "label": "Main",

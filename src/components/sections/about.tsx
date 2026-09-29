@@ -12,7 +12,10 @@ export async function About({ index }: { index: number }) {
   return (
     <section id="about" aria-labelledby="about-h" className="container-page section-pad">
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] items-start gap-[clamp(32px,6vw,80px)]">
-        <figure className="lighten relative m-0 aspect-[4/5] max-w-[440px] overflow-hidden rounded-lg border border-divider">
+        <figure
+          data-reveal
+          className="lighten relative m-0 aspect-[4/5] max-w-[440px] overflow-hidden rounded-lg border border-divider"
+        >
           {siteConfig.portrait ? (
             <Image
               src={siteConfig.portrait}
