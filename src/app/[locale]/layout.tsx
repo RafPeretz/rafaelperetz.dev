@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Pr
   const t = await getTranslations({ locale, namespace: "meta" });
   return {
     metadataBase: new URL(siteConfig.url),
-    title: { default: t("title"), template: `%s — ${siteConfig.name}` },
+    title: { default: t("title"), template: `%s | ${siteConfig.name}` },
     description: t("description"),
     applicationName: siteConfig.name,
     authors: [{ name: siteConfig.name, url: siteConfig.url }],

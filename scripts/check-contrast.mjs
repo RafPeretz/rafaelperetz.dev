@@ -68,10 +68,6 @@ const PAIRS = [
   ["accent-300", "bg", 4.5, "pipeline status text"],
   ["neutral-400", "bg", 4.5, "experience wordmarks"],
   ["accent", "bg", 3, "icons, rules, focus ring (non-text)"],
-  ...["sky", "teal", "amber", "rose"].flatMap((hue) => [
-    [hue, "bg", 4.5, `${hue} labels / status text`],
-    [hue, "surface", 4.5, `${hue} text on cards`],
-  ]),
 ];
 
 let failed = 0;

@@ -41,15 +41,6 @@
   --color-section: #262a60;
   --color-section-glow: #353b80;
 
-  /* Secondary hues — added on top of the mono Nocturne accent for colour coding
-     (pipeline stages, services, case studies, stack groups). Lines, icons, tinted
-     tiles and short labels only; body copy stays neutral. AA-checked as text in
-     both themes (scripts/check-contrast.mjs). `success` = teal. */
-  --color-sky: #5cb8f5;
-  --color-teal: #3ccfa9;
-  --color-amber: #f5b54a;
-  --color-rose: #f3809f;
-
   /* ── Typography ───────────────────────────────────────────────────── */
   /* --font-inter / --font-jetbrains / --font-hebrew are injected by next/font. */
   --font-sans: var(--font-inter), var(--font-hebrew, system-ui), system-ui, sans-serif;
@@ -112,12 +103,6 @@
   }
 }
 
-/* Per-element hue: `.tone-sky` etc. set --tone; `text-tone`, `bg-tone/15`, `border-tone/40` use it.
-   `inline` so the utilities reference var(--tone) where they're used, not at :root. */
-@theme inline {
-  --color-tone: var(--tone, var(--color-accent));
-}
-
 /* ── Colour: light ─────────────────────────────────────────────────────
    From the design's LIGHT map, with contrast fixes:
    - accent-text darkened to #5d5294 (the design's #796cbf is ~4:1 on bg → fails AA)
@@ -144,11 +129,6 @@
 
   --color-section: #e7e5fe;
   --color-section-glow: #d2cefd;
-
-  --color-sky: #1666a8;
-  --color-teal: #08705a;
-  --color-amber: #8f5600;
-  --color-rose: #b3315b;
 
   --shadow-window:
     0 24px 64px rgb(41 43 49 / 0.14), inset 0 0 0 1px color-mix(in srgb, var(--color-accent) 14%, transparent);

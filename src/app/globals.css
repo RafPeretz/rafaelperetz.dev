@@ -128,44 +128,10 @@
   background:
     radial-gradient(
       var(--glow-size, 420px) circle at var(--mx, -500px) var(--my, -500px),
-      color-mix(in srgb, var(--tone, var(--color-accent)) var(--glow-strength, 13%), transparent),
+      color-mix(in srgb, var(--color-accent) var(--glow-strength, 13%), transparent),
       transparent 65%
     ),
     var(--glow-fill, color-mix(in srgb, var(--color-surface) 55%, transparent));
-}
-
-/* Tones: one hue per element, consumed through the `tone` colour (text-tone, bg-tone/15, …). */
-@utility tone-violet {
-  --tone: var(--color-accent);
-}
-@utility tone-sky {
-  --tone: var(--color-sky);
-}
-@utility tone-teal {
-  --tone: var(--color-teal);
-}
-@utility tone-amber {
-  --tone: var(--color-amber);
-}
-@utility tone-rose {
-  --tone: var(--color-rose);
-}
-
-/* Gradient text (headline emphasis, stats). Falls back to the accent colour where clip isn't supported. */
-@utility text-gradient {
-  color: var(--color-accent-text);
-  background: linear-gradient(100deg, var(--color-accent-text), var(--color-sky) 55%, var(--color-teal));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Brand logos keep their colours, adjusted per theme for ≥3:1 contrast (see components/ui/logo.tsx). */
-.brand-logo {
-  color: var(--brand-dark);
-}
-[data-theme="light"] .brand-logo {
-  color: var(--brand-light);
 }
 
 /* ── Nocturne components ──────────────────────────────────────────────── */
@@ -336,10 +302,8 @@
 @keyframes pl-stage-running {
   from,
   to {
-    border-color: var(--tone, var(--color-accent));
-    box-shadow:
-      0 0 0 1px var(--tone, var(--color-accent)),
-      0 0 28px color-mix(in srgb, var(--tone, var(--color-accent)) 40%, transparent);
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-stage-running);
   }
 }
 @keyframes pl-icon-queued {

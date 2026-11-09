@@ -2,13 +2,11 @@ import { GraduationCapIcon, RocketLaunchIcon, ShieldStarIcon } from "@phosphor-i
 import { type Icon } from "@phosphor-icons/react";
 import { getTranslations } from "next-intl/server";
 
-import { cn } from "@/lib/utils";
-
 // Names are localized where an official form exists (messages → experience.companies).
-const COMPANIES: { key: "unit81" | "asgo" | "reichman"; icon: Icon; tone: string }[] = [
-  { key: "unit81", icon: ShieldStarIcon, tone: "tone-teal" },
-  { key: "asgo", icon: RocketLaunchIcon, tone: "tone-violet" },
-  { key: "reichman", icon: GraduationCapIcon, tone: "tone-sky" },
+const COMPANIES: { key: "unit81" | "asgo" | "reichman"; icon: Icon }[] = [
+  { key: "unit81", icon: ShieldStarIcon },
+  { key: "asgo", icon: RocketLaunchIcon },
+  { key: "reichman", icon: GraduationCapIcon },
 ];
 
 export async function Experience() {
@@ -21,17 +19,12 @@ export async function Experience() {
           {t("label")}
         </p>
         <ul role="list" className="contents">
-          {COMPANIES.map(({ key, icon: IconCmp, tone }) => (
+          {COMPANIES.map(({ key, icon: IconCmp }) => (
             <li
               key={key}
-              className={cn(
-                tone,
-                "flex items-center gap-2.5 text-[19px] font-medium tracking-[-0.01em] text-neutral-400",
-              )}
+              className="flex items-center gap-2.5 text-[19px] font-medium tracking-[-0.01em] text-neutral-400"
             >
-              <span className="grid size-8 place-items-center rounded-md bg-tone/14 text-tone">
-                <IconCmp aria-hidden="true" weight="duotone" className="size-4.5" />
-              </span>
+              <IconCmp aria-hidden="true" className="size-5" />
               {t(`companies.${key}`)}
             </li>
           ))}

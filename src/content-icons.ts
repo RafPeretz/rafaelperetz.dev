@@ -51,7 +51,3 @@ export const BRAND_LOGOS = [
 ] as const;
 
 export type BrandLogoName = (typeof BRAND_LOGOS)[number];
-
-/** Colour-coding hues (see tokens.css). */
-export const TONES = ["violet", "sky", "teal", "amber", "rose"] as const;
-export type Tone = (typeof TONES)[number];

@@ -2,9 +2,8 @@
 title: "יחידה 81"
 role: "מהנדס תוכנה ותשתיות"
 mark: "81"
-tone: teal
 order: 3
-summary: "שלוש שנים על מערכות בפרודקשן — פייפליינים של נתונים, מיקרו־שירותים על Kubernetes ופלטפורמות פנימיות ב־Python ו־FastAPI. מתואר ברמה גבוהה, בכוונה."
+summary: "שלוש שנים על מערכות בפרודקשן: פייפליינים של נתונים, מיקרו־שירותים על Kubernetes ופלטפורמות פנימיות ב־Python ו־FastAPI. מתואר ברמה גבוהה, בכוונה."
 card:
   - { key: stack, value: kubernetes · python · fastapi }
   - { key: scope, value: production · data pipelines · platforms }
@@ -16,5 +15,5 @@ built:
   - "פלטפורמות פנימיות ב־Python / FastAPI"
   - "תכנון תוכנית לימודים בתוכנה וליווי מהנדסים צעירים כמדריך ומפקד"
 stack: [kubernetes, python, fastapi, microservices]
-outcome: "ניסיון בפרודקשן תחת אילוצים אמיתיים — הסטנדרט שאני מביא לכל לקוח."
+outcome: "ניסיון בפרודקשן תחת אילוצים אמיתיים, הסטנדרט שאני מביא לכל לקוח."
 ---

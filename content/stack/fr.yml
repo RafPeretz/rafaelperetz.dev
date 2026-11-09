@@ -1,6 +1,5 @@
 groups:
   - label: "Full-stack & applications"
-    tone: sky
     items:
       - { name: "TypeScript", logo: typescript, hint: "JavaScript typé, de bout en bout" }
       - { name: "React", logo: react, hint: "Interfaces utilisateur" }
@@ -9,7 +8,6 @@ groups:
       - { name: "Python", logo: python, hint: "Langage backend" }
       - { name: "FastAPI", logo: fastapi, hint: "API" }
   - label: "Cloud & DevOps"
-    tone: violet
     items:
       - { name: "Kubernetes", logo: kubernetes, hint: "Orchestration de conteneurs" }
       - { name: "Docker", logo: docker, hint: "Conteneurs" }
@@ -18,14 +16,12 @@ groups:
       - { name: "GitHub Actions", logo: githubactions, hint: "Workflows et pipelines" }
       - { name: "CI/CD", icon: arrows-clockwise, hint: "Intégration et livraison continues" }
   - label: "Données & hébergement"
-    tone: teal
     items:
       - { name: "PostgreSQL", logo: postgresql, hint: "Base de données relationnelle" }
       - { name: "Supabase", logo: supabase, hint: "Postgres, auth, stockage" }
       - { name: "Railway", logo: railway, hint: "Hébergement backend" }
       - { name: "Vercel", logo: vercel, hint: "Hébergement frontend" }
   - label: "Sécurité"
-    tone: rose
     items:
       - { name: "Sécurité des pipelines", icon: shield-check, hint: "Scan, signature, politiques" }
       - { name: "IAM", icon: identification-badge, hint: "Accès au moindre privilège" }

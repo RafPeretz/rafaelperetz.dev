@@ -8,7 +8,7 @@ export function Kicker({ index, children }: { index: number; children: ReactNode
     <p className="flex items-center gap-3 font-mono-ui text-xs leading-none font-medium tracking-[0.08em] text-accent-text uppercase">
       <span aria-hidden="true" className="h-px w-7 bg-accent" />
       <span>
-        {String(index).padStart(2, "0")} — {children}
+        {String(index).padStart(2, "0")} · {children}
       </span>
     </p>
   );

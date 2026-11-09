@@ -1,6 +1,6 @@
 import { defineCollection, defineConfig, s } from "velite";
 
-import { BRAND_LOGOS, CONTENT_ICONS, TONES } from "./src/content-icons";
+import { BRAND_LOGOS, CONTENT_ICONS } from "./src/content-icons";
 
 /**
  * Content collections. Files are organised as `content/<collection>/<slug>/<locale>.md`
@@ -12,7 +12,6 @@ const LOCALES = ["en", "fr", "he"] as const;
 const locale = s.enum(LOCALES);
 const icon = s.enum(CONTENT_ICONS);
 const logo = s.enum(BRAND_LOGOS);
-const tone = s.enum(TONES);
 
 /** "work/reysecurity/en" → { slug: "reysecurity", locale: "en" } */
 function fromPath(path: string) {
@@ -31,7 +30,6 @@ const work = defineCollection({
       role: s.string(),
       /** Short monogram shown in the card's logo tile, e.g. "a." or "81". */
       mark: s.string().max(3),
-      tone,
       /** One-paragraph card summary. */
       summary: s.string(),
       order: s.number(),
@@ -58,7 +56,6 @@ const services = defineCollection({
       title: s.string(),
       summary: s.string(),
       icon,
-      tone,
       duration: s.string().optional(),
       features: s.array(s.string()).default([]),
       /** Display price, e.g. "$2,500" or "$1,200/mo". */
@@ -106,7 +103,6 @@ const stack = defineCollection({
         .array(
           s.object({
             label: s.string(),
-            tone,
             items: s
               .array(
                 s

@@ -41,9 +41,9 @@ function renderEmail(data: ContactInput, locale: string) {
   const rows: [string, string][] = [
     ["Name", data.name],
     ["Email", data.email],
-    ["Company", data.company || "—"],
-    ["Project type", data.projectType ? PROJECT_LABEL[data.projectType] : "—"],
-    ["Budget", data.budget ? BUDGET_LABEL[data.budget] : "—"],
+    ["Company", data.company || "-"],
+    ["Project type", data.projectType ? PROJECT_LABEL[data.projectType] : "-"],
+    ["Budget", data.budget ? BUDGET_LABEL[data.budget] : "-"],
     ["Site language", locale],
   ];
   const text = `${rows.map(([k, v]) => `${k}: ${v}`).join("\n")}\n\n${data.message}\n`;
@@ -87,7 +87,7 @@ export async function submitContact(_prev: ContactState, form: FormData): Promis
       from: env.CONTACT_FROM_EMAIL,
       to: env.CONTACT_TO_EMAIL,
       replyTo: result.data.email,
-      subject: `New enquiry from ${result.data.name}${project} — ${siteConfig.domain}`,
+      subject: `New enquiry from ${result.data.name}${project} · ${siteConfig.domain}`,
       text,
       html,
     });

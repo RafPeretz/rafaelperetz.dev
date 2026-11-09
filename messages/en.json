@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Rafael Peretz — Freelance Full-Stack & DevOps Engineer",
+    "title": "Rafael Peretz | Freelance Full-Stack & DevOps Engineer",
     "description": "Full-stack apps, DevOps, cloud and CI/CD for startups that need to ship fast and stay secure. Tel Aviv, remote worldwide."
   },
   "common": {
@@ -24,8 +24,8 @@
   },
   "availability": {
     "available": "Available for new projects",
-    "limited": "Limited availability — Q4",
-    "booked": "Booked — next opening Jan 2027"
+    "limited": "Limited availability in Q4",
+    "booked": "Booked until Jan 2027"
   },
   "footer": {
     "elsewhere": "Elsewhere",
@@ -46,8 +46,8 @@
     "home": "Back to the homepage"
   },
   "hero": {
-    "title": "I build your <em>product</em> — and the infrastructure it runs on.",
-    "lede": "Full-stack web apps, DevOps, cloud & CI/CD for startups that need to ship fast and stay secure. Ex–Unit 81 engineer, co-founder of asgo.dev.",
+    "title": "I build your <em>product</em> and the infrastructure it runs on.",
+    "lede": "Full-stack web apps, DevOps, cloud & CI/CD for startups that need to ship fast and stay secure. Ex-Unit 81 engineer, co-founder of asgo.dev.",
     "ctaBook": "Book a free 20-min call",
     "ctaWork": "See my work",
     "meta": {
@@ -99,7 +99,7 @@
   "services": {
     "kicker": "Services",
     "title": "Fixed scope. Fixed price. Shipped.",
-    "lede": "From the first version of your app to the infrastructure it runs on — three fixed-price packages, plus a retainer for when you need someone on call.",
+    "lede": "From the first version of your app to the infrastructure it runs on: three fixed-price packages, plus a retainer for when you need someone on call.",
     "startingAt": "Starting at",
     "retainerCta": "Ask about retainers"
   },
@@ -145,7 +145,7 @@
       },
       "docs": {
         "title": "Documentation delivered",
-        "body": "Runbooks, diagrams and decisions — written down."
+        "body": "Runbooks, diagrams and decisions, all written down."
       },
       "lockin": {
         "title": "No vendor lock-in",
@@ -156,12 +156,12 @@
   "about": {
     "kicker": "About",
     "title": "I understand the code and the business.",
-    "p1": "For three years I was a software & infrastructure engineer in Unit 81, running production systems. I also served as a course instructor and commander — designing a software curriculum and mentoring junior engineers.",
+    "p1": "For three years I was a software & infrastructure engineer in Unit 81, running production systems. I also served as a course instructor and commander, designing a software curriculum and mentoring junior engineers.",
     "p2": "Today I’m co-founding asgo.dev while studying Economics & Entrepreneurship (Data Science track) at Reichman University.",
-    "p3": "I work across the whole stack — React and Next.js on the front, Python and FastAPI behind it, Kubernetes and the cloud underneath — so I build what your startup actually needs, without over-engineering.",
+    "p3": "I work across the whole stack: React and Next.js on the front, Python and FastAPI behind it, Kubernetes and the cloud underneath. So I build what your startup actually needs, without over-engineering.",
     "tags": {
       "languages": "English · Hebrew · French",
-      "location": "Tel Aviv — remote worldwide",
+      "location": "Tel Aviv, remote worldwide",
       "hours": "Overlaps EU & US hours"
     },
     "portraitAlt": "Portrait of Rafael Peretz",
@@ -169,7 +169,7 @@
   },
   "stack": {
     "kicker": "Stack",
-    "title": "Boring, proven tools — used well."
+    "title": "Boring, proven tools, used well."
   },
   "testimonials": {
     "kicker": "Clients",
@@ -183,7 +183,7 @@
     "title": "Straight answers."
   },
   "contact": {
-    "title": "Let’s make your infrastructure boring — in the best way.",
+    "title": "Let’s make your infrastructure boring, in the best way.",
     "lede": "Tell me what you’re shipping. You’ll get a straight answer on scope, timeline and cost.",
     "book": "Book a free call",
     "form": {
@@ -216,11 +216,11 @@
         "required": "This field is required.",
         "invalid": "Enter a valid email address.",
         "tooShort": "A few more words, please (at least 20 characters).",
-        "tooLong": "That’s a bit long — please shorten it."
+        "tooLong": "That’s a bit long. Please shorten it."
       },
       "invalid": "Please check the highlighted fields.",
       "successTitle": "✓ message delivered",
-      "successBody": "Thanks — I’ll reply by email shortly.",
+      "successBody": "Thanks! I’ll reply by email shortly.",
       "sendAnother": "Send another message",
       "error": "Something went wrong on my side and the message wasn’t sent. Please email me directly at {email}.",
       "rateLimited": "Too many messages in a short time. Please try again in a few minutes, or email me at {email}."
@@ -237,6 +237,6 @@
     "close": "Close",
     "more": "More work",
     "next": "Next case study",
-    "metaTitle": "{title} — case study"
+    "metaTitle": "{title} case study"
   }
 }

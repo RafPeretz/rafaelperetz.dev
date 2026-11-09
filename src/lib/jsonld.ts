@@ -58,7 +58,7 @@ export function homeJsonLd(
       {
         "@type": "ProfessionalService",
         "@id": `${url}/#service`,
-        name: `${name} — ${jobTitle}`,
+        name: `${name}, ${jobTitle}`,
         description,
         url: localizedUrl(locale),
         image: `${localizedUrl(locale)}/opengraph-image`,

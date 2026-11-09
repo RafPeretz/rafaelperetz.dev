@@ -12,29 +12,25 @@ export async function About({ index }: { index: number }) {
   return (
     <section id="about" aria-labelledby="about-h" className="container-page section-pad">
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] items-start gap-[clamp(32px,6vw,80px)]">
-        {/* Gradient frame (violet → sky → teal) instead of the design's `.lighten` blend:
-            the portrait isn't shot on a dark background, so blending would muddy it. */}
         <figure
           data-reveal
-          className="relative m-0 aspect-[4/5] max-w-[440px] rounded-lg bg-linear-135 from-accent via-sky to-teal p-px shadow-[0_24px_64px_-24px_color-mix(in_srgb,var(--color-accent)_55%,transparent)]"
+          className="relative m-0 aspect-[4/5] max-w-[440px] overflow-hidden rounded-lg border border-divider"
         >
-          <div className="relative h-full overflow-hidden rounded-[13px] bg-surface">
-            {siteConfig.portrait ? (
-              <Image
-                src={siteConfig.portrait}
-                alt={t("portraitAlt")}
-                fill
-                sizes="(min-width: 800px) 440px, 100vw"
-                className="object-cover"
-              />
-            ) : (
-              // TODO: replace with the portrait (siteConfig.portrait)
-              <div className="flex h-full flex-col items-center justify-center gap-3 bg-surface/60 bg-[radial-gradient(circle_at_50%_35%,var(--color-accent-900),transparent_70%)]">
-                <UserIcon aria-hidden="true" className="size-16 text-fg-faint" />
-                <span className="font-mono-ui text-[11px] text-fg-faint">{t("portraitPlaceholder")}</span>
-              </div>
-            )}
-          </div>
+          {siteConfig.portrait ? (
+            <Image
+              src={siteConfig.portrait}
+              alt={t("portraitAlt")}
+              fill
+              sizes="(min-width: 800px) 440px, 100vw"
+              className="object-cover"
+            />
+          ) : (
+            // TODO: replace with the portrait (siteConfig.portrait)
+            <div className="flex h-full flex-col items-center justify-center gap-3 bg-surface/60 bg-[radial-gradient(circle_at_50%_35%,var(--color-accent-900),transparent_70%)]">
+              <UserIcon aria-hidden="true" className="size-16 text-fg-faint" />
+              <span className="font-mono-ui text-[11px] text-fg-faint">{t("portraitPlaceholder")}</span>
+            </div>
+          )}
         </figure>
 
         <div>
@@ -53,11 +49,11 @@ export async function About({ index }: { index: number }) {
               {t("tags.languages")}
             </li>
             <li className="tag tag-neutral px-3 py-1.5">
-              <MapPinIcon aria-hidden="true" weight="fill" className="text-sky" />
+              <MapPinIcon aria-hidden="true" />
               {t("tags.location")}
             </li>
             <li className="tag tag-neutral px-3 py-1.5">
-              <ClockIcon aria-hidden="true" weight="fill" className="text-teal" />
+              <ClockIcon aria-hidden="true" />
               {t("tags.hours")}
             </li>
           </ul>

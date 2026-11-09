@@ -6,7 +6,7 @@ import { getCaseStudy, getCaseStudySlugs } from "@/lib/content";
 import { OG_SIZE, OgFrame, ogFonts } from "@/lib/og";
 import { siteConfig } from "@/site.config";
 
-export const alt = `Case study — ${siteConfig.name}`;
+export const alt = `Case study | ${siteConfig.name}`;
 export const size = OG_SIZE;
 export const contentType = "image/png";
 

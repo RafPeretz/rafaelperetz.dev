@@ -1,10 +1,4 @@
-import {
-  ArrowDownIcon,
-  CalendarBlankIcon,
-  GlobeHemisphereWestIcon,
-  MapPinIcon,
-  TranslateIcon,
-} from "@phosphor-icons/react/ssr";
+import { ArrowDownIcon, CalendarBlankIcon } from "@phosphor-icons/react/ssr";
 import { getTranslations } from "next-intl/server";
 import { type CSSProperties } from "react";
 
@@ -18,11 +12,6 @@ export async function Hero() {
 
   return (
     <section aria-labelledby="hero-h" data-pipeline-root className="relative overflow-hidden">
-      {/* Colour wash behind the pipeline window (sky + teal), mirrored in RTL. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(520px_360px_at_78%_58%,color-mix(in_srgb,var(--color-sky)_14%,transparent),transparent_70%),radial-gradient(420px_300px_at_92%_88%,color-mix(in_srgb,var(--color-teal)_10%,transparent),transparent_70%)] rtl:bg-[radial-gradient(520px_360px_at_22%_58%,color-mix(in_srgb,var(--color-sky)_14%,transparent),transparent_70%),radial-gradient(420px_300px_at_8%_88%,color-mix(in_srgb,var(--color-teal)_10%,transparent),transparent_70%)]"
-      />
       {/* Masked 56px grid */}
       <div
         aria-hidden="true"
@@ -34,10 +23,10 @@ export async function Hero() {
             {t.rich("title", {
               em: (chunks) => (
                 <span className="relative whitespace-nowrap">
-                  <span className="text-gradient">{chunks}</span>
+                  {chunks}
                   <span
                     aria-hidden="true"
-                    className="pl-grow absolute start-0 -bottom-[0.04em] h-0.5 w-full bg-linear-to-r from-accent via-sky to-teal shadow-[0_0_16px_var(--color-sky)] ltr:origin-left rtl:origin-right rtl:bg-linear-to-l"
+                    className="pl-grow absolute start-0 -bottom-[0.04em] h-0.5 w-full bg-accent shadow-glow ltr:origin-left rtl:origin-right"
                     style={
                       { "--pl-from": ms(DEPLOYED_AT), "--pl-for": ms(UNDERLINE_DURATION) } as CSSProperties
                     }
@@ -58,18 +47,9 @@ export async function Hero() {
             </ButtonLink>
           </div>
           <p className="mt-7 flex flex-wrap gap-x-4 gap-y-1.5 font-mono-ui text-xs leading-snug text-fg-subtle">
-            <span className="flex items-center gap-1.5">
-              <MapPinIcon aria-hidden="true" weight="fill" className="size-3.5 text-sky" />
-              {t("meta.location")}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <TranslateIcon aria-hidden="true" weight="bold" className="size-3.5 text-accent" />
-              {t("meta.languages")}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <GlobeHemisphereWestIcon aria-hidden="true" weight="fill" className="size-3.5 text-teal" />
-              {t("meta.remote")}
-            </span>
+            <span>{t("meta.location")}</span>
+            <span>{t("meta.languages")}</span>
+            <span>{t("meta.remote")}</span>
           </p>
         </div>
         <PipelineWindow />

@@ -2,14 +2,13 @@
 title: "RuniTutors"
 role: "Fondateur · Réalisation de bout en bout"
 mark: "RT"
-tone: sky
 order: 2
-summary: "Une plateforme de tutorat entre pairs qui met en relation des étudiants avec les meilleurs de leur promo. Conçue, développée et déployée en solo — aujourd’hui en discussion pour un pilote avec l’Université Reichman."
+summary: "Une plateforme de tutorat entre pairs qui met en relation des étudiants avec les meilleurs de leur promo. Conçue, développée et déployée en solo, aujourd’hui en discussion pour un pilote avec l’Université Reichman."
 card:
   - { key: stack, value: fastapi · react · supabase · railway · vercel }
   - { key: status, value: live · university pilot in talks }
 context: "Une plateforme de tutorat entre pairs qui met en relation des étudiants avec les meilleurs de leur promo."
-challenge: "Passer de l’idée à une application en production utilisée par de vrais étudiants — en solo, avec un budget d’étudiant."
+challenge: "Passer de l’idée à une application en production utilisée par de vrais étudiants, en solo et avec un budget d’étudiant."
 built:
   - "Backend FastAPI et frontend React"
   - "Supabase pour l’authentification et les données"

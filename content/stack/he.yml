@@ -1,6 +1,5 @@
 groups:
   - label: "Full-stack ואפליקציות"
-    tone: sky
     items:
       - { name: "TypeScript", logo: typescript, hint: "JavaScript עם טיפוסים, מקצה לקצה" }
       - { name: "React", logo: react, hint: "ממשקי משתמש" }
@@ -9,7 +8,6 @@ groups:
       - { name: "Python", logo: python, hint: "שפת בקאנד" }
       - { name: "FastAPI", logo: fastapi, hint: "ממשקי API" }
   - label: "ענן ו־DevOps"
-    tone: violet
     items:
       - { name: "Kubernetes", logo: kubernetes, hint: "תזמור קונטיינרים" }
       - { name: "Docker", logo: docker, hint: "קונטיינרים" }
@@ -18,14 +16,12 @@ groups:
       - { name: "GitHub Actions", logo: githubactions, hint: "וורקפלואים ופייפליינים" }
       - { name: "CI/CD", icon: arrows-clockwise, hint: "אינטגרציה ומסירה רציפות" }
   - label: "נתונים ואחסון"
-    tone: teal
     items:
       - { name: "PostgreSQL", logo: postgresql, hint: "מסד נתונים רלציוני" }
       - { name: "Supabase", logo: supabase, hint: "Postgres, אימות, אחסון" }
       - { name: "Railway", logo: railway, hint: "אחסון בקאנד" }
       - { name: "Vercel", logo: vercel, hint: "אחסון פרונטאנד" }
   - label: "אבטחה"
-    tone: rose
     items:
       - { name: "אבטחת פייפליינים", icon: shield-check, hint: "סריקה, חתימה, מדיניות" }
       - { name: "IAM", icon: identification-badge, hint: "הרשאות מינימליות" }

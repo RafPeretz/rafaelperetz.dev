@@ -2,17 +2,11 @@ import { FlaskIcon, PackageIcon, RocketLaunchIcon, ShieldCheckIcon } from "@phos
 
 /** The hero's pipeline run. Terminal text is intentionally not translated (it's "code"). */
 export const STAGES = [
-  { name: "build", icon: PackageIcon, time: "0.6s", tone: "tone-sky" },
-  { name: "test", icon: FlaskIcon, time: "0.5s", tone: "tone-amber" },
-  { name: "scan", icon: ShieldCheckIcon, time: "0.6s", tone: "tone-rose" },
-  { name: "deploy", icon: RocketLaunchIcon, time: "0.7s", tone: "tone-teal" },
+  { name: "build", icon: PackageIcon, time: "0.6s" },
+  { name: "test", icon: FlaskIcon, time: "0.5s" },
+  { name: "scan", icon: ShieldCheckIcon, time: "0.6s" },
+  { name: "deploy", icon: RocketLaunchIcon, time: "0.7s" },
 ] as const;
-
-/** Tone class per stage name (log lines reuse their stage's colour). */
-export const STAGE_TONE = Object.fromEntries(STAGES.map((s) => [s.name, s.tone])) as Record<
-  (typeof STAGES)[number]["name"],
-  string
->;
 
 export const LOGS = [
   { stage: "build", text: "docker build rafa/app:9f3c2e1" },

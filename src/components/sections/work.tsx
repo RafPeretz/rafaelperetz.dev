@@ -3,7 +3,6 @@ import { getTranslations } from "next-intl/server";
 
 import { Link } from "@/i18n/link";
 import { getCaseStudies } from "@/lib/content";
-import { cn } from "@/lib/utils";
 
 import { SectionHeading } from "./section-heading";
 
@@ -21,20 +20,17 @@ export async function Work({ locale, index }: { locale: string; index: number })
             <Link
               href={`/work/${c.slug}`}
               scroll={false}
-              className={cn(
-                `tone-${c.tone}`,
-                "flex min-h-90 w-full flex-col gap-4.5 rounded-lg border border-divider p-7 text-fg no-underline transition-colors duration-250 [--glow-size:480px] [--glow-strength:14%] glow-card hover:border-tone/50 hover:text-fg",
-              )}
+              className="flex min-h-90 w-full flex-col gap-4.5 rounded-lg border border-divider p-7 text-fg no-underline transition-colors duration-250 [--glow-size:480px] [--glow-strength:14%] glow-card hover:border-[color-mix(in_srgb,var(--color-accent)_50%,transparent)] hover:text-fg"
             >
               <span className="flex items-center gap-3">
                 {/* Monogram tile: a logo stand-in in the project's colour. */}
                 <span
                   aria-hidden="true"
-                  className="grid size-11 flex-none place-items-center rounded-md border border-tone/35 bg-tone/14 font-mono-ui text-sm font-medium tracking-[-0.02em] text-tone"
+                  className="grid size-11 flex-none place-items-center rounded-md border border-[color-mix(in_srgb,var(--color-accent)_35%,transparent)] bg-[color-mix(in_srgb,var(--color-accent)_12%,transparent)] font-mono-ui text-sm font-medium tracking-[-0.02em] text-accent-text"
                 >
                   {c.mark}
                 </span>
-                <span className="font-mono-ui text-[11px] leading-snug font-medium tracking-[0.08em] text-tone uppercase">
+                <span className="font-mono-ui text-[11px] leading-snug font-medium tracking-[0.08em] text-accent-text uppercase">
                   {c.role}
                 </span>
               </span>
@@ -52,7 +48,7 @@ export async function Work({ locale, index }: { locale: string; index: number })
                   </span>
                 ))}
               </span>
-              <span className="flex items-center gap-2 text-sm text-tone">
+              <span className="flex items-center gap-2 text-sm text-accent-text">
                 {t("readCase")}
                 <ArrowUpRightIcon aria-hidden="true" className="size-3.5 rtl:-scale-x-100" />
               </span>

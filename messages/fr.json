@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Rafael Peretz — Ingénieur Full-Stack & DevOps freelance",
+    "title": "Rafael Peretz | Ingénieur Full-Stack & DevOps freelance",
     "description": "Applications full-stack, DevOps, cloud et CI/CD pour les startups qui doivent livrer vite et rester sécurisées. Tel Aviv, en remote partout dans le monde."
   },
   "common": {
@@ -24,8 +24,8 @@
   },
   "availability": {
     "available": "Ouvert aux nouveaux projets",
-    "limited": "Disponibilité limitée — T4",
-    "booked": "Complet — prochaine disponibilité en janv. 2027"
+    "limited": "Disponibilité limitée au T4",
+    "booked": "Complet jusqu’en janv. 2027"
   },
   "footer": {
     "elsewhere": "Ailleurs",
@@ -46,7 +46,7 @@
     "home": "Retour à l’accueil"
   },
   "hero": {
-    "title": "Je construis votre <em>produit</em> — et l’infrastructure sur laquelle il tourne.",
+    "title": "Je construis votre <em>produit</em> et l’infrastructure sur laquelle il tourne.",
     "lede": "Applications web full-stack, DevOps, cloud et CI/CD pour les startups qui doivent livrer vite et rester sécurisées. Ancien ingénieur de l’Unité 81, cofondateur d’asgo.dev.",
     "ctaBook": "Appel gratuit de 20 min",
     "ctaWork": "Voir mes projets",
@@ -99,7 +99,7 @@
   "services": {
     "kicker": "Services",
     "title": "Périmètre fixe. Prix fixe. Livré.",
-    "lede": "De la première version de votre application à l’infrastructure qui la fait tourner — trois offres à prix fixe, plus un forfait mensuel quand vous avez besoin de quelqu’un d’astreinte.",
+    "lede": "De la première version de votre application à l’infrastructure qui la fait tourner : trois offres à prix fixe, plus un forfait mensuel quand vous avez besoin de quelqu’un d’astreinte.",
     "startingAt": "À partir de",
     "retainerCta": "Parlons du forfait"
   },
@@ -145,7 +145,7 @@
       },
       "docs": {
         "title": "Documentation livrée",
-        "body": "Runbooks, schémas et décisions — tout est écrit."
+        "body": "Runbooks, schémas et décisions : tout est écrit."
       },
       "lockin": {
         "title": "Aucune dépendance",
@@ -156,12 +156,12 @@
   "about": {
     "kicker": "À propos",
     "title": "Je comprends le code et le business.",
-    "p1": "Pendant trois ans, j’ai été ingénieur logiciel et infrastructure à l’Unité 81, en charge de systèmes en production. J’y ai aussi été formateur et commandant — j’ai conçu un cursus logiciel et accompagné des ingénieurs juniors.",
+    "p1": "Pendant trois ans, j’ai été ingénieur logiciel et infrastructure à l’Unité 81, en charge de systèmes en production. J’y ai aussi été formateur et commandant : j’ai conçu un cursus logiciel et accompagné des ingénieurs juniors.",
     "p2": "Aujourd’hui, je cofonde asgo.dev tout en étudiant l’économie et l’entrepreneuriat (filière data science) à l’Université Reichman.",
-    "p3": "Je travaille sur toute la stack — React et Next.js côté front, Python et FastAPI derrière, Kubernetes et le cloud en dessous — je construis donc ce dont votre startup a vraiment besoin, sans surdimensionner.",
+    "p3": "Je travaille sur toute la stack : React et Next.js côté front, Python et FastAPI derrière, Kubernetes et le cloud en dessous. Je construis donc ce dont votre startup a vraiment besoin, sans surdimensionner.",
     "tags": {
       "languages": "Anglais · Hébreu · Français",
-      "location": "Tel Aviv — remote partout",
+      "location": "Tel Aviv, en remote partout",
       "hours": "Horaires compatibles UE & US"
     },
     "portraitAlt": "Portrait de Rafael Peretz",
@@ -169,7 +169,7 @@
   },
   "stack": {
     "kicker": "Stack",
-    "title": "Des outils éprouvés, sans surprise — bien utilisés."
+    "title": "Des outils éprouvés, sans surprise, bien utilisés."
   },
   "testimonials": {
     "kicker": "Clients",
@@ -183,7 +183,7 @@
     "title": "Des réponses claires."
   },
   "contact": {
-    "title": "Rendons votre infrastructure ennuyeuse — dans le bon sens.",
+    "title": "Rendons votre infrastructure ennuyeuse, dans le bon sens.",
     "lede": "Dites-moi ce que vous construisez. Vous aurez une réponse franche sur le périmètre, le délai et le coût.",
     "book": "Réserver un appel gratuit",
     "form": {
@@ -216,11 +216,11 @@
         "required": "Ce champ est obligatoire.",
         "invalid": "Saisissez une adresse e-mail valide.",
         "tooShort": "Encore quelques mots, s’il vous plaît (20 caractères minimum).",
-        "tooLong": "C’est un peu long — pouvez-vous raccourcir ?"
+        "tooLong": "C’est un peu long. Pouvez-vous raccourcir ?"
       },
       "invalid": "Merci de vérifier les champs signalés.",
       "successTitle": "✓ message delivered",
-      "successBody": "Merci — je vous réponds très vite par e-mail.",
+      "successBody": "Merci ! Je vous réponds très vite par e-mail.",
       "sendAnother": "Envoyer un autre message",
       "error": "Un problème de mon côté a empêché l’envoi du message. Écrivez-moi directement à {email}.",
       "rateLimited": "Trop de messages en peu de temps. Réessayez dans quelques minutes, ou écrivez-moi à {email}."
@@ -237,6 +237,6 @@
     "close": "Fermer",
     "more": "Autres projets",
     "next": "Étude de cas suivante",
-    "metaTitle": "{title} — étude de cas"
+    "metaTitle": "Étude de cas : {title}"
   }
 }

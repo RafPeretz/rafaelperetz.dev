@@ -44,7 +44,7 @@ export async function Contact({ locale }: { locale: string }) {
 
   return (
     <section id="contact" aria-labelledby="contact-h" className="container-page section-pad">
-      <div className="relative grid grid-cols-[repeat(auto-fit,minmax(min(100%,380px),1fr))] gap-[clamp(32px,5vw,64px)] overflow-hidden rounded-lg border border-[color-mix(in_srgb,var(--color-accent)_30%,transparent)] bg-surface/45 bg-[radial-gradient(900px_500px_at_0%_0%,color-mix(in_srgb,var(--color-accent-900)_90%,transparent),transparent_70%),radial-gradient(700px_420px_at_100%_100%,color-mix(in_srgb,var(--color-sky)_12%,transparent),transparent_70%)] p-[clamp(28px,5vw,64px)] rtl:bg-[radial-gradient(900px_500px_at_100%_0%,color-mix(in_srgb,var(--color-accent-900)_90%,transparent),transparent_70%),radial-gradient(700px_420px_at_0%_100%,color-mix(in_srgb,var(--color-sky)_12%,transparent),transparent_70%)]">
+      <div className="relative grid grid-cols-[repeat(auto-fit,minmax(min(100%,380px),1fr))] gap-[clamp(32px,5vw,64px)] overflow-hidden rounded-lg border border-[color-mix(in_srgb,var(--color-accent)_30%,transparent)] bg-surface/45 bg-[radial-gradient(900px_500px_at_0%_0%,color-mix(in_srgb,var(--color-accent-900)_90%,transparent),transparent_70%)] p-[clamp(28px,5vw,64px)] rtl:bg-[radial-gradient(900px_500px_at_100%_0%,color-mix(in_srgb,var(--color-accent-900)_90%,transparent),transparent_70%)]">
         <div className="flex flex-col items-start gap-6">
           <h2 id="contact-h" className="text-display-cta">
             {t("title")}

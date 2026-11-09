@@ -6,7 +6,7 @@ import { resolveLocale } from "@/i18n/server";
 import { OG_SIZE, OgFrame, ogColors, ogFonts, ogText } from "@/lib/og";
 import { siteConfig } from "@/site.config";
 
-export const alt = `${siteConfig.name} — ${siteConfig.jobTitle}`;
+export const alt = `${siteConfig.name}, ${siteConfig.jobTitle}`;
 export const size = OG_SIZE;
 export const contentType = "image/png";
 
