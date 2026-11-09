@@ -71,7 +71,7 @@ scripts/                  # contrast check, screenshots
 - **Static by default.** Pages read only `params`, via `resolveLocale(params)` from `@/i18n/server` (narrows the type + `setRequestLocale`). Never use `cookies()`, `headers()` or `searchParams` in pages. Every page calls `setRequestLocale(locale)`, and `[locale]/layout.tsx` sets `generateStaticParams` + `dynamicParams = false`.
 - **Tokens only.** Use colours such as `bg-bg`, `text-fg-muted`, `text-accent-text`, `border-divider`, and never raw hex. The default Tailwind palette is disabled. For accent-coloured _text_ use `accent-text` (AA-safe in light mode); `accent` is for lines, icons and glows. After changing tokens, run `pnpm check:contrast`.
 - **One accent only.** The site uses the single violet accent; secondary hues were tried and removed (they added noise without meaning). Don't add more colours.
-- **Logos:** technology logos are `<Logo name=…/>` (`components/ui/logo.tsx`), drawn in `currentColor` (the accent, like the icons).
+- **Logos:** technology logos are `<Logo name=…/>` (`components/ui/logo.tsx`). They're the one exception to the single accent: each keeps its brand colour, adjusted per theme to ≥3:1 contrast, and monochrome brands (Next.js, Vercel, Railway) use the text colour.
   - The paths come from the cached sprite `public/logos.svg`. Regenerate it with `node scripts/build-logos.mjs` after adding one, and add the name to `BRAND_LOGOS` too.
   - Don't inline big SVG paths in pages: they land in the HTML _and_ the RSC payload.
 - **Text emphasis steps:** `fg` > `fg-soft` (78%) > `fg-muted` (72%) > `fg-subtle` (62%) > `fg-faint` (55%).

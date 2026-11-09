@@ -32,7 +32,7 @@ export async function Stack({ locale, index }: { locale: string; index: number }
                   className="flex items-center gap-2 rounded-md border border-divider px-3 py-2 text-sm transition-[border-color,box-shadow] duration-200 hover:border-accent hover:shadow-chip"
                 >
                   {item.logo ? (
-                    <Logo name={item.logo} className="size-4.25 text-accent" />
+                    <Logo name={item.logo} className="size-4.25" />
                   ) : item.icon ? (
                     <ContentIcon name={item.icon} className="size-4.25 text-accent" />
                   ) : null}

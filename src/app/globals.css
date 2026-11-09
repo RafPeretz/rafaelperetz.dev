@@ -134,6 +134,15 @@
     var(--glow-fill, color-mix(in srgb, var(--color-surface) 55%, transparent));
 }
 
+/* Technology logos keep their brand colours (the one exception to the single accent),
+   adjusted per theme for ≥3:1 contrast (see components/ui/logo.tsx). */
+.brand-logo {
+  color: var(--brand-dark);
+}
+[data-theme="light"] .brand-logo {
+  color: var(--brand-light);
+}
+
 /* ── Nocturne components ──────────────────────────────────────────────── */
 @layer components {
   .btn {
