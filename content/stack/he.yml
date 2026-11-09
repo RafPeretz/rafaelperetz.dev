@@ -1,23 +1,31 @@
 groups:
+  - label: "Full-stack ואפליקציות"
+    tone: sky
+    items:
+      - { name: "TypeScript", logo: typescript, hint: "JavaScript עם טיפוסים, מקצה לקצה" }
+      - { name: "React", logo: react, hint: "ממשקי משתמש" }
+      - { name: "Next.js", logo: nextdotjs, hint: "פריימוורק React מלא" }
+      - { name: "Node.js", logo: nodedotjs, hint: "בקאנד ב־JavaScript" }
+      - { name: "Python", logo: python, hint: "שפת בקאנד" }
+      - { name: "FastAPI", logo: fastapi, hint: "ממשקי API" }
   - label: "ענן ו־DevOps"
+    tone: violet
     items:
-      - { name: "Kubernetes", icon: steering-wheel, hint: "תזמור קונטיינרים" }
-      - { name: "Docker", icon: cube, hint: "קונטיינרים" }
-      - { name: "Azure", icon: cloud, hint: "הענן של מיקרוסופט" }
-      - { name: "AWS", icon: cloud-arrow-up, hint: "Amazon Web Services" }
-      - { name: "GitHub Actions", icon: github-logo, hint: "וורקפלואים ופייפליינים" }
+      - { name: "Kubernetes", logo: kubernetes, hint: "תזמור קונטיינרים" }
+      - { name: "Docker", logo: docker, hint: "קונטיינרים" }
+      - { name: "AWS", logo: aws, hint: "Amazon Web Services" }
+      - { name: "Azure", logo: azure, hint: "הענן של מיקרוסופט" }
+      - { name: "GitHub Actions", logo: githubactions, hint: "וורקפלואים ופייפליינים" }
       - { name: "CI/CD", icon: arrows-clockwise, hint: "אינטגרציה ומסירה רציפות" }
-  - label: "בקאנד · פרונטאנד"
-    items:
-      - { name: "Python", icon: file-py, hint: "שפת בקאנד" }
-      - { name: "FastAPI", icon: lightning, hint: "ממשקי API" }
-      - { name: "React", icon: atom, hint: "ממשקי משתמש" }
   - label: "נתונים ואחסון"
+    tone: teal
     items:
-      - { name: "Supabase", icon: database, hint: "Postgres, אימות, אחסון" }
-      - { name: "Railway", icon: train, hint: "אחסון בקאנד" }
-      - { name: "Vercel", icon: triangle, hint: "אחסון פרונטאנד" }
+      - { name: "PostgreSQL", logo: postgresql, hint: "מסד נתונים רלציוני" }
+      - { name: "Supabase", logo: supabase, hint: "Postgres, אימות, אחסון" }
+      - { name: "Railway", logo: railway, hint: "אחסון בקאנד" }
+      - { name: "Vercel", logo: vercel, hint: "אחסון פרונטאנד" }
   - label: "אבטחה"
+    tone: rose
     items:
       - { name: "אבטחת פייפליינים", icon: shield-check, hint: "סריקה, חתימה, מדיניות" }
       - { name: "IAM", icon: identification-badge, hint: "הרשאות מינימליות" }

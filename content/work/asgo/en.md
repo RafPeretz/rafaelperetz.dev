@@ -1,6 +1,8 @@
 ---
-title: ReySecurity
+title: asgo.dev
 role: Co-founder · Infrastructure lead
+mark: "a."
+tone: violet
 order: 1
 summary: A cybersecurity startup protecting non-human identities in CI/CD pipelines and agentic supply chains. I built the delivery pipeline and put hard budget caps on an AI agent fleet.
 card:

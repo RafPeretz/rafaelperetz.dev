@@ -1,7 +1,8 @@
 ---
 kind: package
-order: 2
+order: 3
 icon: cloud-arrow-up
+tone: teal
 title: "פריסה לענן ול־Kubernetes"
 duration: "2 עד 4 שבועות"
 summary: "האפליקציה שלך בקונטיינרים, פרוסה ומוקשחת — עם חשבון ענן צפוי."
@@ -10,5 +11,5 @@ features:
   - "Kubernetes על AWS או Azure"
   - "הקשחת IAM, הרשאות מינימליות"
   - "סקירת עלויות והתאמת משאבים"
-price: "___$" # TODO: price (Hebrew convention: amount then $, e.g. "2,500$")
+price: "7,500$" # Market-based starting price — adjust freely (see TODO.md → Prices)
 ---

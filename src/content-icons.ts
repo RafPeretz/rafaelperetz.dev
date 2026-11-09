@@ -1,7 +1,7 @@
 /**
- * Icon names that content files (services, stack, …) may reference.
- * Shared by velite.config.ts (schema validation) and components/ui/content-icon.tsx (rendering),
- * so a typo in frontmatter fails the build instead of rendering nothing.
+ * Names that content files (services, stack, case studies, …) may reference.
+ * Shared by velite.config.ts (schema validation) and the renderers (components/ui/content-icon.tsx,
+ * components/ui/logo.tsx), so a typo in frontmatter fails the build instead of rendering nothing.
  */
 export const CONTENT_ICONS = [
   "git-merge",
@@ -23,6 +23,35 @@ export const CONTENT_ICONS = [
   "identification-badge",
   "key",
   "robot",
+  "browsers",
+  "code",
+  "graduation-cap",
+  "shield-star",
 ] as const;
 
 export type ContentIconName = (typeof CONTENT_ICONS)[number];
+
+/** Technology logos (simple-icons, or a Phosphor glyph in the brand colour where the brand isn't in simple-icons). */
+export const BRAND_LOGOS = [
+  "kubernetes",
+  "docker",
+  "azure",
+  "aws",
+  "githubactions",
+  "python",
+  "fastapi",
+  "react",
+  "nextdotjs",
+  "typescript",
+  "nodedotjs",
+  "postgresql",
+  "supabase",
+  "railway",
+  "vercel",
+] as const;
+
+export type BrandLogoName = (typeof BRAND_LOGOS)[number];
+
+/** Colour-coding hues (see tokens.css). */
+export const TONES = ["violet", "sky", "teal", "amber", "rose"] as const;
+export type Tone = (typeof TONES)[number];

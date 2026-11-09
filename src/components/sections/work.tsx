@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import { Link } from "@/i18n/link";
 import { getCaseStudies } from "@/lib/content";
+import { cn } from "@/lib/utils";
 
 import { SectionHeading } from "./section-heading";
 
@@ -20,10 +21,22 @@ export async function Work({ locale, index }: { locale: string; index: number })
             <Link
               href={`/work/${c.slug}`}
               scroll={false}
-              className="flex min-h-90 w-full flex-col gap-4.5 rounded-lg border border-divider p-7 text-fg no-underline transition-colors duration-250 [--glow-size:480px] [--glow-strength:14%] glow-card hover:border-[color-mix(in_srgb,var(--color-accent)_50%,transparent)] hover:text-fg"
+              className={cn(
+                `tone-${c.tone}`,
+                "flex min-h-90 w-full flex-col gap-4.5 rounded-lg border border-divider p-7 text-fg no-underline transition-colors duration-250 [--glow-size:480px] [--glow-strength:14%] glow-card hover:border-tone/50 hover:text-fg",
+              )}
             >
-              <span className="font-mono-ui text-[11px] leading-none font-medium tracking-[0.08em] text-accent-text uppercase">
-                {c.role}
+              <span className="flex items-center gap-3">
+                {/* Monogram tile: a logo stand-in in the project's colour. */}
+                <span
+                  aria-hidden="true"
+                  className="grid size-11 flex-none place-items-center rounded-md border border-tone/35 bg-tone/14 font-mono-ui text-sm font-medium tracking-[-0.02em] text-tone"
+                >
+                  {c.mark}
+                </span>
+                <span className="font-mono-ui text-[11px] leading-snug font-medium tracking-[0.08em] text-tone uppercase">
+                  {c.role}
+                </span>
               </span>
               <span className="text-case font-medium">{c.title}</span>
               <span className="max-w-[46ch] text-[15px] leading-[1.55] text-fg-soft">{c.summary}</span>
@@ -39,7 +52,7 @@ export async function Work({ locale, index }: { locale: string; index: number })
                   </span>
                 ))}
               </span>
-              <span className="flex items-center gap-2 text-sm text-accent-text">
+              <span className="flex items-center gap-2 text-sm text-tone">
                 {t("readCase")}
                 <ArrowUpRightIcon aria-hidden="true" className="size-3.5 rtl:-scale-x-100" />
               </span>

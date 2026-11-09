@@ -4,8 +4,6 @@ Placeholders are marked `TODO` in the code. Items are grouped by where they live
 
 ## `src/site.config.ts`
 
-- [ ] **GitHub** profile URL (`links.github`)
-- [ ] **LinkedIn** profile URL (`links.linkedin`)
 - [ ] **Upwork** profile URL (`links.upwork`)
 - [ ] **Malt** profile URL (`links.malt`)
 - [ ] **Cal.com** event slug (`links.cal`, e.g. `rafaelperetz/20min`). Create a 20-minute event at cal.com. The popup and link already use this value.
@@ -14,11 +12,14 @@ Placeholders are marked `TODO` in the code. Items are grouped by where they live
 
 ## Content
 
-- [ ] **Prices**: the three packages plus the retainer "from $___/mo"
-- [ ] **Portrait photo**: ideally shot on a dark background (the design blends it with `mix-blend-mode: lighten`). At least 880×1100px.
+- [ ] **Review the prices** (set in Nov 2026 from market data, in `content/services/*/<locale>.md`):
+  - Full-stack app from $12,000 · CI/CD from $3,500 · Cloud & Kubernetes from $7,500 · retainer from $2,000/mo.
+  - Basis: ~$85–100/h effective for a mid-level freelancer (freelancermap 2026, Germany/Austria/Switzerland: ~€100/h for IT infrastructure, ~€91/h for development; Arc 2026, full-stack worldwide: $61–80/h), times the effort in days for each package's duration.
+  - These sit at the accessible end of the market, which suits winning the first clients. Raise them once you have testimonials.
 - [ ] **Testimonials**: the section stays hidden until at least one exists. The design wants a founder or CTO outside Israel.
+- [ ] **asgo.dev case study**: the text is the former ReySecurity one, renamed. Check that the description (non-human identities in CI/CD, AI agent fleet) still matches what asgo.dev does.
+- [ ] **New stack items**: TypeScript, Next.js, Node.js and PostgreSQL were added for the full-stack positioning. Remove any you don't want to be asked about.
 - [ ] **Case-study metrics**: outcome numbers make the case studies much stronger (e.g. deploy time, cost saved)
-- [ ] **Confirm "Porsche Digital"** in the "Experience with" strip. It isn't mentioned anywhere else in your bio.
 - [ ] **Brand mark / favicon**: the "RP" monogram is used for now
 
 ## Translations (drafted in Phase 4, please review)

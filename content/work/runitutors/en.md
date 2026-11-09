@@ -1,6 +1,8 @@
 ---
 title: RuniTutors
 role: Founder · End-to-end build
+mark: "RT"
+tone: sky
 order: 2
 summary: A peer-to-peer tutoring platform matching university students with top-performing peers. Designed, built and deployed solo — now in pilot discussions with Reichman University.
 card:

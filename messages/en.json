@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Rafael Peretz — Freelance DevOps & Cloud Engineer",
-    "description": "DevOps, cloud and CI/CD for startups that need to ship fast and stay secure. Tel Aviv, remote worldwide."
+    "title": "Rafael Peretz — Freelance Full-Stack & DevOps Engineer",
+    "description": "Full-stack apps, DevOps, cloud and CI/CD for startups that need to ship fast and stay secure. Tel Aviv, remote worldwide."
   },
   "common": {
     "skipToContent": "Skip to content"
@@ -46,8 +46,8 @@
     "home": "Back to the homepage"
   },
   "hero": {
-    "title": "I build the <em>infrastructure</em> your startup runs on.",
-    "lede": "DevOps, cloud & CI/CD for startups that need to ship fast and stay secure. Ex–Unit 81 engineer. Currently building security infrastructure at ReySecurity.",
+    "title": "I build your <em>product</em> — and the infrastructure it runs on.",
+    "lede": "Full-stack web apps, DevOps, cloud & CI/CD for startups that need to ship fast and stay secure. Ex–Unit 81 engineer, co-founder of asgo.dev.",
     "ctaBook": "Book a free 20-min call",
     "ctaWork": "See my work",
     "meta": {
@@ -77,8 +77,7 @@
     "section": "Experience",
     "companies": {
       "unit81": "Unit 81",
-      "porsche": "Porsche Digital",
-      "reysecurity": "ReySecurity",
+      "asgo": "asgo.dev",
       "reichman": "Reichman University"
     }
   },
@@ -86,21 +85,21 @@
     "label": "At a glance",
     "years": {
       "value": "<count>3</count>+ years",
-      "label": "Running production infrastructure"
-    },
-    "clouds": {
-      "value": "K8s · Azure · AWS",
-      "label": "Where your workloads live"
+      "label": "Shipping production systems"
     },
     "security": {
       "value": "Security-first",
       "label": "By default, not as an add-on"
+    },
+    "fullstack": {
+      "value": "Full-stack",
+      "label": "From the UI to the cluster"
     }
   },
   "services": {
     "kicker": "Services",
     "title": "Fixed scope. Fixed price. Shipped.",
-    "lede": "Three packages for the problems startups hit first — plus a retainer for when you need someone on call.",
+    "lede": "From the first version of your app to the infrastructure it runs on — three fixed-price packages, plus a retainer for when you need someone on call.",
     "startingAt": "Starting at",
     "retainerCta": "Ask about retainers"
   },
@@ -158,8 +157,8 @@
     "kicker": "About",
     "title": "I understand the code and the business.",
     "p1": "For three years I was a software & infrastructure engineer in Unit 81, running production systems. I also served as a course instructor and commander — designing a software curriculum and mentoring junior engineers.",
-    "p2": "Today I’m co-founding ReySecurity while studying Economics & Entrepreneurship (Data Science track) at Reichman University.",
-    "p3": "So I build what your startup actually needs — not over-engineered infrastructure.",
+    "p2": "Today I’m co-founding asgo.dev while studying Economics & Entrepreneurship (Data Science track) at Reichman University.",
+    "p3": "I work across the whole stack — React and Next.js on the front, Python and FastAPI behind it, Kubernetes and the cloud underneath — so I build what your startup actually needs, without over-engineering.",
     "tags": {
       "languages": "English · Hebrew · French",
       "location": "Tel Aviv — remote worldwide",
@@ -200,7 +199,7 @@
       "projectTypes": {
         "cicd": "CI/CD pipeline",
         "cloud": "Cloud & Kubernetes",
-        "mvp": "MVP / web app",
+        "mvp": "Full-stack app / MVP",
         "retainer": "DevOps retainer",
         "unsure": "Not sure yet"
       },

@@ -1,7 +1,8 @@
 ---
 kind: package
-order: 1
+order: 2
 icon: git-merge
+tone: violet
 title: "הקמת פייפליין CI/CD"
 duration: "שבוע עד שבועיים"
 summary: "כל push נבנה, נבדק, נסרק ומשוחרר — בלי שמישהו יצטרך לשמור על הפריסה."
@@ -10,5 +11,5 @@ features:
   - "ניהול סודות, בלי מפתחות ארוכי־טווח"
   - "סריקות אבטחה לתלויות ולקונטיינרים"
   - "ראנבוק ותיעוד העברה"
-price: "___$" # TODO: price (Hebrew convention: amount then $, e.g. "2,500$")
+price: "3,500$" # Market-based starting price — adjust freely (see TODO.md → Prices)
 ---

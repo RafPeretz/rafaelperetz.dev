@@ -2,7 +2,8 @@
 kind: retainer
 order: 4
 icon: infinity
-title: "ריטיינר DevOps שוטף"
-summary: "מהנדס התשתיות שלך במשרה חלקית: שדרוגים, ניטור, עזרה בתקלות, ודעה נוספת על כל החלטת ארכיטקטורה."
-price: "החל מ־___$ לחודש" # TODO: price
+tone: amber
+title: "ריטיינר DevOps ופיתוח שוטף"
+summary: "המהנדס שלך במשרה חלקית: פיצ׳רים ותיקונים, שדרוגים, ניטור, עזרה בתקלות, ודעה נוספת על כל החלטת ארכיטקטורה."
+price: "החל מ־2,000$ לחודש" # Market-based starting price — adjust freely (see TODO.md → Prices)
 ---

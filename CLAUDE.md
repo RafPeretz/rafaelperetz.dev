@@ -70,6 +70,14 @@ scripts/                  # contrast check, screenshots
 - **Server Components by default.** Add `"use client"` only for interactivity (menu, theme, animations, form). Pass server-rendered content into client islands as `children` instead of moving it client-side.
 - **Static by default.** Pages read only `params`, via `resolveLocale(params)` from `@/i18n/server` (narrows the type + `setRequestLocale`). Never use `cookies()`, `headers()` or `searchParams` in pages. Every page calls `setRequestLocale(locale)`, and `[locale]/layout.tsx` sets `generateStaticParams` + `dynamicParams = false`.
 - **Tokens only.** Use colours such as `bg-bg`, `text-fg-muted`, `text-accent-text`, `border-divider`, and never raw hex. The default Tailwind palette is disabled. For accent-coloured _text_ use `accent-text` (AA-safe in light mode); `accent` is for lines, icons and glows. After changing tokens, run `pnpm check:contrast`.
+- **Colour coding (tones):** besides the violet accent there are four hues: `sky`, `teal` (also "success"), `amber` and `rose`. Each is AA-checked as text in both themes.
+  - Put `tone-<name>` on an element and use `text-tone`, `bg-tone/14`, `border-tone/45` inside it; `.glow-card` follows the tone.
+  - Content picks tones in frontmatter (`tone:` on services, case studies and stack groups).
+  - Use hues for lines, icons, tinted tiles and short labels. Body copy stays neutral. `text-gradient` is for the hero emphasis and the stats only.
+- **Logos:** technology logos are `<Logo name=…/>` (`components/ui/logo.tsx`).
+  - Brand colours are adjusted per theme to ≥3:1, and monochrome brands use the text colour.
+  - The paths come from the cached sprite `public/logos.svg`; regenerate it with `node scripts/build-logos.mjs` after adding one. Add the name to `BRAND_LOGOS` too.
+  - Don't inline big SVG paths in pages: they land in the HTML _and_ the RSC payload.
 - **Text emphasis steps:** `fg` > `fg-soft` (78%) > `fg-muted` (72%) > `fg-subtle` (62%) > `fg-faint` (55%).
 - **Type scale:** `text-display`, `text-display-cta`, `text-h2`, `text-stat`, `text-case`. Don't name a size token after a colour token; `text-section` would collide with `--color-section`.
 - **Layout helpers:** `container-page` (1200px max + fluid gutter), `section-pad`, `font-mono-ui`. Desktop nav breakpoint: `nav:` (900px).

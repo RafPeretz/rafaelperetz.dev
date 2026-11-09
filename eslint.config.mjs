@@ -19,5 +19,13 @@ export default defineConfig([
     files: ["scripts/**"],
     rules: { "no-console": "off" },
   },
-  globalIgnores([".next/**", "out/**", "build/**", ".velite/**", "next-env.d.ts", "Design/**"]),
+  globalIgnores([
+    ".next/**",
+    "out/**",
+    "build/**",
+    ".velite/**",
+    "next-env.d.ts",
+    "Design/**",
+    ".screenshots/**",
+  ]),
 ]);

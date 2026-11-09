@@ -1,6 +1,8 @@
 ---
 title: "RuniTutors"
 role: "Fondateur · Réalisation de bout en bout"
+mark: "RT"
+tone: sky
 order: 2
 summary: "Une plateforme de tutorat entre pairs qui met en relation des étudiants avec les meilleurs de leur promo. Conçue, développée et déployée en solo — aujourd’hui en discussion pour un pilote avec l’Université Reichman."
 card:

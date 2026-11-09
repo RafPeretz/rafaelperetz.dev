@@ -1,7 +1,8 @@
 ---
 kind: package
-order: 2
+order: 3
 icon: cloud-arrow-up
+tone: teal
 title: "Déploiement Cloud & Kubernetes"
 duration: "2–4 semaines"
 summary: "Votre application conteneurisée, déployée et durcie — avec une facture cloud prévisible."
@@ -10,5 +11,5 @@ features:
   - "Kubernetes sur AWS ou Azure"
   - "Durcissement IAM, moindre privilège"
   - "Revue des coûts et dimensionnement"
-price: $___ # TODO: price
+price: "7 500 $" # Market-based starting price — adjust freely (see TODO.md → Prices)
 ---

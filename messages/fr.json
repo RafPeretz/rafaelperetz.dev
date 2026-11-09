@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Rafael Peretz — Ingénieur DevOps & Cloud freelance",
-    "description": "DevOps, cloud et CI/CD pour les startups qui doivent livrer vite et rester sécurisées. Tel Aviv, en remote partout dans le monde."
+    "title": "Rafael Peretz — Ingénieur Full-Stack & DevOps freelance",
+    "description": "Applications full-stack, DevOps, cloud et CI/CD pour les startups qui doivent livrer vite et rester sécurisées. Tel Aviv, en remote partout dans le monde."
   },
   "common": {
     "skipToContent": "Aller au contenu"
@@ -23,7 +23,7 @@
     "toDark": "Passer en mode sombre"
   },
   "availability": {
-    "available": "Disponible pour de nouveaux projets",
+    "available": "Ouvert aux nouveaux projets",
     "limited": "Disponibilité limitée — T4",
     "booked": "Complet — prochaine disponibilité en janv. 2027"
   },
@@ -46,8 +46,8 @@
     "home": "Retour à l’accueil"
   },
   "hero": {
-    "title": "Je construis l’<em>infrastructure</em> sur laquelle tourne votre startup.",
-    "lede": "DevOps, cloud et CI/CD pour les startups qui doivent livrer vite et rester sécurisées. Ancien ingénieur de l’Unité 81. Je construis aujourd’hui l’infrastructure de sécurité de ReySecurity.",
+    "title": "Je construis votre <em>produit</em> — et l’infrastructure sur laquelle il tourne.",
+    "lede": "Applications web full-stack, DevOps, cloud et CI/CD pour les startups qui doivent livrer vite et rester sécurisées. Ancien ingénieur de l’Unité 81, cofondateur d’asgo.dev.",
     "ctaBook": "Appel gratuit de 20 min",
     "ctaWork": "Voir mes projets",
     "meta": {
@@ -77,8 +77,7 @@
     "section": "Expérience",
     "companies": {
       "unit81": "Unité 81",
-      "porsche": "Porsche Digital",
-      "reysecurity": "ReySecurity",
+      "asgo": "asgo.dev",
       "reichman": "Université Reichman"
     }
   },
@@ -86,21 +85,21 @@
     "label": "En bref",
     "years": {
       "value": "<count>3</count>+ ans",
-      "label": "D’infrastructure en production"
-    },
-    "clouds": {
-      "value": "K8s · Azure · AWS",
-      "label": "Là où tournent vos workloads"
+      "label": "De systèmes livrés en production"
     },
     "security": {
       "value": "Security-first",
       "label": "Par défaut, pas en option"
+    },
+    "fullstack": {
+      "value": "Full-stack",
+      "label": "De l’interface au cluster"
     }
   },
   "services": {
     "kicker": "Services",
     "title": "Périmètre fixe. Prix fixe. Livré.",
-    "lede": "Trois offres pour les problèmes que les startups rencontrent en premier — plus un forfait mensuel quand vous avez besoin de quelqu’un d’astreinte.",
+    "lede": "De la première version de votre application à l’infrastructure qui la fait tourner — trois offres à prix fixe, plus un forfait mensuel quand vous avez besoin de quelqu’un d’astreinte.",
     "startingAt": "À partir de",
     "retainerCta": "Parlons du forfait"
   },
@@ -158,8 +157,8 @@
     "kicker": "À propos",
     "title": "Je comprends le code et le business.",
     "p1": "Pendant trois ans, j’ai été ingénieur logiciel et infrastructure à l’Unité 81, en charge de systèmes en production. J’y ai aussi été formateur et commandant — j’ai conçu un cursus logiciel et accompagné des ingénieurs juniors.",
-    "p2": "Aujourd’hui, je cofonde ReySecurity tout en étudiant l’économie et l’entrepreneuriat (filière data science) à l’Université Reichman.",
-    "p3": "Je construis donc ce dont votre startup a vraiment besoin — pas une infrastructure surdimensionnée.",
+    "p2": "Aujourd’hui, je cofonde asgo.dev tout en étudiant l’économie et l’entrepreneuriat (filière data science) à l’Université Reichman.",
+    "p3": "Je travaille sur toute la stack — React et Next.js côté front, Python et FastAPI derrière, Kubernetes et le cloud en dessous — je construis donc ce dont votre startup a vraiment besoin, sans surdimensionner.",
     "tags": {
       "languages": "Anglais · Hébreu · Français",
       "location": "Tel Aviv — remote partout",
@@ -200,7 +199,7 @@
       "projectTypes": {
         "cicd": "Pipeline CI/CD",
         "cloud": "Cloud & Kubernetes",
-        "mvp": "MVP / application web",
+        "mvp": "Application full-stack / MVP",
         "retainer": "Forfait DevOps mensuel",
         "unsure": "Je ne sais pas encore"
       },

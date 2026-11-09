@@ -107,12 +107,12 @@ pnpm dev                     # http://localhost:3000
 
 ## CI/CD
 
-| Stage                                                                      | Where                                                                    | Gate                            |
-| -------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------- |
-| Lint, format, type-check, i18n parity, contrast, build, smoke test         | `.github/workflows/ci.yml`, every PR + `main`                            | must pass                       |
-| Preview deployment                                                         | Vercel Git integration, every PR                                         | —                               |
-| Lighthouse (mobile, median of 3) on `/`, `/fr`, `/he`, `/work/reysecurity` | `.github/workflows/lighthouse.yml`, on each successful Vercel deployment | all categories ≥ 95, CLS ≤ 0.05 |
-| Production deployment                                                      | Vercel, on merge to `main`                                               | —                               |
+| Stage                                                               | Where                                                                    | Gate                            |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------- |
+| Lint, format, type-check, i18n parity, contrast, build, smoke test  | `.github/workflows/ci.yml`, every PR + `main`                            | must pass                       |
+| Preview deployment                                                  | Vercel Git integration, every PR                                         | —                               |
+| Lighthouse (mobile, median of 3) on `/`, `/fr`, `/he`, `/work/asgo` | `.github/workflows/lighthouse.yml`, on each successful Vercel deployment | all categories ≥ 95, CLS ≤ 0.05 |
+| Production deployment                                               | Vercel, on merge to `main`                                               | —                               |
 
 The Lighthouse job reports a score table in the run summary and uploads the full reports as an artifact.
 

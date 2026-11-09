@@ -45,7 +45,7 @@ jobs:
             --collect.url="$BASE_URL/" \
             --collect.url="$BASE_URL/fr" \
             --collect.url="$BASE_URL/he" \
-            --collect.url="$BASE_URL/work/reysecurity" \
+            --collect.url="$BASE_URL/work/asgo" \
             --collect.settings.extraHeaders="$HEADERS"
 
       - name: Summary

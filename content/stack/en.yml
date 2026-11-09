@@ -1,25 +1,33 @@
 groups:
-  - label: Cloud & DevOps
+  - label: "Full-stack & apps"
+    tone: sky
     items:
-      - { name: Kubernetes, icon: steering-wheel, hint: Container orchestration }
-      - { name: Docker, icon: cube, hint: Containers }
-      - { name: Azure, icon: cloud, hint: Microsoft cloud }
-      - { name: AWS, icon: cloud-arrow-up, hint: Amazon Web Services }
-      - { name: GitHub Actions, icon: github-logo, hint: Workflows and pipelines }
-      - { name: CI/CD, icon: arrows-clockwise, hint: Continuous integration and delivery }
-  - label: Backend · Frontend
+      - { name: "TypeScript", logo: typescript, hint: "Typed JavaScript, end to end" }
+      - { name: "React", logo: react, hint: "User interfaces" }
+      - { name: "Next.js", logo: nextdotjs, hint: "Full-stack React framework" }
+      - { name: "Node.js", logo: nodedotjs, hint: "JavaScript backends" }
+      - { name: "Python", logo: python, hint: "Backend language" }
+      - { name: "FastAPI", logo: fastapi, hint: "APIs" }
+  - label: "Cloud & DevOps"
+    tone: violet
     items:
-      - { name: Python, icon: file-py, hint: Backend language }
-      - { name: FastAPI, icon: lightning, hint: APIs }
-      - { name: React, icon: atom, hint: User interfaces }
-  - label: Data & hosting
+      - { name: "Kubernetes", logo: kubernetes, hint: "Container orchestration" }
+      - { name: "Docker", logo: docker, hint: "Containers" }
+      - { name: "AWS", logo: aws, hint: "Amazon Web Services" }
+      - { name: "Azure", logo: azure, hint: "Microsoft cloud" }
+      - { name: "GitHub Actions", logo: githubactions, hint: "Workflows and pipelines" }
+      - { name: "CI/CD", icon: arrows-clockwise, hint: "Continuous integration and delivery" }
+  - label: "Data & hosting"
+    tone: teal
     items:
-      - { name: Supabase, icon: database, hint: "Postgres, auth, storage" }
-      - { name: Railway, icon: train, hint: Backend hosting }
-      - { name: Vercel, icon: triangle, hint: Frontend hosting }
-  - label: Security
+      - { name: "PostgreSQL", logo: postgresql, hint: "Relational database" }
+      - { name: "Supabase", logo: supabase, hint: "Postgres, auth, storage" }
+      - { name: "Railway", logo: railway, hint: "Backend hosting" }
+      - { name: "Vercel", logo: vercel, hint: "Frontend hosting" }
+  - label: "Security"
+    tone: rose
     items:
-      - { name: Pipeline security, icon: shield-check, hint: "Scanning, signing, policy" }
-      - { name: IAM, icon: identification-badge, hint: Least-privilege access }
-      - { name: Secrets management, icon: key, hint: No secrets in code }
-      - { name: AI agent infrastructure, icon: robot, hint: Cost-capped agent fleets }
+      - { name: "Pipeline security", icon: shield-check, hint: "Scanning, signing, policy" }
+      - { name: "IAM", icon: identification-badge, hint: "Least-privilege access" }
+      - { name: "Secrets management", icon: key, hint: "No secrets in code" }
+      - { name: "AI agent infrastructure", icon: robot, hint: "Cost-capped agent fleets" }

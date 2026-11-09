@@ -4,7 +4,7 @@ import { type CSSProperties, type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-import { LOGS, STAGES } from "./pipeline-data";
+import { LOGS, STAGE_TONE, STAGES } from "./pipeline-data";
 import {
   at,
   DEPLOYED_AT,
@@ -58,7 +58,7 @@ export async function PipelineWindow() {
           <span aria-hidden="true" className="pl-window text-fg-faint" style={windowed(at(1), DEPLOYED_AT)}>
             {t("running")}
           </span>
-          <span className="pl-late text-accent-300" style={late(DEPLOYED_AT)}>
+          <span className="pl-late text-teal" style={late(DEPLOYED_AT)}>
             {t("success")}
           </span>
         </Variants>
@@ -72,7 +72,10 @@ export async function PipelineWindow() {
           {[0, 1, 2].map((k) => (
             <div
               key={k}
-              className="pl-grow absolute top-1/2 h-px w-1/4 origin-left bg-accent shadow-glow-sm"
+              className={cn(
+                "pl-grow absolute top-1/2 h-px w-1/4 origin-left bg-linear-to-r",
+                ["from-sky to-amber", "from-amber to-rose", "from-rose to-teal"][k],
+              )}
               style={{
                 left: `${12.5 + 25 * k}%`,
                 ...vars({ "--pl-from": ms(stageTimes(k).pass), "--pl-for": ms(FILL_DURATION) }),
@@ -80,16 +83,19 @@ export async function PipelineWindow() {
             />
           ))}
           <ol dir="ltr" className="relative grid grid-cols-4 gap-1.5 xs:gap-3">
-            {STAGES.map(({ name, icon: IconCmp, time }, k) => {
+            {STAGES.map(({ name, icon: IconCmp, time, tone }, k) => {
               const { run, pass } = stageTimes(k);
               return (
                 <li
                   key={name}
-                  className="pl-stage flex flex-col gap-2 rounded-md border border-[color-mix(in_srgb,var(--color-accent)_55%,transparent)] bg-surface px-1.5 py-2 xs:px-2.5 xs:py-2.75"
+                  className={cn(
+                    tone,
+                    "pl-stage flex flex-col gap-2 rounded-md border border-tone/55 bg-surface px-1.5 py-2 xs:px-2.5 xs:py-2.75",
+                  )}
                   style={vars({ "--pl-run": ms(run), "--pl-running": ms(pass - run) })}
                 >
                   <div className="flex items-center justify-between">
-                    <IconCmp className="pl-stage-icon size-4.5 text-accent" />
+                    <IconCmp weight="duotone" className="pl-stage-icon size-4.5 text-tone" />
                     <Variants className="justify-items-end font-mono-ui text-[10px] leading-none text-fg-faint">
                       <span className="pl-window" style={windowed(0, run)}>
                         —
@@ -107,10 +113,10 @@ export async function PipelineWindow() {
                     <span className="pl-window text-fg-faint" style={windowed(0, run)}>
                       ○<span className="hidden xs:inline"> {t("stage.queued")}</span>
                     </span>
-                    <span className="pl-window text-accent-300" style={windowed(run, pass)}>
+                    <span className="pl-window text-tone" style={windowed(run, pass)}>
                       ●<span className="hidden xs:inline"> {t("stage.running")}</span>
                     </span>
-                    <span className="pl-late text-accent-300" style={late(pass)}>
+                    <span className="pl-late text-teal" style={late(pass)}>
                       ✓<span className="hidden xs:inline"> {t("stage.passed")}</span>
                     </span>
                   </Variants>
@@ -133,12 +139,12 @@ export async function PipelineWindow() {
             style={i === 0 ? windowed(logAppearsAt(0), FIRST_LOG_EXITS_AT) : late(logAppearsAt(i))}
           >
             <p className="flex gap-3 text-fg-soft">
-              <span className="w-13 flex-none text-fg-faint">{l.stage}</span>
+              <span className={cn(STAGE_TONE[l.stage], "w-13 flex-none text-tone")}>{l.stage}</span>
               <span className="min-w-0 [overflow-wrap:anywhere]">{l.text}</span>
             </p>
           </div>
         ))}
-        <Variants className="mt-[13px] font-medium text-accent-text">
+        <Variants className="mt-[13px] font-medium text-teal">
           <span className="pl-late" style={late(DEPLOYED_AT)}>
             {t("deployed")}
           </span>

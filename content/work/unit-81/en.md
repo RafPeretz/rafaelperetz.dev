@@ -1,6 +1,8 @@
 ---
 title: Unit 81
 role: Software & infrastructure engineer
+mark: "81"
+tone: teal
 order: 3
 summary: Three years on production systems — data pipelines, microservices on Kubernetes, and internal platforms in Python and FastAPI. Described at a high level, by design.
 card:

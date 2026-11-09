@@ -1,6 +1,8 @@
 ---
-title: "ReySecurity"
+title: "asgo.dev"
 role: "Cofondateur · Responsable infrastructure"
+mark: "a."
+tone: violet
 order: 1
 summary: "Une startup de cybersécurité qui protège les identités non humaines dans les pipelines CI/CD et les chaînes d’approvisionnement agentiques. J’ai construit le pipeline de livraison et plafonné strictement le budget d’une flotte d’agents IA."
 card:

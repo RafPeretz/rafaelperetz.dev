@@ -23,7 +23,7 @@ export const siteConfig = {
   name: "Rafael Peretz",
   shortName: "Rafa",
   initials: "RP",
-  jobTitle: "Freelance DevOps & Cloud Engineer",
+  jobTitle: "Freelance Full-Stack & DevOps Engineer",
   /** Target domain (not purchased yet). Used for display and the future email address. */
   domain: "rafaelperetz.dev",
   url: resolveSiteUrl(),
@@ -33,12 +33,12 @@ export const siteConfig = {
   availability: "available" as Availability,
 
   /** Portrait in /public, e.g. "/images/portrait.jpg" (4:5, ≥ 880×1100). null renders a placeholder. */
-  portrait: null as string | null, // TODO: add portrait photo
+  portrait: "/images/portrait.jpg" as string | null,
 
   links: {
     email: "hello@rafaelperetz.dev", // TODO: mailbox not live until the domain is bought — see TODO.md
-    github: "https://github.com/", // TODO: GitHub profile URL
-    linkedin: "https://www.linkedin.com/", // TODO: LinkedIn profile URL
+    github: "https://github.com/RafPeretz",
+    linkedin: "https://www.linkedin.com/in/rafael-peretz",
     upwork: "https://www.upwork.com/", // TODO: Upwork profile URL
     malt: "https://www.malt.com/", // TODO: Malt profile URL
     /** Cal.com event link, e.g. "rafaelperetz/20min" → https://cal.com/rafaelperetz/20min */

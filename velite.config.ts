@@ -1,6 +1,6 @@
 import { defineCollection, defineConfig, s } from "velite";
 
-import { CONTENT_ICONS } from "./src/content-icons";
+import { BRAND_LOGOS, CONTENT_ICONS, TONES } from "./src/content-icons";
 
 /**
  * Content collections. Files are organised as `content/<collection>/<slug>/<locale>.md`
@@ -11,6 +11,8 @@ import { CONTENT_ICONS } from "./src/content-icons";
 const LOCALES = ["en", "fr", "he"] as const;
 const locale = s.enum(LOCALES);
 const icon = s.enum(CONTENT_ICONS);
+const logo = s.enum(BRAND_LOGOS);
+const tone = s.enum(TONES);
 
 /** "work/reysecurity/en" → { slug: "reysecurity", locale: "en" } */
 function fromPath(path: string) {
@@ -27,6 +29,9 @@ const work = defineCollection({
       title: s.string(),
       /** Kicker above the title, e.g. "Co-founder · Infrastructure lead". */
       role: s.string(),
+      /** Short monogram shown in the card's logo tile, e.g. "a." or "81". */
+      mark: s.string().max(3),
+      tone,
       /** One-paragraph card summary. */
       summary: s.string(),
       order: s.number(),
@@ -53,6 +58,7 @@ const services = defineCollection({
       title: s.string(),
       summary: s.string(),
       icon,
+      tone,
       duration: s.string().optional(),
       features: s.array(s.string()).default([]),
       /** Display price, e.g. "$2,500" or "$1,200/mo". */
@@ -100,7 +106,22 @@ const stack = defineCollection({
         .array(
           s.object({
             label: s.string(),
-            items: s.array(s.object({ name: s.string(), icon, hint: s.string() })).min(1),
+            tone,
+            items: s
+              .array(
+                s
+                  .object({
+                    name: s.string(),
+                    logo: logo.optional(),
+                    icon: icon.optional(),
+                    hint: s.string(),
+                  })
+                  .refine(
+                    (i) => Boolean(i.logo) !== Boolean(i.icon),
+                    "Each stack item needs exactly one of `logo` or `icon`",
+                  ),
+              )
+              .min(1),
           }),
         )
         .min(1),

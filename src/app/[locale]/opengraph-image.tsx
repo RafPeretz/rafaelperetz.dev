@@ -24,7 +24,7 @@ export default async function OgImage({ params }: { params: Promise<{ locale: st
   return new ImageResponse(
     <OgFrame
       rtl={rtl}
-      kicker="DevOps · Cloud · CI/CD"
+      kicker="Full-stack · DevOps · Cloud"
       title={title}
       footer={
         <div style={{ display: "flex", alignItems: "center", gap: 10, fontFamily: "Mono, Hebrew" }}>

@@ -1,7 +1,9 @@
 import { getTranslations } from "next-intl/server";
 
 import { ContentIcon } from "@/components/ui/content-icon";
+import { Logo } from "@/components/ui/logo";
 import { getStack } from "@/lib/content";
+import { cn } from "@/lib/utils";
 
 import { SectionHeading } from "./section-heading";
 
@@ -18,9 +20,16 @@ export async function Stack({ locale, index }: { locale: string; index: number }
           <div
             key={g.label}
             data-reveal
-            className="flex flex-wrap gap-x-6 gap-y-3 border-t border-divider py-5 last:border-b"
+            className={cn(
+              `tone-${g.tone}`,
+              "flex flex-wrap gap-x-6 gap-y-3 border-t border-divider py-5 last:border-b",
+            )}
           >
-            <h3 className="flex-[0_0_180px] font-mono-ui text-xs leading-[2.6] font-medium tracking-[0.06em] text-fg-subtle uppercase">
+            <h3 className="flex flex-[0_0_180px] items-center gap-2.5 font-mono-ui text-xs leading-[2.6] font-medium tracking-[0.06em] text-tone uppercase">
+              <span
+                aria-hidden="true"
+                className="size-1.75 rounded-full bg-tone shadow-[0_0_10px_var(--tone)]"
+              />
               {g.label}
             </h3>
             <ul role="list" className="flex flex-[1_1_320px] flex-wrap gap-2">
@@ -28,9 +37,13 @@ export async function Stack({ locale, index }: { locale: string; index: number }
                 <li
                   key={item.name}
                   title={item.hint}
-                  className="flex items-center gap-2 rounded-md border border-divider px-3 py-2 text-sm transition-[border-color,box-shadow] duration-200 hover:border-accent hover:shadow-chip"
+                  className="flex items-center gap-2 rounded-md border border-divider bg-surface/40 px-3 py-2 text-sm transition-[border-color,box-shadow] duration-200 hover:border-tone hover:shadow-[0_0_18px_color-mix(in_srgb,var(--tone)_30%,transparent)]"
                 >
-                  <ContentIcon name={item.icon} className="size-4.25 text-accent" />
+                  {item.logo ? (
+                    <Logo name={item.logo} className="size-4.25" />
+                  ) : item.icon ? (
+                    <ContentIcon name={item.icon} weight="duotone" className="size-4.25 text-tone" />
+                  ) : null}
                   {item.name}
                 </li>
               ))}

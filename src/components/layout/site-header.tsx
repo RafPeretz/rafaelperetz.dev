@@ -21,7 +21,10 @@ export async function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-hairline bg-[color-mix(in_srgb,var(--color-bg)_74%,transparent)] backdrop-blur-[14px] backdrop-saturate-[1.4]">
       <nav aria-label={t("nav.label")} className="container-page flex items-center gap-2.5 py-3 nav:gap-4.5">
-        <Link href="/" className="me-auto flex items-center gap-2.5 text-fg no-underline hover:text-fg">
+        <Link
+          href="/"
+          className="me-auto flex shrink-0 items-center gap-2.5 text-fg no-underline hover:text-fg"
+        >
           <BrandMark />
           <span className="text-sm font-medium whitespace-nowrap">{siteConfig.name}</span>
         </Link>
@@ -39,40 +42,43 @@ export async function SiteHeader() {
             </li>
           ))}
         </ul>
-        <div className="nav-status hidden nav:block">
+        {/* The status pill is the only optional item: it only appears once the row has room for it. */}
+        <div className="hidden shrink-0 min-[1100px]:block">
           <AvailabilityBadge />
         </div>
 
-        <LocaleSwitcher label={t("nav.language")} locale={locale} />
-        <ThemeToggle toLight={t("theme.toLight")} toDark={t("theme.toDark")} />
+        {/* Controls never shrink: a squeezed switcher used to clip its last button (HE). */}
+        <div className="flex shrink-0 items-center gap-2.5 nav:gap-4.5">
+          <LocaleSwitcher label={t("nav.language")} locale={locale} />
+          <ThemeToggle toLight={t("theme.toLight")} toDark={t("theme.toDark")} />
+          <BookCallButton data-magnetic variant="primary" className="hidden nav:inline-flex">
+            {t("nav.book")}
+          </BookCallButton>
 
-        <BookCallButton data-magnetic variant="primary" className="hidden nav:inline-flex">
-          {t("nav.book")}
-        </BookCallButton>
-
-        <MobileMenu label={t("nav.menu")} closeLabel={t("nav.closeMenu")}>
-          <div className="container-page flex flex-col gap-1 pt-2 pb-5">
-            <ul role="list" className="flex flex-col">
-              {links.map((l) => (
-                <li key={l.id}>
-                  <Link
-                    href={l.href}
-                    prefetch={false}
-                    className="block border-b border-hairline py-2.5 text-xl text-fg no-underline hover:text-fg"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-3.5">
-              <AvailabilityBadge variant="inline" />
+          <MobileMenu label={t("nav.menu")} closeLabel={t("nav.closeMenu")}>
+            <div className="container-page flex flex-col gap-1 pt-2 pb-5">
+              <ul role="list" className="flex flex-col">
+                {links.map((l) => (
+                  <li key={l.id}>
+                    <Link
+                      href={l.href}
+                      prefetch={false}
+                      className="block border-b border-hairline py-2.5 text-xl text-fg no-underline hover:text-fg"
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-3.5">
+                <AvailabilityBadge variant="inline" />
+              </div>
+              <BookCallButton variant="primary" className="mt-3.5 min-h-11">
+                {t("nav.book")}
+              </BookCallButton>
             </div>
-            <BookCallButton variant="primary" className="mt-3.5 min-h-11">
-              {t("nav.book")}
-            </BookCallButton>
-          </div>
-        </MobileMenu>
+          </MobileMenu>
+        </div>
       </nav>
     </header>
   );

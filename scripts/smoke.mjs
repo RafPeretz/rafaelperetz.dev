@@ -39,6 +39,31 @@ try {
     );
   }
 
+  // Header fits: all three locale buttons visible and nothing cut off (regression: FR clipped "HE").
+  for (const path of ["/", "/fr", "/he"]) {
+    for (const width of [375, 1000, 1100, 1280]) {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto(base + path, { waitUntil: "networkidle" });
+      const r = await page.evaluate(() => {
+        const nav = document.querySelector("header > nav");
+        const sw = nav.querySelector("nav");
+        const swBox = sw.getBoundingClientRect();
+        const visible = [...sw.querySelectorAll("a")].filter((a) => {
+          const b = a.getBoundingClientRect();
+          return b.width > 5 && b.left >= swBox.left - 0.5 && b.right <= swBox.right + 0.5;
+        }).length;
+        return { visible, overflow: nav.scrollWidth - nav.clientWidth };
+      });
+      check(
+        `header fits ${path} @${width}px`,
+        r.visible === 3 && r.overflow <= 0,
+        `locales=${r.visible} overflow=${r.overflow}`,
+      );
+    }
+  }
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await context.clearCookies();
+
   // Security headers.
   const head = await context.request.get(`${base}/`, { headers: { "Accept-Language": "en-US" } });
   const h = head.headers();

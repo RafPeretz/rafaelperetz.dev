@@ -1,6 +1,8 @@
 ---
 title: "Unité 81"
 role: "Ingénieur logiciel & infrastructure"
+mark: "81"
+tone: teal
 order: 3
 summary: "Trois ans sur des systèmes en production — pipelines de données, microservices sur Kubernetes et plateformes internes en Python et FastAPI. Décrit à haut niveau, volontairement."
 card:

@@ -1,7 +1,8 @@
 ---
 kind: package
-order: 1
+order: 2
 icon: git-merge
+tone: violet
 title: "Mise en place de pipeline CI/CD"
 duration: "1–2 semaines"
 summary: "Chaque push construit, testé, scanné et livré — sans que personne ne surveille un déploiement."
@@ -10,5 +11,5 @@ features:
   - "Gestion des secrets, sans clés longue durée"
   - "Scan de sécurité des dépendances et des conteneurs"
   - "Runbook et documentation de passation"
-price: $___ # TODO: price
+price: "3 500 $" # Market-based starting price — adjust freely (see TODO.md → Prices)
 ---
