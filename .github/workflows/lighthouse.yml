@@ -35,7 +35,11 @@ jobs:
           # Vercel → Project Settings → Deployment Protection → "Protection Bypass for Automation".
           # Without it, protected preview URLs return the Vercel login page instead of the site.
           VERCEL_BYPASS: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+          ENVIRONMENT: ${{ github.event.deployment.environment }}
         run: |
+          # Previews are deliberately noindex, so "is-crawlable" can only fail there; it stays on for production.
+          SKIP=()
+          if [ "$ENVIRONMENT" != "Production" ]; then SKIP=(--collect.settings.skipAudits=is-crawlable); fi
           HEADERS=$(node -e 'console.log(JSON.stringify({
             "x-vercel-protection-bypass": process.env.VERCEL_BYPASS || "",
             "x-vercel-set-bypass-cookie": "true",
@@ -46,7 +50,8 @@ jobs:
             --collect.url="$BASE_URL/fr" \
             --collect.url="$BASE_URL/he" \
             --collect.url="$BASE_URL/work/asgo" \
-            --collect.settings.extraHeaders="$HEADERS"
+            --collect.settings.extraHeaders="$HEADERS" \
+            "${SKIP[@]}"
 
       - name: Summary
         if: always()
