@@ -66,6 +66,8 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],
+    // 75 is the default; 85 is used for the portrait (faces show compression artefacts first).
+    qualities: [75, 85],
   },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];

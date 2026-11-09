@@ -22,6 +22,7 @@ export async function About({ index }: { index: number }) {
               alt={t("portraitAlt")}
               fill
               sizes="(min-width: 800px) 440px, 100vw"
+              quality={85}
               className="object-cover"
             />
           ) : (
