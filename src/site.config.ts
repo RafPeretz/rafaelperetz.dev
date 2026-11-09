@@ -45,7 +45,7 @@ export const siteConfig = {
      * Cal.com event, e.g. "rafaelperetz/20min" → https://cal.com/rafaelperetz/20min.
      * null = no booking page yet: every "Book a call" button leads to the contact form instead.
      */
-    cal: null as string | null, // TODO: create the Cal.com event and set its slug
+    cal: "raf-tj3luc/discovery-call" as string | null,
   },
 
   features: {
