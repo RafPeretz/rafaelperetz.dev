@@ -6,7 +6,7 @@ Placeholders are marked `TODO` in the code. Items are grouped by where they live
 
 - [ ] **Upwork** profile URL (`links.upwork`)
 - [ ] **Malt** profile URL (`links.malt`)
-- [ ] **Cal.com** event slug (`links.cal`, e.g. `rafaelperetz/20min`). Create a 20-minute event at cal.com. The popup and link already use this value.
+- [ ] **Cal.com**: create a free account at cal.com and a 20-minute event, then set `links.cal` in `src/site.config.ts` (e.g. `"rafaelperetz/20min"`). Until then every "Book a call" button scrolls to the contact form, and the smoke test checks that a configured link really exists.
 - [ ] **Contact email.** `hello@rafaelperetz.dev` won't receive mail until the domain is bought _and_ forwarding is set up (see README → Custom domain). Until then, use an address that works.
 - [ ] **Availability** (`availability`: `available` | `limited` | `booked`). The limited/booked wording is in `messages/*.json → availability`.
 

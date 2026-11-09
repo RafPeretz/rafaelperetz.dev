@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { BookCallButton } from "@/components/book-call-button";
 import { ContactForm, type ContactFormLabels } from "@/components/contact/contact-form";
 import { BUDGETS, PROJECT_TYPES } from "@/lib/contact-fields";
-import { siteConfig } from "@/site.config";
+import { calUrl, siteConfig } from "@/site.config";
 
 export async function Contact({ locale }: { locale: string }) {
   const t = await getTranslations("contact");
@@ -50,10 +50,13 @@ export async function Contact({ locale }: { locale: string }) {
             {t("title")}
           </h2>
           <p className="max-w-[44ch] text-base leading-relaxed text-fg-soft">{t("lede")}</p>
-          <BookCallButton data-magnetic size="lg">
-            <CalendarBlankIcon aria-hidden="true" className="size-4.5" />
-            {t("book")}
-          </BookCallButton>
+          {/* The form is right here: the booking button only makes sense once Cal.com is configured. */}
+          {calUrl ? (
+            <BookCallButton data-magnetic size="lg">
+              <CalendarBlankIcon aria-hidden="true" className="size-4.5" />
+              {t("book")}
+            </BookCallButton>
+          ) : null}
           <a
             href={`mailto:${siteConfig.links.email}`}
             className="flex items-center gap-2 font-mono-ui text-sm leading-none no-underline"

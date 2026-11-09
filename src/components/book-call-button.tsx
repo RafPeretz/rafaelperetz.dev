@@ -1,8 +1,10 @@
 "use client";
 
+import { useParams } from "next/navigation";
 import { type ComponentProps, type MouseEvent } from "react";
 
 import { buttonVariants } from "@/components/ui/button";
+import { routing } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { calUrl, siteConfig } from "@/site.config";
 
@@ -49,6 +51,7 @@ const warmUp = () => void loadCal().then((ok) => (ready = ok));
 
 /**
  * "Book a call" CTA. A real link to cal.com (works without JS, opens in a new tab).
+ * Without a configured Cal.com event (siteConfig.links.cal = null) it links to the contact form instead.
  * The embed script is fetched on first hover/focus; if it's ready by the click, the booking opens
  * in Cal's popup instead. Touch devices without hover simply get the (mobile-friendly) cal.com page.
  */
@@ -59,13 +62,30 @@ export function BookCallButton({
   onClick,
   ...props
 }: Omit<ComponentProps<"a">, "href"> & Parameters<typeof buttonVariants>[0]) {
+  const { locale } = useParams<{ locale?: string }>();
+
+  if (!calUrl) {
+    const prefix = locale && locale !== routing.defaultLocale ? `/${locale}` : "/";
+    return (
+      <a
+        href={`${prefix}#contact`}
+        onClick={onClick}
+        className={cn(buttonVariants({ variant, size }), className)}
+        {...props}
+      />
+    );
+  }
+
   const open = (e: MouseEvent<HTMLAnchorElement>) => {
     onClick?.(e);
     if (e.defaultPrevented || !ready || !window.Cal || e.metaKey || e.ctrlKey || e.shiftKey) return;
     e.preventDefault();
     const theme = document.documentElement.dataset.theme === "light" ? "light" : "dark";
     window.Cal("ui", { theme, styles: { branding: { brandColor: "#9184d9" } }, hideEventTypeDetails: false });
-    window.Cal("modal", { calLink: siteConfig.links.cal, config: { layout: "month_view", theme } });
+    window.Cal("modal", {
+      calLink: siteConfig.links.cal ?? undefined,
+      config: { layout: "month_view", theme },
+    });
   };
 
   return (

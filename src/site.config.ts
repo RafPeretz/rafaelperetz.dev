@@ -41,8 +41,11 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/rafael-peretz",
     upwork: "https://www.upwork.com/", // TODO: Upwork profile URL
     malt: "https://www.malt.com/", // TODO: Malt profile URL
-    /** Cal.com event link, e.g. "rafaelperetz/20min" → https://cal.com/rafaelperetz/20min */
-    cal: "rafaelperetz/20min", // TODO: real Cal.com event slug
+    /**
+     * Cal.com event, e.g. "rafaelperetz/20min" → https://cal.com/rafaelperetz/20min.
+     * null = no booking page yet: every "Book a call" button leads to the contact form instead.
+     */
+    cal: null as string | null, // TODO: create the Cal.com event and set its slug
   },
 
   features: {
@@ -55,4 +58,4 @@ export const siteConfig = {
 
 export type SiteConfig = typeof siteConfig;
 
-export const calUrl = `https://cal.com/${siteConfig.links.cal}`;
+export const calUrl: string | null = siteConfig.links.cal ? `https://cal.com/${siteConfig.links.cal}` : null;

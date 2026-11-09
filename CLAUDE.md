@@ -98,7 +98,7 @@ scripts/                  # contrast check, screenshots
   - A minimum fill time (`startedAt`, 3s). Bots get a fake success.
   - Upstash rate limit: 3 per 10 min per IP. It's skipped with a warning when the env vars are missing, and fails open if Redis is down.
 - The form submits via `startTransition(formAction)` in `onSubmit`, so React doesn't reset the fields after a failed send. `action={formAction}` stays for no-JS.
-- `BookCallButton` is a real cal.com link. Cal's embed loads on first hover/focus, and the click opens Cal's popup only if the embed is ready.
+- `BookCallButton` falls back to a link to the contact form while `siteConfig.links.cal` is `null` (no Cal.com event yet); the contact section then hides its own booking button. With a slug set, it's a real cal.com link. Cal's embed loads on first hover/focus, and the click opens Cal's popup only if the embed is ready.
 
 ## Case studies
 

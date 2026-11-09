@@ -110,6 +110,24 @@ try {
     `${he.lang}/${he.dir}`,
   );
 
+  // "Book a call" never leads to a dead end: either the contact form or a Cal.com page that exists.
+  await context.clearCookies();
+  for (const path of ["/", "/fr/work/asgo"]) {
+    await page.goto(base + path, { waitUntil: "networkidle" });
+    const href = await page
+      .locator("main a", { has: page.locator("svg") })
+      .filter({ hasText: /call|appel|שיחה/i })
+      .first()
+      .getAttribute("href");
+    if (href?.startsWith("https://cal.com/")) {
+      const status = (await context.request.get(href)).status();
+      check(`Book a call (${path}) → existing Cal.com page`, status === 200, `${href} → ${status}`);
+    } else {
+      const expected = path.startsWith("/fr") ? "/fr#contact" : "/#contact";
+      check(`Book a call (${path}) → contact form`, href === expected, String(href));
+    }
+  }
+
   // Contact form: client-side validation.
   await page.goto(`${base}/#contact`, { waitUntil: "networkidle" });
   await page.locator("#contact button[type=submit]").click();
