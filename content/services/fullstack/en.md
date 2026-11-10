@@ -10,5 +10,5 @@ features:
   - "FastAPI or Node.js backend and APIs"
   - "Auth and Postgres database (Supabase)"
   - "Production deploy with CI from day one"
-price: "$12,000" # Market-based starting price, adjust freely (see TODO.md → Prices)
+price: "$7,500" # Market-based starting price, adjust freely (see TODO.md → Prices)
 ---

@@ -10,5 +10,5 @@ features:
   - "Kubernetes on AWS or Azure"
   - "IAM hardening, least privilege"
   - "Cost review and rightsizing"
-price: "$7,500" # Market-based starting price, adjust freely (see TODO.md → Prices)
+price: "$4,500" # Market-based starting price, adjust freely (see TODO.md → Prices)
 ---

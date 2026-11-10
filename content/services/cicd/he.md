@@ -10,5 +10,5 @@ features:
   - "ניהול סודות, בלי מפתחות ארוכי־טווח"
   - "סריקות אבטחה לתלויות ולקונטיינרים"
   - "ראנבוק ותיעוד העברה"
-price: "3,500$" # Market-based starting price, adjust freely (see TODO.md → Prices)
+price: "2,000$" # Market-based starting price, adjust freely (see TODO.md → Prices)
 ---

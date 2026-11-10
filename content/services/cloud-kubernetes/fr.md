@@ -10,5 +10,5 @@ features:
   - "Kubernetes sur AWS ou Azure"
   - "Durcissement IAM, moindre privilège"
   - "Revue des coûts et dimensionnement"
-price: "7 500 $" # Market-based starting price, adjust freely (see TODO.md → Prices)
+price: "4 500 $" # Market-based starting price, adjust freely (see TODO.md → Prices)
 ---

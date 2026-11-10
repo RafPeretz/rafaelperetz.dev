@@ -10,5 +10,5 @@ features:
   - "בקאנד ו־API ב־FastAPI או Node.js"
   - "אימות ומסד נתונים Postgres (Supabase)"
   - "פריסה לפרודקשן עם CI מהיום הראשון"
-price: "12,000$" # Market-based starting price, adjust freely (see TODO.md → Prices)
+price: "7,500$" # Market-based starting price, adjust freely (see TODO.md → Prices)
 ---

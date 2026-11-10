@@ -11,10 +11,9 @@ Placeholders are marked `TODO` in the code. Items are grouped by where they live
 
 ## Content
 
-- [ ] **Review the prices** (set in Nov 2026 from market data, in `content/services/*/<locale>.md`):
-  - Full-stack app from $12,000 · CI/CD from $3,500 · Cloud & Kubernetes from $7,500 · retainer from $2,000/mo.
-  - Basis: ~$85–100/h effective for a mid-level freelancer (freelancermap 2026, Germany/Austria/Switzerland: ~€100/h for IT infrastructure, ~€91/h for development; Arc 2026, full-stack worldwide: $61–80/h), times the effort in days for each package's duration.
-  - These sit at the accessible end of the market, which suits winning the first clients. Raise them once you have testimonials.
+- [ ] **Prices** (in `content/services/*/<locale>.md`), lowered in Nov 2026 at Rafa's request to win the first clients:
+  - Full-stack app from $7,500 · CI/CD from $2,000 · Cloud & Kubernetes from $4,500 · retainer from $1,200/mo.
+  - That's roughly $50–60/h effective, well below the mid-level market (~$85–100/h: freelancermap 2026, Arc 2026). Raise them once you have testimonials and case-study metrics.
 - [ ] **Testimonials**: the section stays hidden until at least one exists. The design wants a founder or CTO outside Israel.
 - [ ] **ASGO case study**: the text is the former ReySecurity one, renamed. Check that the description (non-human identities in CI/CD, AI agent fleet) still matches what ASGO does.
 - [ ] **New stack items**: TypeScript, Next.js, Node.js and PostgreSQL were added for the full-stack positioning. Remove any you don't want to be asked about.
@@ -40,7 +39,7 @@ Placeholders are marked `TODO` in the code. Items are grouped by where they live
 - [ ] **Vercel Protection Bypass for Automation** secret → GitHub secret `VERCEL_AUTOMATION_BYPASS_SECRET` (needed for Lighthouse CI on previews)
 - [ ] **Branch protection** on `main`: require the `Lint · Types · Build` and `Lighthouse (Preview)` checks (see README → Deployment)
 - [ ] Enable **Web Analytics** and **Speed Insights** in the Vercel project
-- [ ] **Domain** `rafaelperetz.dev`: buy it, then follow README → _Custom domain runbook_ (DNS, `NEXT_PUBLIC_SITE_URL`, Resend domain verification, email forwarding, Search Console)
+- [ ] **Domain** `rafaelperetz.dev`: bought and attached to Vercel (www is primary). Apex A record must point to `76.76.21.21` (216.198.79.1 timed out). Finish README → _Custom domain runbook_ (DNS, `NEXT_PUBLIC_SITE_URL`, Resend domain verification, email forwarding, Search Console)
 
 ## Optional
 

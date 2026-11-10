@@ -10,5 +10,5 @@ features:
   - "Gestion des secrets, sans clés longue durée"
   - "Scan de sécurité des dépendances et des conteneurs"
   - "Runbook et documentation de passation"
-price: "3 500 $" # Market-based starting price, adjust freely (see TODO.md → Prices)
+price: "2 000 $" # Market-based starting price, adjust freely (see TODO.md → Prices)
 ---

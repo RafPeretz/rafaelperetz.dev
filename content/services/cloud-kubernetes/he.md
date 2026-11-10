@@ -10,5 +10,5 @@ features:
   - "Kubernetes על AWS או Azure"
   - "הקשחת IAM, הרשאות מינימליות"
   - "סקירת עלויות והתאמת משאבים"
-price: "7,500$" # Market-based starting price, adjust freely (see TODO.md → Prices)
+price: "4,500$" # Market-based starting price, adjust freely (see TODO.md → Prices)
 ---

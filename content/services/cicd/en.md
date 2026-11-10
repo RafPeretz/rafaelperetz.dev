@@ -10,5 +10,5 @@ features:
   - "Secrets management, no long-lived keys"
   - "Dependency & container security scanning"
   - "Runbook and handover docs"
-price: "$3,500" # Market-based starting price, adjust freely (see TODO.md → Prices)
+price: "$2,000" # Market-based starting price, adjust freely (see TODO.md → Prices)
 ---
