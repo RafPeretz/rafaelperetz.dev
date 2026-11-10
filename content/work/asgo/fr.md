@@ -1,7 +1,7 @@
 ---
-title: "asgo.dev"
+title: "ASGO"
 role: "Cofondateur · Responsable infrastructure"
-mark: "a."
+mark: "AS"
 order: 1
 summary: "Une startup de cybersécurité qui protège les identités non humaines dans les pipelines CI/CD et les chaînes d’approvisionnement agentiques. J’ai construit le pipeline de livraison et plafonné strictement le budget d’une flotte d’agents IA."
 card:

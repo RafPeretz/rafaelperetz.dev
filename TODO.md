@@ -16,7 +16,7 @@ Placeholders are marked `TODO` in the code. Items are grouped by where they live
   - Basis: ~$85–100/h effective for a mid-level freelancer (freelancermap 2026, Germany/Austria/Switzerland: ~€100/h for IT infrastructure, ~€91/h for development; Arc 2026, full-stack worldwide: $61–80/h), times the effort in days for each package's duration.
   - These sit at the accessible end of the market, which suits winning the first clients. Raise them once you have testimonials.
 - [ ] **Testimonials**: the section stays hidden until at least one exists. The design wants a founder or CTO outside Israel.
-- [ ] **asgo.dev case study**: the text is the former ReySecurity one, renamed. Check that the description (non-human identities in CI/CD, AI agent fleet) still matches what asgo.dev does.
+- [ ] **ASGO case study**: the text is the former ReySecurity one, renamed. Check that the description (non-human identities in CI/CD, AI agent fleet) still matches what ASGO does.
 - [ ] **New stack items**: TypeScript, Next.js, Node.js and PostgreSQL were added for the full-stack positioning. Remove any you don't want to be asked about.
 - [ ] **Case-study metrics**: outcome numbers make the case studies much stronger (e.g. deploy time, cost saved)
 - [ ] **Brand mark / favicon**: the "RP" monogram is used for now

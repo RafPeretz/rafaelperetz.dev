@@ -47,7 +47,7 @@
   },
   "hero": {
     "title": "Je construis votre <em>produit</em> et l’infrastructure sur laquelle il tourne.",
-    "lede": "Applications web full-stack, DevOps, cloud et CI/CD pour les startups qui doivent livrer vite et rester sécurisées. Ancien ingénieur de l’Unité 81, cofondateur d’asgo.dev.",
+    "lede": "Applications web full-stack, DevOps, cloud et CI/CD pour les startups qui doivent livrer vite et rester sécurisées. Ancien ingénieur de l’Unité 81, cofondateur d’ASGO.",
     "ctaBook": "Appel gratuit de 20 min",
     "ctaWork": "Voir mes projets",
     "meta": {
@@ -77,7 +77,7 @@
     "section": "Expérience",
     "companies": {
       "unit81": "Unité 81",
-      "asgo": "asgo.dev",
+      "asgo": "ASGO",
       "reichman": "Université Reichman"
     }
   },
@@ -157,7 +157,7 @@
     "kicker": "À propos",
     "title": "Je comprends le code et le business.",
     "p1": "Pendant trois ans, j’ai été ingénieur logiciel et infrastructure à l’Unité 81, en charge de systèmes en production. J’y ai aussi été formateur et commandant : j’ai conçu un cursus logiciel et accompagné des ingénieurs juniors.",
-    "p2": "Aujourd’hui, je cofonde asgo.dev tout en étudiant l’économie et l’entrepreneuriat (filière data science) à l’Université Reichman.",
+    "p2": "Aujourd’hui, je cofonde ASGO tout en étudiant l’économie et l’entrepreneuriat (filière data science) à l’Université Reichman.",
     "p3": "Je travaille sur toute la stack : React et Next.js côté front, Python et FastAPI derrière, Kubernetes et le cloud en dessous. Je construis donc ce dont votre startup a vraiment besoin, sans surdimensionner.",
     "tags": {
       "languages": "Anglais · Hébreu · Français",

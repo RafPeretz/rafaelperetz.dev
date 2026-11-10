@@ -47,7 +47,7 @@
   },
   "hero": {
     "title": "I build your <em>product</em> and the infrastructure it runs on.",
-    "lede": "Full-stack web apps, DevOps, cloud & CI/CD for startups that need to ship fast and stay secure. Ex-Unit 81 engineer, co-founder of asgo.dev.",
+    "lede": "Full-stack web apps, DevOps, cloud & CI/CD for startups that need to ship fast and stay secure. Ex-Unit 81 engineer, co-founder of ASGO.",
     "ctaBook": "Book a free 20-min call",
     "ctaWork": "See my work",
     "meta": {
@@ -77,7 +77,7 @@
     "section": "Experience",
     "companies": {
       "unit81": "Unit 81",
-      "asgo": "asgo.dev",
+      "asgo": "ASGO",
       "reichman": "Reichman University"
     }
   },
@@ -157,7 +157,7 @@
     "kicker": "About",
     "title": "I understand the code and the business.",
     "p1": "For three years I was a software & infrastructure engineer in Unit 81, running production systems. I also served as a course instructor and commander, designing a software curriculum and mentoring junior engineers.",
-    "p2": "Today I’m co-founding asgo.dev while studying Economics & Entrepreneurship (Data Science track) at Reichman University.",
+    "p2": "Today I’m co-founding ASGO while studying Economics & Entrepreneurship (Data Science track) at Reichman University.",
     "p3": "I work across the whole stack: React and Next.js on the front, Python and FastAPI behind it, Kubernetes and the cloud underneath. So I build what your startup actually needs, without over-engineering.",
     "tags": {
       "languages": "English · Hebrew · French",
