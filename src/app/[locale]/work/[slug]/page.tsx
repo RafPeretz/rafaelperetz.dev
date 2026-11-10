@@ -9,7 +9,8 @@ import { Link, localizeHref } from "@/i18n/link";
 import { routing } from "@/i18n/routing";
 import { resolveLocale } from "@/i18n/server";
 import { getCaseStudies, getCaseStudy, getCaseStudySlugs } from "@/lib/content";
-import { alternates, openGraph } from "@/lib/seo";
+import { caseStudyJsonLd, jsonLdScript } from "@/lib/jsonld";
+import { alternates, metaDescription, openGraph } from "@/lib/seo";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) => getCaseStudySlugs().map((slug) => ({ locale, slug })));
@@ -24,12 +25,13 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/work/[sl
   const t = await getTranslations({ locale, namespace: "caseStudy" });
   const title = t("metaTitle", { title: study.title });
   const path = `/work/${slug}`;
+  const description = metaDescription(study.summary);
   return {
     title,
-    description: study.summary,
+    description,
     alternates: alternates(locale, path),
-    openGraph: openGraph(locale, path, { title, description: study.summary, type: "article" }),
-    twitter: { card: "summary_large_image", title, description: study.summary },
+    openGraph: openGraph(locale, path, { title, description, type: "article" }),
+    twitter: { card: "summary_large_image", title, description },
   };
 }
 
@@ -43,9 +45,15 @@ export default async function CaseStudyPage({ params }: PageProps<"/[locale]/wor
   const t = await getTranslations("caseStudy");
   const all = getCaseStudies(locale);
   const next = all[(all.findIndex((c) => c.slug === slug) + 1) % all.length];
+  const nav = await getTranslations("nav");
+  const jsonLd = caseStudyJsonLd(locale, study, {
+    headline: t("metaTitle", { title: study.title }),
+    work: nav("work"),
+  });
 
   return (
     <article className="container-page pt-[clamp(40px,7vw,88px)]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
       <div className="mx-auto max-w-[760px]">
         <Link
           href="/#work"

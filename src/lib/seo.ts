@@ -40,5 +40,12 @@ export function openGraph(
   };
 }
 
+/** Meta description that fits a search result (~160 chars), cut at a word boundary. */
+export function metaDescription(text: string, max = 160): string {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max - 1);
+  return `${cut.slice(0, cut.lastIndexOf(" ")).replace(/[\s,.;:–-]+$/, "")}…`;
+}
+
 /** Only the production deployment is indexable; previews and branches are noindex. */
 export const indexable = process.env.VERCEL_ENV ? process.env.VERCEL_ENV === "production" : true;
