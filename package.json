@@ -45,20 +45,20 @@
     "zod": "^4.6.5"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.3.3",
-    "@types/node": "^22.20.4",
+    "@tailwindcss/postcss": "^4.3.5",
+    "@types/node": "^26.6.6",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
-    "concurrently": "^10.0.5",
-    "eslint": "^9.39.5",
-    "eslint-config-next": "16.3.7",
+    "concurrently": "^10.0.7",
+    "eslint": "^10.15.0",
+    "eslint-config-next": "16.4.6",
     "eslint-config-prettier": "^10.1.8",
-    "playwright-core": "^1.63.0",
-    "prettier": "^3.9.9",
+    "playwright-core": "^1.65.1",
+    "prettier": "^3.10.1",
     "prettier-plugin-tailwindcss": "^0.8.1",
-    "simple-icons": "^16.37.0",
-    "tailwindcss": "^4.3.3",
-    "typescript": "^5.9.3",
+    "simple-icons": "^16.38.0",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^7.0.2",
     "velite": "^0.4.0"
   }
 }
